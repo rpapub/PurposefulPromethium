@@ -4,7 +4,9 @@
   "description": "UiPath REFramework Template",
   "main": "Main.xaml",
   "dependencies": {
-    "UiPath.System.Activities": "18.3.6877.28276",
+    "UiPath.Excel.Activities": "[1.2.6256.15131]",
+    "UiPath.Mail.Activities": "[1.24.0]",
+    "UiPath.System.Activities": "23.10.6",
     "UiPath.UIAutomation.Activities": "19.10.1"
   },
   "webServices": [],
