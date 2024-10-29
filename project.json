@@ -1,7 +1,7 @@
 {
-  "name": "UiPath_REFrameWork",
+  "name": "PurposefulPromethium",
   "projectId": "2f531cf3-5636-46ff-85ca-34933e67715b",
-  "description": "UiPath REFramework Template",
+  "description": "A RPA with UiPath demo project automating email input data entering into rpachallenge.com. Branch legacy contains code which as of 2024 does not conform to best practices any more.",
   "main": "Main.xaml",
   "dependencies": {
     "UiPath.Excel.Activities": "[1.2.6256.15131]",
