@@ -78,7 +78,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <StateMachine InitialState="{x:Reference __ReferenceID3}" sap2010:Annotation.AnnotationText="[PurposefulPromethium]&#xA;The email have a new subject and this process must parse the email different&#xA;Author: joe@example.com&#xA;" DisplayName="General Business Process" sap:VirtualizedContainerService.HintSize="806,817" sap2010:WorkflowViewState.IdRef="StateMachine_1">
+  <StateMachine InitialState="{x:Reference __ReferenceID3}" sap2010:Annotation.AnnotationText="[PurposefulPromethium]&#xA;The email have a new subject and this process must parse the email different&#xA;Author: Christian Prior-Mamulyan&#xA;License: Creative Commons Attribution 4.0 International License (CC-BY)" DisplayName="General Business Process" sap:VirtualizedContainerService.HintSize="806,817" sap2010:WorkflowViewState.IdRef="StateMachine_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
