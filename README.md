@@ -1,50 +1,38 @@
-### Documentation is included in the Documentation folder ###
 
-[ReFrameWork Documentation](https://github.com/UiPath/ReFrameWork/blob/master/Documentation/REFramework%20documentation.pdf)
+# UiPath Email Parsing and RPA Challenge Automation
 
-### ReFrameWork Template ###
-**Robotic Enterprise Framework**
+This UiPath project demonstrates reading structured data from an email inbox, parsing the content, and automating data entry on [rpachallenge.com](http://rpachallenge.com). Designed as a tutorial basis, it showcases legacy coding practices and lacks modern configurability.
 
-* built on top of *Transactional Business Process* template
-* using *State Machine* layout for the phases of automation project
-* offering high level exception handling and application recovery
-* keeps external settings in *Config.xlsx* file and Orchestrator assets
-* pulls credentials from *Credential Manager* and Orchestrator assets
-* gets transaction data from Orchestrator queue and updates back status
-* takes screenshots in case of application exceptions
-* provides extra utility workflows like sending a templated email
-* runs sample Notepad application with dummy Excel input data
-* 
+## Project Overview
 
+This automation performs the following steps:
+1. Connects to an email inbox using Orchestrator-stored credentials.
+2. Reads and parses structured content from emails.
+3. Enters parsed data into [rpachallenge.com](http://rpachallenge.com).
 
-### How It Works ###
+### Branches
+- **legacy/REFramework2016**: Contains code with outdated practices and minimal configurability, serving as an example of non-compliant code.
 
-1. **INITIALIZE PROCESS**
- + *InitiAllSettings* - Load config data from file and from assets
- + *InitiAllApplications* - Login to applications as per Config("OpenApps") field
-   + *GetAppCredentials* - From Orchestrator assets or local Credential Manager
- + If failing, retry a few times as per Config("ProcessRetries")
+## Requirements
 
-2. **GET TRANSACTION DATA**
-   + ./Framework/*GetTransactionData* - Fetches from Orchestrator queue as per Config("TransactionQueue")
-   + ./*GetTransactionData* - Sample for working with Excel input files
+- **UiPath Studio**: Tested with version 2024.10.x.
+- **Orchestrator Credentials**: Requires credentials stored in UiPath Orchestrator for mail server access.
 
-3. **PROCESS TRANSACTION**
- + Try *ProcessTransaction*
- + If application exceptions happen
-   + *SaveErrorScreen* - In Config("ErrorsFolder") with the exception message
-   + Going to re/INITIALIZE
- + *SetTransactionStatus* - As Success, Failed or Rejected with reason
-   + ./Framework/*SetTransactionStatus* - Updates the Orchestrator queue item
-   + ./*SetTransactionStatus* - Sample for updating Excel input file
+## Project Details
 
-4. **END PROCESS**
- + *CloseAllApplications* - As listed in Config("CloseApps")
+- **Orchestrator Integration**: Credentials for the email server are securely retrieved from UiPath Orchestrator.
+- **Minimal Configurability**: This project has several hardcoded values for educational purposes, demonstrating limitations of low-configurability design.
 
+## Getting Started
 
-### For New Project ###
+1. Clone the repository and switch to the `legacy/REFramework2016` branch.
+2. Open the project in **UiPath Studio 2024.10.x**.
+3. Ensure Orchestrator credentials are set up and available for the project.
+4. Run the automation to observe the email parsing and data entry flow.
 
-1. Check out the Config.xlsx file and add/customize any required fields and values
-2. Implement OpenApp and CloseApp workflows, linking them in the Config.xlsx fields
-3. Implement GetTransactionData and SetTransactionStatus or use ./Framework versions for Orchestrator queues
-4. Implement ProcessTransaction workflow and any invoked others
+## Purpose
+
+This project is intended as a base for tutorials, illustrating:
+- Legacy coding practices in UiPath.
+- Hardcoded, low-configurability structures.
+- Potential refactoring opportunities for modern UiPath standards.
