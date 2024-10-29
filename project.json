@@ -1,7 +1,7 @@
 {
   "name": "PurposefulPromethium",
   "projectId": "2f531cf3-5636-46ff-85ca-34933e67715b",
-  "description": "A RPA with UiPath demo project automating email input data entering into rpachallenge.com. Branch legacy contains code which as of 2024 does not conform to best practices any more.",
+  "description": "This UiPath project demonstrates reading structured data from an email inbox, parsing the content, and automating data entry on rpachallenge.com. Designed as a tutorial basis, it showcases legacy coding practices and lacks modern configurability.",
   "main": "Main.xaml",
   "dependencies": {
     "UiPath.Excel.Activities": "[1.2.6256.15131]",
@@ -13,7 +13,7 @@
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "24.10.5.0",
-  "projectVersion": "1.0.0.0",
+  "projectVersion": "0.1.0",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,

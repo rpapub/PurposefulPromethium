@@ -1,7 +1,7 @@
 
 # UiPath Email Parsing and RPA Challenge Automation
 
-This UiPath project demonstrates reading structured data from an email inbox, parsing the content, and automating data entry on [rpachallenge.com](http://rpachallenge.com). Designed as a tutorial basis, it showcases legacy coding practices and lacks modern configurability.
+This RPA with UiPath project demonstrates reading structured data from an email inbox, parsing the content, and automating data entry on [rpachallenge.com](http://rpachallenge.com). Designed as a tutorial basis, the branches legacy/* showcase outdated coding practices and lack modern best practices.
 
 ## Project Overview
 
