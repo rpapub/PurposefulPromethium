@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1083,907</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1142,907</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ACME_Base_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -86,6 +86,7 @@
       <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
       <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap:VirtualizedContainerService.HintSize="712,842" sap2010:WorkflowViewState.IdRef="Sequence_11">
@@ -227,7 +228,7 @@
                             <av:PointCollection x:Key="ConnectorLocation">490,452.5 490,482.5 304.5,482.5 304.5,502.5</av:PointCollection>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <TryCatch DisplayName="Try Catch Fetch Mail / List" sap:VirtualizedContainerService.HintSize="520,555" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                        <TryCatch DisplayName="Try Catch Fetch Mail / List" sap:VirtualizedContainerService.HintSize="200,25" sap2010:WorkflowViewState.IdRef="TryCatch_1">
                           <TryCatch.Variables>
                             <Variable x:TypeArguments="x:String" Name="logText" />
                           </TryCatch.Variables>
@@ -325,14 +326,25 @@
                                         <av:PointCollection x:Key="ConnectorLocation">115,633.5 115,683.5</av:PointCollection>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ACME-files\ACME_general-functions.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,25" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="ACME-files\ACME_general-functions.xaml">
+                                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ACME-files\ACME_general-functions.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="ACME-files\ACME_general-functions.xaml">
                                       <ui:InvokeWorkflowFile.Arguments>
-                                        <InArgument x:TypeArguments="scg:List(snm:MailMessage)" x:Key="email_list">[email_list]</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="arg_folder_new">[Mail_Folder]</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="arg_username">[arg_username]</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="arg_password">[arg_pw]</InArgument>
+                                        <InArgument x:TypeArguments="scg:List(snm:MailMessage)" x:Key="email_list">
+                                          <mva:VisualBasicValue x:TypeArguments="scg:List(snm:MailMessage)" ExpressionText="email_list" />
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="arg_folder_new">
+                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Mail_Folder" />
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="arg_username">
+                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="arg_username" />
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="arg_password">
+                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="arg_pw" />
+                                        </InArgument>
                                         <InArgument x:TypeArguments="x:String" x:Key="arg_folder_source" />
-                                        <InArgument x:TypeArguments="ui:Browser" x:Key="arg_browser">[arg_browser]</InArgument>
+                                        <InArgument x:TypeArguments="ui:Browser" x:Key="arg_browser">
+                                          <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="arg_browser" />
+                                        </InArgument>
+                                        <OutArgument x:TypeArguments="x:Boolean" x:Key="arg_error" />
                                       </ui:InvokeWorkflowFile.Arguments>
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">

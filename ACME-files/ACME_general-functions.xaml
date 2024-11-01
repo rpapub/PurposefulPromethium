@@ -17,7 +17,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1083,1531</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1142,1531</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ACME_general_functions_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -91,8 +91,8 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="804,62" sap2010:WorkflowViewState.IdRef="WriteLine_6" Text="[email_list.Count.ToString]" TextWriter="{x:Null}" />
-    <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="804,1151" sap2010:WorkflowViewState.IdRef="ForEach`1_2" MaxIterations="{x:Null}" Values="[email_list]">
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="804,62" sap2010:WorkflowViewState.IdRef="WriteLine_6" Text="[email_list.Count.ToString]" />
+    <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="804,1151" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[email_list]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="snm:MailMessage">
           <ActivityAction.Argument>
@@ -112,7 +112,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="720,62" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[mail.Body]" TextWriter="{x:Null}" />
+            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="720,62" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[mail.Body]" />
             <Flowchart sap:VirtualizedContainerService.HintSize="720,837" sap2010:WorkflowViewState.IdRef="Flowchart_1">
               <Flowchart.Variables>
                 <Variable x:TypeArguments="x:Boolean" Name="newWay" />
@@ -175,7 +175,7 @@
                             <av:PointCollection x:Key="ConnectorLocation">130,280.5 130,330.5</av:PointCollection>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="230,62" sap2010:WorkflowViewState.IdRef="WriteLine_7" Text="[mail.Subject]" TextWriter="{x:Null}">
+                        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="230,62" sap2010:WorkflowViewState.IdRef="WriteLine_7" Text="[mail.Subject]">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -228,8 +228,8 @@
                                       <InArgument x:TypeArguments="s:String[]">[System.Text.RegularExpressions.Regex.Split(mail.Body, "\r?\n")]</InArgument>
                                     </Assign.Value>
                                   </Assign>
-                                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1686,62" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[lines.Count.ToString]" TextWriter="{x:Null}" />
-                                  <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="1686,3937" sap2010:WorkflowViewState.IdRef="ForEach`1_3" MaxIterations="{x:Null}" Values="[lines]">
+                                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1686,62" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[lines.Count.ToString]" />
+                                  <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="1686,3937" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[lines]">
                                     <ui:ForEach.Body>
                                       <ActivityAction x:TypeArguments="x:String">
                                         <ActivityAction.Argument>
@@ -241,7 +241,7 @@
                                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
-                                          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1602,62" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[currentLine]" TextWriter="{x:Null}" />
+                                          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1602,62" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[currentLine]" />
                                           <If Condition="[currentLine.Contains(&quot;:&quot;)]" sap:VirtualizedContainerService.HintSize="1602,3623" sap2010:WorkflowViewState.IdRef="If_8">
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -535,7 +535,7 @@
                                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
-                                                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="368,62" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="not a line" TextWriter="{x:Null}" />
+                                                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="368,62" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="not a line" />
                                               </Sequence>
                                             </If.Else>
                                           </If>
@@ -549,7 +549,7 @@
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
                                   </ui:ForEach>
-                                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1686,62" sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="[firstName + lastName + role + company + address + phonenumber + email + role]" TextWriter="{x:Null}" />
+                                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1686,62" sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="[firstName + lastName + role + company + address + phonenumber + email + role]" />
                                 </Sequence>
                                 <FlowStep.Next>
                                   <FlowStep x:Name="__ReferenceID7">
@@ -562,7 +562,7 @@
                                     </sap:WorkflowViewStateService.ViewState>
                                     <TryCatch sap:VirtualizedContainerService.HintSize="200,25" sap2010:WorkflowViewState.IdRef="TryCatch_1">
                                       <TryCatch.Try>
-                                        <ui:BrowserScope Browser="[arg_browser]" BrowserType="Chrome" ContinueOnError="{x:Null}" DisplayName="Attach Browser" sap:VirtualizedContainerService.HintSize="450,1479" sap2010:WorkflowViewState.IdRef="BrowserScope_1" SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}">
+                                        <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[arg_browser]" BrowserType="Chrome" DisplayName="Attach Browser" sap:VirtualizedContainerService.HintSize="450,1479" sap2010:WorkflowViewState.IdRef="BrowserScope_1">
                                           <ui:BrowserScope.Body>
                                             <ActivityAction x:TypeArguments="x:Object">
                                               <ActivityAction.Argument>
@@ -575,7 +575,7 @@
                                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
-                                                <ui:TypeInto Activate="True" ClickBeforeTyping="{x:Null}" ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" DisplayName="Type Into 'INPUT  gUBPs'" EmptyField="{x:Null}" sap:VirtualizedContainerService.HintSize="368,135" sap2010:WorkflowViewState.IdRef="TypeInto_11" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Text="[firstName]">
+                                                <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'INPUT  gUBPs'" sap:VirtualizedContainerService.HintSize="368,135" sap2010:WorkflowViewState.IdRef="TypeInto_11" Text="[firstName]">
                                                   <ui:TypeInto.Target>
                                                     <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="317ed6b769242a8eb2b187b4a87ed618" Selector="&lt;webctrl tag='DIV' innertext='First Name' /&gt;&#xA;&lt;webctrl tag='INPUT' /&gt;&#xA;">
                                                       <ui:Target.TimeoutMS>
@@ -587,7 +587,7 @@
                                                     </ui:Target>
                                                   </ui:TypeInto.Target>
                                                 </ui:TypeInto>
-                                                <ui:TypeInto Activate="True" ClickBeforeTyping="{x:Null}" ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" DisplayName="Type Into 'INPUT  MzfQX'" EmptyField="{x:Null}" sap:VirtualizedContainerService.HintSize="368,135" sap2010:WorkflowViewState.IdRef="TypeInto_12" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Text="[lastName]">
+                                                <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'INPUT  MzfQX'" sap:VirtualizedContainerService.HintSize="368,135" sap2010:WorkflowViewState.IdRef="TypeInto_12" Text="[lastName]">
                                                   <ui:TypeInto.Target>
                                                     <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="52075cfa520f29e89f2915ac2d994a51" Selector="&lt;webctrl tag='DIV' innertext='Last Name' /&gt;&#xA;&lt;webctrl tag='INPUT' /&gt;&#xA;">
                                                       <ui:Target.TimeoutMS>
@@ -599,7 +599,7 @@
                                                     </ui:Target>
                                                   </ui:TypeInto.Target>
                                                 </ui:TypeInto>
-                                                <ui:TypeInto Activate="True" ClickBeforeTyping="{x:Null}" ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" DisplayName="Type Into 'INPUT  1Adv1'" EmptyField="{x:Null}" sap:VirtualizedContainerService.HintSize="368,135" sap2010:WorkflowViewState.IdRef="TypeInto_9" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Text="[company]">
+                                                <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'INPUT  1Adv1'" sap:VirtualizedContainerService.HintSize="368,135" sap2010:WorkflowViewState.IdRef="TypeInto_9" Text="[company]">
                                                   <ui:TypeInto.Target>
                                                     <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="ab9472961665e45720200d0b178d17c6" Selector="&lt;webctrl tag='DIV' innertext='Company Name' /&gt;&#xA;&lt;webctrl tag='INPUT' /&gt;&#xA;">
                                                       <ui:Target.TimeoutMS>
@@ -611,7 +611,7 @@
                                                     </ui:Target>
                                                   </ui:TypeInto.Target>
                                                 </ui:TypeInto>
-                                                <ui:TypeInto Activate="True" ClickBeforeTyping="{x:Null}" ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" DisplayName="Type Into 'INPUT  0WsgB'" EmptyField="{x:Null}" sap:VirtualizedContainerService.HintSize="368,135" sap2010:WorkflowViewState.IdRef="TypeInto_10" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Text="[address]">
+                                                <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'INPUT  0WsgB'" sap:VirtualizedContainerService.HintSize="368,135" sap2010:WorkflowViewState.IdRef="TypeInto_10" Text="[address]">
                                                   <ui:TypeInto.Target>
                                                     <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="5d3ce50436f4ce2a8a853a4290e74c12" Selector="&lt;webctrl tag='DIV' innertext='Address' /&gt;&#xA;&lt;webctrl tag='INPUT' /&gt;&#xA;">
                                                       <ui:Target.TimeoutMS>
@@ -623,7 +623,7 @@
                                                     </ui:Target>
                                                   </ui:TypeInto.Target>
                                                 </ui:TypeInto>
-                                                <ui:TypeInto Activate="True" ClickBeforeTyping="{x:Null}" ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" DisplayName="Type Into 'INPUT  cuAu2'" EmptyField="{x:Null}" sap:VirtualizedContainerService.HintSize="368,135" sap2010:WorkflowViewState.IdRef="TypeInto_13" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Text="[role]">
+                                                <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'INPUT  cuAu2'" sap:VirtualizedContainerService.HintSize="368,135" sap2010:WorkflowViewState.IdRef="TypeInto_13" Text="[role]">
                                                   <ui:TypeInto.Target>
                                                     <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="53e38d4d11dc24e6db4721f56e2c32d1" Selector="&lt;webctrl tag='DIV' innertext='Role in Company' /&gt;&#xA;&lt;webctrl tag='INPUT' /&gt;&#xA;">
                                                       <ui:Target.TimeoutMS>
@@ -635,7 +635,7 @@
                                                     </ui:Target>
                                                   </ui:TypeInto.Target>
                                                 </ui:TypeInto>
-                                                <ui:TypeInto Activate="True" ClickBeforeTyping="{x:Null}" ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" DisplayName="Type Into 'INPUT  5MFsr'" EmptyField="{x:Null}" sap:VirtualizedContainerService.HintSize="368,135" sap2010:WorkflowViewState.IdRef="TypeInto_14" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Text="[email]">
+                                                <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'INPUT  5MFsr'" sap:VirtualizedContainerService.HintSize="368,135" sap2010:WorkflowViewState.IdRef="TypeInto_14" Text="[email]">
                                                   <ui:TypeInto.Target>
                                                     <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="4634122e52b94c2c7025ec594e9bbeb0" Selector="&lt;webctrl tag='DIV' innertext='Email' /&gt;&#xA;&lt;webctrl tag='INPUT' /&gt;&#xA;">
                                                       <ui:Target.TimeoutMS>
@@ -647,7 +647,7 @@
                                                     </ui:Target>
                                                   </ui:TypeInto.Target>
                                                 </ui:TypeInto>
-                                                <ui:TypeInto Activate="True" ClickBeforeTyping="{x:Null}" ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" DisplayName="Type Into 'INPUT  d0f6Z'" EmptyField="{x:Null}" sap:VirtualizedContainerService.HintSize="368,135" sap2010:WorkflowViewState.IdRef="TypeInto_8" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Text="[phonenumber]">
+                                                <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'INPUT  d0f6Z'" sap:VirtualizedContainerService.HintSize="368,135" sap2010:WorkflowViewState.IdRef="TypeInto_8" Text="[phonenumber]">
                                                   <ui:TypeInto.Target>
                                                     <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="8fd8c9b9bd4606dc5677cd2a0ec2e7e3" Selector="&lt;webctrl tag='DIV' innertext='Phone Number' /&gt;&#xA;&lt;webctrl tag='INPUT' /&gt;&#xA;">
                                                       <ui:Target.TimeoutMS>
@@ -659,7 +659,7 @@
                                                     </ui:Target>
                                                   </ui:TypeInto.Target>
                                                 </ui:TypeInto>
-                                                <ui:Click ClickType="CLICK_SINGLE" ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" DisplayName="Click 'INPUT'" sap:VirtualizedContainerService.HintSize="368,107" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="{x:Null}" SimulateClick="True">
+                                                <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'INPUT'" sap:VirtualizedContainerService.HintSize="368,107" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
                                                   <ui:Click.CursorPosition>
                                                     <ui:CursorPosition Position="Center">
                                                       <ui:CursorPosition.OffsetX>
@@ -736,7 +736,7 @@
                                                 <av:PointCollection x:Key="ConnectorLocation">150.5,632.5 150.5,682.5</av:PointCollection>
                                               </scg:Dictionary>
                                             </sap:WorkflowViewStateService.ViewState>
-                                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Email_move_folder.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,25" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" Level="{x:Null}" LogEntry="{x:Null}" LogExit="{x:Null}" Timeout="{x:Null}" UnSafe="False" WorkflowFileName="ACME-files\Email_move_folder.xaml">
+                                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Email_move_folder.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,25" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="ACME-files\Email_move_folder.xaml">
                                               <ui:InvokeWorkflowFile.Arguments>
                                                 <InArgument x:TypeArguments="snm:MailMessage" x:Key="arg_email">
                                                   <mva:VisualBasicValue x:TypeArguments="snm:MailMessage" ExpressionText="mail">
@@ -753,11 +753,7 @@
                                                   </mva:VisualBasicValue>
                                                 </InArgument>
                                                 <InArgument x:TypeArguments="x:String" x:Key="email_pw">
-                                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="arg_password">
-                                                    <mva:VisualBasicValue.Result>
-                                                      <OutArgument x:TypeArguments="x:String" />
-                                                    </mva:VisualBasicValue.Result>
-                                                  </mva:VisualBasicValue>
+                                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="arg_password" />
                                                 </InArgument>
                                                 <InArgument x:TypeArguments="x:String" x:Key="arg_folder_old">
                                                   <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="arg_folder_source">
@@ -804,13 +800,23 @@
                                                 <av:PointCollection x:Key="ConnectorLocation">529.5,632.5 529.5,682.5</av:PointCollection>
                                               </scg:Dictionary>
                                             </sap:WorkflowViewStateService.ViewState>
-                                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Email_move_folder.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,25" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" Level="{x:Null}" LogEntry="{x:Null}" LogExit="{x:Null}" Timeout="{x:Null}" UnSafe="False" WorkflowFileName="ACME-files\Email_move_folder.xaml">
+                                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Email_move_folder.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,25" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="ACME-files\Email_move_folder.xaml">
                                               <ui:InvokeWorkflowFile.Arguments>
-                                                <InArgument x:TypeArguments="snm:MailMessage" x:Key="arg_email">[mail]</InArgument>
-                                                <InArgument x:TypeArguments="x:String" x:Key="email_username">[arg_username]</InArgument>
-                                                <InArgument x:TypeArguments="x:String" x:Key="email_pw">[arg_password]</InArgument>
-                                                <InArgument x:TypeArguments="x:String" x:Key="arg_folder_old">[arg_folder_source]</InArgument>
-                                                <InArgument x:TypeArguments="x:String" x:Key="arg_folder_new">[arg_folder_new]</InArgument>
+                                                <InArgument x:TypeArguments="snm:MailMessage" x:Key="arg_email">
+                                                  <mva:VisualBasicValue x:TypeArguments="snm:MailMessage" ExpressionText="mail" />
+                                                </InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="email_username">
+                                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="arg_username" />
+                                                </InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="email_pw">
+                                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="arg_password" />
+                                                </InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="arg_folder_old">
+                                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="arg_folder_source" />
+                                                </InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="arg_folder_new">
+                                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="arg_folder_new" />
+                                                </InArgument>
                                               </ui:InvokeWorkflowFile.Arguments>
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -880,7 +886,7 @@
                             <av:PointCollection x:Key="ConnectorLocation">570,280.5 570,330.5</av:PointCollection>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="230,62" sap2010:WorkflowViewState.IdRef="WriteLine_8" Text="[mail.Subject]" TextWriter="{x:Null}">
+                        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="230,62" sap2010:WorkflowViewState.IdRef="WriteLine_8" Text="[mail.Subject]">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
