@@ -1,12 +1,12 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="ACME_make_file" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="ACME_make_file" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="arg_version" Type="InArgument(x:String)" />
     <x:Property Name="arg_subject" Type="InArgument(x:String)" />
     <x:Property Name="arg_user" Type="InArgument(x:String)" />
-    <x:Property Name="arg_pw" Type="InArgument(ss:SecureString)" />
+    <x:Property Name="arg_pw" Type="InArgument(x:String)" />
     <x:Property Name="arg_folder_TEMP" Type="InArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1253,1798</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1142,1798</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -90,7 +90,7 @@
     </sap:WorkflowViewStateService.ViewState>
     <Delay Duration="[TimeSpan.FromSeconds(5)]" sap:VirtualizedContainerService.HintSize="1099,25" sap2010:WorkflowViewState.IdRef="Delay_1" />
     <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1099,62" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[arg_folder_TEMP]" />
-    <ui:GetIMAPMailMessages ClientName="{x:Null}" ClientVersion="{x:Null}" DeleteMessages="{x:Null}" FilterExpression="{x:Null}" MarkAsRead="{x:Null}" OnlyUnreadMessages="{x:Null}" Password="{x:Null}" TimeoutMS="{x:Null}" Top="{x:Null}" UseOAuth="{x:Null}" DisplayName="Get IMAP Mail Messages" Email="[arg_user]" EnableSSL="True" FilterExpressionCharacterSet="US-ASCII" sap:VirtualizedContainerService.HintSize="1099,25" sap2010:WorkflowViewState.IdRef="GetIMAPMailMessages_1" IgnoreCRL="False" MailFolder="[arg_folder_TEMP]" Messages="[email]" OrderByDate="NewestFirst" Port="993" SecureConnection="Auto" SecurePassword="[arg_pw]" Server="wildduck.email" />
+    <ui:GetIMAPMailMessages ClientName="{x:Null}" ClientVersion="{x:Null}" DeleteMessages="{x:Null}" FilterExpression="{x:Null}" MarkAsRead="{x:Null}" OnlyUnreadMessages="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" Top="{x:Null}" UseOAuth="{x:Null}" DisplayName="Get IMAP Mail Messages" Email="[arg_user]" EnableSSL="True" FilterExpressionCharacterSet="US-ASCII" sap:VirtualizedContainerService.HintSize="1099,25" sap2010:WorkflowViewState.IdRef="GetIMAPMailMessages_1" IgnoreCRL="False" MailFolder="[arg_folder_TEMP]" Messages="[email]" OrderByDate="NewestFirst" Password="[arg_pw]" Port="993" SecureConnection="Auto" Server="wildduck.email" />
     <Assign sap:VirtualizedContainerService.HintSize="1099,82" sap2010:WorkflowViewState.IdRef="Assign_14">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Int32">[countmail]</OutArgument>
@@ -206,7 +206,7 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:MoveIMAPMailMessageToFolder ClientName="{x:Null}" ClientVersion="{x:Null}" Password="{x:Null}" UseOAuth="{x:Null}" DisplayName="Move IMAP Mail Message" Email="[arg_user]" EnableSSL="True" FromFolder="[arg_folder_TEMP]" sap:VirtualizedContainerService.HintSize="368,92" sap2010:WorkflowViewState.IdRef="MoveIMAPMailMessageToFolder_1" IgnoreCRL="False" MailFolder="[arg_folder_TEMP.Replace(&quot;processing&quot;, &quot;handover2human&quot;)]" MailMessage="[currentItem]" Port="993" SecureConnection="Auto" SecurePassword="[arg_pw]" Server="wildduck.email" />
+                    <ui:MoveIMAPMailMessageToFolder ClientName="{x:Null}" ClientVersion="{x:Null}" SecurePassword="{x:Null}" UseOAuth="{x:Null}" DisplayName="Move IMAP Mail Message" Email="[arg_user]" EnableSSL="True" FromFolder="[arg_folder_TEMP]" sap:VirtualizedContainerService.HintSize="368,92" sap2010:WorkflowViewState.IdRef="MoveIMAPMailMessageToFolder_1" IgnoreCRL="False" MailFolder="[arg_folder_TEMP.Replace(&quot;processing&quot;, &quot;handover2human&quot;)]" MailMessage="[currentItem]" Password="[arg_pw]" Port="993" SecureConnection="Auto" Server="wildduck.email" />
                   </Sequence>
                 </ActivityAction>
               </ui:ForEach.Body>
