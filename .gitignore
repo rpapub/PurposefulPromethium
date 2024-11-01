@@ -4,3 +4,5 @@
 !.local/**/*.dlls#Ignore Debug And Design-Time Settings, Don't Ignore Release Settings
 .settings/Debug/
 .settings/Design/
+
+RnD/
