@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="fu6zDJkwJ0yCUJUzuTNVRA" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="newtab" CVScreenId="f3d03512-ef61-4f51-ad4d-7f9678a722f0" DesignTimeRectangle="8, 8, 1783, 41" DesignTimeScaleFactor="1" ElementType="TabPage" FullSelectorArgument="&lt;ctrl role='pane' /&gt;&lt;ctrl role='page tab list' /&gt;" Guid="a637936e-0935-4757-819e-c2249fa7bfb5" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="c948e3993e9208971fa789ae8d732721.png" xmlns="">0R78evNEHakOeZsNyibtTwA</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">None</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

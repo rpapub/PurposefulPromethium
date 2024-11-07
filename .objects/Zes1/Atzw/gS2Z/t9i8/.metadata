@@ -1,0 +1,16 @@
+﻿{
+  "Name": "CloseTab1",
+  "Type": "Element",
+  "TaxonomyType": "Button",
+  "Id": "t9i8e06SZEmyaJ_fpEk2cA",
+  "Reference": "V_ng50nGIEKpXzDH5qCdTg/t9i8e06SZEmyaJ_fpEk2cA",
+  "ParentRef": "V_ng50nGIEKpXzDH5qCdTg/gS2ZfV8_gEOlIXinj2BKrQ",
+  "Created": "2024-11-07T21:09:31.0760513Z",
+  "Updated": "2024-11-07T21:10:31.0757371Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=24.11.1.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "UpdatedBy": [
+    "UiPath.Platform, Version=24.11.1.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

@@ -1,0 +1,16 @@
+﻿{
+  "Name": "PageTabList",
+  "Type": "Element",
+  "TaxonomyType": "Container",
+  "Id": "5Kx4MSe8vUuZYW9STfof8w",
+  "Reference": "V_ng50nGIEKpXzDH5qCdTg/5Kx4MSe8vUuZYW9STfof8w",
+  "ParentRef": "V_ng50nGIEKpXzDH5qCdTg/gS2ZfV8_gEOlIXinj2BKrQ",
+  "Created": "2024-11-07T20:56:07.9208749Z",
+  "Updated": "2024-11-07T20:57:37.1363517Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=24.11.1.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "UpdatedBy": [
+    "UiPath.Platform, Version=24.11.1.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

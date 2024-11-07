@@ -1,10 +1,10 @@
 ﻿{
-  "Name": "rpachallenge.com Chrome",
+  "Name": "Chrome",
   "Type": "App",
   "Id": "Zes1U6lmYk-LB_coSEq4ew",
   "Reference": "V_ng50nGIEKpXzDH5qCdTg/Zes1U6lmYk-LB_coSEq4ew",
   "Created": "2024-11-07T20:16:40.9193867Z",
-  "Updated": "2024-11-07T20:17:35.2438075Z",
+  "Updated": "2024-11-07T20:54:53.5625225Z",
   "CreatedBy": [
     "UiPath.Platform, Version=24.11.1.0, Culture=neutral, PublicKeyToken=null"
   ],

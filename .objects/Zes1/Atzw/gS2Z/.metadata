@@ -1,11 +1,11 @@
 ﻿{
-  "Name": "rpachallenge.com homepage",
+  "Name": "Generic",
   "Type": "Screen",
-  "Id": "NO4rbj0_2U6Fg5Gb-Bj19w",
-  "Reference": "V_ng50nGIEKpXzDH5qCdTg/NO4rbj0_2U6Fg5Gb-Bj19w",
+  "Id": "gS2ZfV8_gEOlIXinj2BKrQ",
+  "Reference": "V_ng50nGIEKpXzDH5qCdTg/gS2ZfV8_gEOlIXinj2BKrQ",
   "ParentRef": "V_ng50nGIEKpXzDH5qCdTg/Atzw-F9O10-UmFs8UBhGxg",
-  "Created": "2024-11-07T20:17:41.0008439Z",
-  "Updated": "2024-11-07T20:55:07.2763997Z",
+  "Created": "2024-11-07T20:55:29.2741313Z",
+  "Updated": "2024-11-07T20:56:01.0522002Z",
   "CreatedBy": [
     "UiPath.Platform, Version=24.11.1.0, Culture=neutral, PublicKeyToken=null"
   ],
