@@ -1,0 +1,16 @@
+﻿{
+  "Name": "Title",
+  "Type": "Element",
+  "TaxonomyType": "Text",
+  "Id": "N9SHqPN7TkC0_eDpxqyP8Q",
+  "Reference": "V_ng50nGIEKpXzDH5qCdTg/N9SHqPN7TkC0_eDpxqyP8Q",
+  "ParentRef": "V_ng50nGIEKpXzDH5qCdTg/NO4rbj0_2U6Fg5Gb-Bj19w",
+  "Created": "2024-11-07T20:21:12.9314049Z",
+  "Updated": "2024-11-07T20:22:22.8549712Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=24.11.1.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "UpdatedBy": [
+    "UiPath.Platform, Version=24.11.1.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

@@ -1,0 +1,16 @@
+﻿{
+  "Name": "InputFields",
+  "Type": "Element",
+  "TaxonomyType": "Container",
+  "Id": "evzvrChAV0e5PrWZeSnnPw",
+  "Reference": "V_ng50nGIEKpXzDH5qCdTg/evzvrChAV0e5PrWZeSnnPw",
+  "ParentRef": "V_ng50nGIEKpXzDH5qCdTg/NO4rbj0_2U6Fg5Gb-Bj19w",
+  "Created": "2024-11-07T20:29:56.2155739Z",
+  "Updated": "2024-11-07T20:30:40.8604917Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=24.11.1.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "UpdatedBy": [
+    "UiPath.Platform, Version=24.11.1.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

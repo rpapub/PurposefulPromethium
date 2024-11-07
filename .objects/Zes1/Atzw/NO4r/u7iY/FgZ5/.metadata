@@ -1,0 +1,16 @@
+﻿{
+  "Name": "RoundX",
+  "Type": "Element",
+  "TaxonomyType": "Button",
+  "Id": "FgZ5c7SB7E24MeCLaMJciA",
+  "Reference": "V_ng50nGIEKpXzDH5qCdTg/FgZ5c7SB7E24MeCLaMJciA",
+  "ParentRef": "V_ng50nGIEKpXzDH5qCdTg/u7iYcRU9PkSgS3piS340Jg",
+  "Created": "2024-11-07T20:34:17.4683822Z",
+  "Updated": "2024-11-07T20:35:13.0741102Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=24.11.1.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "UpdatedBy": [
+    "UiPath.Platform, Version=24.11.1.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

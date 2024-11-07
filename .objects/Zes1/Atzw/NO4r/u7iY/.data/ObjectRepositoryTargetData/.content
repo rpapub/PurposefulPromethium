@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="-qbFqZ249EWSqUrVO5RVFg" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="rpachallenge.com" DesignTimeRectangle="8, 150, 205, 392" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl tag='DIV' class='*instructions*' /&gt;" Guid="3ecc3f73-4d6e-484f-af3a-a47959a2c276" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Rpa Challenge' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="e1483ea9351c940b3f78170c7450eb06.png" xmlns="">0hPxQZwYPSUaXb1g_w3ygmA</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">None</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

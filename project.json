@@ -4,10 +4,11 @@
   "description": "This UiPath project demonstrates reading structured data from an email inbox, parsing the content, and automating data entry on rpachallenge.com. Designed as a tutorial basis, it showcases legacy coding practices and lacks modern configurability.",
   "main": "Main.xaml",
   "dependencies": {
-    "UiPath.Excel.Activities": "[1.2.6256.15131]",
+    "UiPath.Excel.Activities": "[2.24.3]",
     "UiPath.Mail.Activities": "[1.24.0]",
-    "UiPath.System.Activities": "23.10.6",
-    "UiPath.UIAutomation.Activities": "19.10.1"
+    "UiPath.System.Activities": "24.3.1",
+    "UiPath.Testing.Activities": "[24.10.3]",
+    "UiPath.UIAutomation.Activities": "24.10.7"
   },
   "webServices": [],
   "entitiesStores": [],

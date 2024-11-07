@@ -1,0 +1,13 @@
+﻿{
+  "Name": "DownloadExcel",
+  "Type": "Element",
+  "TaxonomyType": "Button",
+  "Id": "FNPOwgJzgEumUrdVM7smlQ",
+  "Reference": "V_ng50nGIEKpXzDH5qCdTg/FNPOwgJzgEumUrdVM7smlQ",
+  "ParentRef": "V_ng50nGIEKpXzDH5qCdTg/u7iYcRU9PkSgS3piS340Jg",
+  "Created": "2024-11-07T20:23:49.9181126Z",
+  "Updated": "2024-11-07T20:23:49.9181126Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=24.11.1.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

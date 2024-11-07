@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Message2",
+  "Type": "Element",
+  "TaxonomyType": "Text",
+  "Id": "iKaQLNgNxE25yvkJTZZN-w",
+  "Reference": "V_ng50nGIEKpXzDH5qCdTg/iKaQLNgNxE25yvkJTZZN-w",
+  "ParentRef": "V_ng50nGIEKpXzDH5qCdTg/HnQbTMp6lkyOABMzrx_lfA",
+  "Created": "2024-11-07T20:39:43.46306Z",
+  "Updated": "2024-11-07T20:39:43.46306Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=24.11.1.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}
