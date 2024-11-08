@@ -3,6 +3,10 @@
     {
       "filePath": ".variations\\Unittests_OpenBrowser.json",
       "dataVariationType": "File"
+    },
+    {
+      "filePath": ".variations\\Unittests_VerifyImapConn.json",
+      "dataVariationType": "File"
     }
   ]
 }
