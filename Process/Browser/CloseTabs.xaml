@@ -84,7 +84,7 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message INFO begin" sap:VirtualizedContainerService.HintSize="534,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Going to close browser tab&quot;]" />
-    <uix:NApplicationCard AttachMode="ByInstance" ContinueOnError="True" DisplayName="Chrome" sap:VirtualizedContainerService.HintSize="534,852" sap2010:WorkflowViewState.IdRef="NApplicationCard_5" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="d0d0b8eb-f309-49f9-bc21-f0832925e94a" Timeout="4" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="{x:Null}" ConnectionId="{x:Null}" ContinueOnError="True" DisplayName="Chrome" sap:VirtualizedContainerService.HintSize="534,852" sap2010:WorkflowViewState.IdRef="NApplicationCard_5" InUiElement="{x:Null}" InteractionMode="DebuggerApi" IsIncognito="{x:Null}" OpenMode="Never" OutUiElement="{x:Null}" ScopeGuid="d0d0b8eb-f309-49f9-bc21-f0832925e94a" Timeout="4" UserDataFolderMode="{x:Null}" UserDataFolderPath="{x:Null}" Version="V2" WebDriverMode="{x:Null}">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -99,7 +99,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:FindChildren Children="[TabListChildren]" DisplayName="Find Children 'pane'" Filter="&lt;ctrl name='Close' role='push button' /&gt;" sap:VirtualizedContainerService.HintSize="452,107" sap2010:WorkflowViewState.IdRef="FindChildren_1" Scope="FIND_DESCENDANTS">
+            <ui:FindChildren Children="[TabListChildren]" ContinueOnError="{x:Null}" DisplayName="Find Children 'pane'" Filter="&lt;ctrl name='Close' role='push button' /&gt;" sap:VirtualizedContainerService.HintSize="452,107" sap2010:WorkflowViewState.IdRef="FindChildren_1" Scope="FIND_DESCENDANTS">
               <ui:FindChildren.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="efc49d6b-5fb8-4f00-a07d-b2037030ad09" InformativeScreenshot="4ce149d837078191b8388ea834410190" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' /&gt;&lt;ctrl role='pane' /&gt;&lt;ctrl role='page tab list' /&gt;">
                   <ui:Target.TimeoutMS>
@@ -111,7 +111,7 @@
                 </ui:Target>
               </ui:FindChildren.Target>
             </ui:FindChildren>
-            <ui:ForEach x:TypeArguments="ui:UiElement" CurrentIndex="{x:Null}" DisplayName="For Each tab in list" sap:VirtualizedContainerService.HintSize="452,398" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[TabListChildren]">
+            <ui:ForEach x:TypeArguments="ui:UiElement" CurrentIndex="{x:Null}" DisplayName="For Each tab in list" sap:VirtualizedContainerService.HintSize="452,398" sap2010:WorkflowViewState.IdRef="ForEach`1_1" MaxIterations="{x:Null}" Values="[TabListChildren]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="ui:UiElement">
                   <ActivityAction.Argument>
@@ -123,7 +123,7 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click close button" sap:VirtualizedContainerService.HintSize="368,174" sap2010:WorkflowViewState.IdRef="NClick_1" InUiElement="[currentItem]" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d0d0b8eb-f309-49f9-bc21-f0832925e94a" Version="V4">
+                    <uix:NClick ActivateBefore="True" AlterIfDisabled="{x:Null}" ClickType="Single" ContinueOnError="{x:Null}" CursorMotionType="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Click close button" sap:VirtualizedContainerService.HintSize="368,174" sap2010:WorkflowViewState.IdRef="NClick_1" InScope="{x:Null}" InUiElement="[currentItem]" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" OutUiElement="{x:Null}" ScopeIdentifier="d0d0b8eb-f309-49f9-bc21-f0832925e94a" Timeout="{x:Null}" Version="V4">
                       <uix:NClick.VerifyOptions>
                         <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
                           <uix:VerifyExecutionOptions.Retry>

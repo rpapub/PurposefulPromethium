@@ -43,7 +43,16 @@
     "processOptions": {
       "ignoredFiles": []
     },
-    "fileInfoCollection": [],
+    "fileInfoCollection": [
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "486c7648-99d8-46a3-a41b-359dff75f6ba",
+        "dataVariationFilePath": ".variations\\Unittests_OpenBrowser.json",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\Unit\\GUI\\TestCase_OpenBrowser.xaml"
+      }
+    ],
     "modernBehavior": false,
     "saveToCloud": false
   },
