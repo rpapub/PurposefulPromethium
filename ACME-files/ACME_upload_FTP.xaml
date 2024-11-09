@@ -1,15 +1,9 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Emailmovefolder" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="ACME_upload_FTP" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:p="http://schemas.uipath.com/workflow/activities/ftp" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:si="clr-namespace:System.IO;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="arg_email" Type="InArgument(snm:MailMessage)" />
-    <x:Property Name="email_username" Type="InArgument(x:String)" />
-    <x:Property Name="email_pw" Type="InArgument(x:String)" />
-    <x:Property Name="arg_folder_old" Type="InArgument(x:String)" />
-    <x:Property Name="arg_folder_new" Type="InArgument(x:String)" />
+    <x:Property Name="zipfile" Type="InArgument(si:FileInfo)" />
+    <x:Property Name="out_error" Type="OutArgument(x:Boolean)" />
   </x:Members>
-  <this:Emailmovefolder.arg_email>
-    <InArgument x:TypeArguments="snm:MailMessage" />
-  </this:Emailmovefolder.arg_email>
-  <sap:VirtualizedContainerService.HintSize>917,972</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>917,1054</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -24,13 +18,18 @@
       <x:String>System.Net.Mail</x:String>
       <x:String>UiPath.Core.Activities</x:String>
       <x:String>System.Security</x:String>
-      <x:String>UiPath.Mail</x:String>
-      <x:String>UiPath.Mail.IMAP.Activities</x:String>
       <x:String>UiPath.Shared.Activities</x:String>
       <x:String>UiPath.Mail.Activities</x:String>
       <x:String>System.Reflection</x:String>
       <x:String>System.Runtime.InteropServices</x:String>
       <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.Activities.System.Compression.Zip</x:String>
+      <x:String>UiPath.Activities.System.Encode</x:String>
+      <x:String>UiPath.Activities.System.Compression.Workflow</x:String>
+      <x:String>UiPath.FTP</x:String>
+      <x:String>UiPath.FTP.Activities</x:String>
       <x:String>System.Activities.Expressions</x:String>
       <x:String>System.Data</x:String>
       <x:String>System.Diagnostics</x:String>
@@ -39,8 +38,6 @@
       <x:String>System.Xml</x:String>
       <x:String>System.Xml.Linq</x:String>
       <x:String>UiPath.Core</x:String>
-      <x:String>System.Runtime.Serialization</x:String>
-      <x:String>UiPath.Platform.ResourceHandling</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -76,50 +73,54 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
-      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.FTP</AssemblyReference>
+      <AssemblyReference>UiPath.FTP.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Email_move_folder" sap:VirtualizedContainerService.HintSize="568,907" sap2010:WorkflowViewState.IdRef="Sequence_12">
+  <Sequence DisplayName="ACME_upload_FTP" sap:VirtualizedContainerService.HintSize="602,989" sap2010:WorkflowViewState.IdRef="Sequence_23">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="520,62" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="[arg_email.Subject]" />
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="520,62" sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="[arg_folder_old + arg_folder_new]" />
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="520,62" sap2010:WorkflowViewState.IdRef="WriteLine_6" Text="[email_username]" />
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="520,528" sap2010:WorkflowViewState.IdRef="TryCatch_2">
-      <TryCatch.Variables>
-        <Variable x:TypeArguments="x:String" Name="logText" />
-      </TryCatch.Variables>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="554,780" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence sap:VirtualizedContainerService.HintSize="482,300" sap2010:WorkflowViewState.IdRef="Sequence_13">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ui:MoveIMAPMailMessageToFolder ClientName="{x:Null}" ClientVersion="{x:Null}" SecurePassword="{x:Null}" UseOAuth="{x:Null}" DisplayName="Move IMAP Mail Message" Email="[email_username]" EnableSSL="True" FromFolder="[arg_folder_old]" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="MoveIMAPMailMessageToFolder_5" IgnoreCRL="False" MailFolder="[arg_folder_new]" MailMessage="[arg_email]" Password="[email_pw]" Port="993" SecureConnection="Auto" Server="wildduck.email" />
-          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_4">
-            <Assign.To>
-              <OutArgument x:TypeArguments="x:String">[logText]</OutArgument>
-            </Assign.To>
-            <Assign.Value>
-              <InArgument x:TypeArguments="x:String">["emails moved " + arg_folder_new]</InArgument>
-            </Assign.Value>
-          </Assign>
-        </Sequence>
+        <p:WithFtpSession ClientCertificatePassword="{x:Null}" ClientCertificatePath="{x:Null}" Password="{x:Null}" Username="{x:Null}" ContinueOnError="False" DisplayName="With ftp session" sap:VirtualizedContainerService.HintSize="516,552" Host="10.23.11.1" sap2010:WorkflowViewState.IdRef="WithFtpSession_2" Port="21" UseAnonymousLogin="True">
+          <p:WithFtpSession.Body>
+            <ActivityAction x:TypeArguments="p:IFtpSession">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="p:IFtpSession" Name="FtpSession" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="482,465" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="scg:IEnumerable(p:FtpObjectInfo)" Name="Files" />
+                </Sequence.Variables>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <p:UploadFiles ContinueOnError="False" Create="True" DisplayName="Upload files" sap:VirtualizedContainerService.HintSize="434,133" sap2010:WorkflowViewState.IdRef="UploadFiles_2" LocalPath="[zipfile.FullName]" Overwrite="True" Recursive="False" RemotePath="ACME" />
+                <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_1">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Boolean">[out_error]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;zipfile uploaded&quot;]" />
+              </Sequence>
+            </ActivityAction>
+          </p:WithFtpSession.Body>
+        </p:WithFtpSession>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="486,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="520,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -130,20 +131,18 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Assign sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_5">
+            <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_2">
               <Assign.To>
-                <OutArgument x:TypeArguments="x:String">[logText]</OutArgument>
+                <OutArgument x:TypeArguments="x:Boolean">[out_error]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:String">there was an error</InArgument>
+                <InArgument x:TypeArguments="x:Boolean">True</InArgument>
               </Assign.Value>
             </Assign>
           </ActivityAction>
         </Catch>
       </TryCatch.Catches>
-      <TryCatch.Finally>
-        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="LogMessage_4" Message="[logText]" />
-      </TryCatch.Finally>
     </TryCatch>
+    <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="554,80" sap2010:WorkflowViewState.IdRef="DeleteFileX_2" Path="[zipfile.FullName]" />
   </Sequence>
 </Activity>
