@@ -4,17 +4,18 @@
   "description": "This UiPath project demonstrates reading structured data from an email inbox, parsing the content, and automating data entry on rpachallenge.com. Designed as a tutorial basis, it showcases legacy coding practices and lacks modern configurability.",
   "main": "Main.xaml",
   "dependencies": {
-    "UiPath.Excel.Activities": "[1.2.6256.15131]",
-    "UiPath.FTP.Activities": "[1.0.7495.12930]",
+    "UiPath.Excel.Activities": "[2.24.3]",
     "UiPath.Mail.Activities": "[1.24.0]",
-    "UiPath.System.Activities": "23.10.6",
-    "UiPath.UIAutomation.Activities": "19.10.1"
+    "UiPath.System.Activities": "24.3.1",
+    "UiPath.Testing.Activities": "[24.10.3]",
+    "UiPath.FTP.Activities": "[1.0.7495.12930]",
+    "UiPath.UIAutomation.Activities": "24.10.7"
   },
   "webServices": [],
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "24.10.5.0",
-  "projectVersion": "1.0.0",
+  "projectVersion": "1.9.1",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
@@ -43,7 +44,24 @@
     "processOptions": {
       "ignoredFiles": []
     },
-    "fileInfoCollection": [],
+    "fileInfoCollection": [
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "486c7648-99d8-46a3-a41b-359dff75f6ba",
+        "dataVariationFilePath": ".variations\\Unittests_OpenBrowser.json",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\Unit\\GUI\\TestCase_OpenBrowser.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "211f3b74-4301-4c17-8884-856e761ec41c",
+        "dataVariationFilePath": ".variations\\Unittests_VerifyImapConn.json",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\Unit\\IMAP\\TestCase_VerifyImapConnection.xaml"
+      }
+    ],
     "modernBehavior": false,
     "saveToCloud": false
   },
