@@ -1,15 +1,15 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Emailmovefolder" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Emailmovefolder" this:Emailmovefolder.in_hasError="False" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="arg_email" Type="InArgument(snm:MailMessage)" />
     <x:Property Name="email_username" Type="InArgument(x:String)" />
     <x:Property Name="email_pw" Type="InArgument(x:String)" />
-    <x:Property Name="arg_folder_old" Type="InArgument(x:String)" />
-    <x:Property Name="arg_folder_new" Type="InArgument(x:String)" />
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_hasError" Type="InArgument(x:Boolean)" />
   </x:Members>
   <this:Emailmovefolder.arg_email>
     <InArgument x:TypeArguments="snm:MailMessage" />
   </this:Emailmovefolder.arg_email>
-  <sap:VirtualizedContainerService.HintSize>917,972</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>951,1246</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -78,19 +78,46 @@
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Email_move_folder" sap:VirtualizedContainerService.HintSize="568,907" sap2010:WorkflowViewState.IdRef="Sequence_12">
+  <Sequence DisplayName="Email_move_folder" sap:VirtualizedContainerService.HintSize="961,1181" sap2010:WorkflowViewState.IdRef="Sequence_12">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="targetFolder" />
+    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="520,62" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="[arg_email.Subject]" />
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="520,62" sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="[arg_folder_old + arg_folder_new]" />
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="520,62" sap2010:WorkflowViewState.IdRef="WriteLine_6" Text="[email_username]" />
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="520,528" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="913,62" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="[arg_email.Subject]" />
+    <If Condition="[in_hasError]" sap:VirtualizedContainerService.HintSize="913,242" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Then>
+        <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_6">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[targetFolder]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[in_Config("Mailbox_FolderHandover2Human").ToString]</InArgument>
+          </Assign.Value>
+        </Assign>
+      </If.Then>
+      <If.Else>
+        <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_7">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[targetFolder]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[in_Config("Mailbox_FolderSuccessful").ToString]</InArgument>
+          </Assign.Value>
+        </Assign>
+      </If.Else>
+    </If>
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="913,62" sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="[&quot;Going to move from folder: &quot; &amp; in_Config(&quot;Mailbox_FolderIncoming&quot;).ToString &amp; &quot; to folder: &quot; &amp; targetFolder]" />
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="913,62" sap2010:WorkflowViewState.IdRef="WriteLine_6" Text="[email_username]" />
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="913,528" sap2010:WorkflowViewState.IdRef="TryCatch_2">
       <TryCatch.Variables>
         <Variable x:TypeArguments="x:String" Name="logText" />
       </TryCatch.Variables>
@@ -107,13 +134,13 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:MoveIMAPMailMessageToFolder ClientName="{x:Null}" ClientVersion="{x:Null}" SecurePassword="{x:Null}" UseOAuth="{x:Null}" DisplayName="Move IMAP Mail Message" Email="[email_username]" EnableSSL="True" FromFolder="[arg_folder_old]" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="MoveIMAPMailMessageToFolder_5" IgnoreCRL="False" MailFolder="[arg_folder_new]" MailMessage="[arg_email]" Password="[email_pw]" Port="993" SecureConnection="Auto" Server="wildduck.email" />
+          <ui:MoveIMAPMailMessageToFolder ClientName="{x:Null}" ClientVersion="{x:Null}" SecurePassword="{x:Null}" UseOAuth="{x:Null}" DisplayName="Move IMAP Mail Message" Email="[email_username]" EnableSSL="True" FromFolder="[in_Config(&quot;Mailbox_FolderIncoming&quot;).ToString]" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="MoveIMAPMailMessageToFolder_5" IgnoreCRL="False" MailFolder="[targetFolder]" MailMessage="[arg_email]" Password="[email_pw]" Port="[CInt(in_Config(&quot;Imap_Port&quot;))]" SecureConnection="Auto" Server="[in_Config(&quot;Imap_Server&quot;).ToString]" />
           <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_4">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[logText]</OutArgument>
             </Assign.To>
             <Assign.Value>
-              <InArgument x:TypeArguments="x:String">["emails moved " + arg_folder_new]</InArgument>
+              <InArgument x:TypeArguments="x:String">["emails moved " + targetFolder]</InArgument>
             </Assign.Value>
           </Assign>
         </Sequence>
@@ -130,7 +157,7 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Assign sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_5">
+            <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_5">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[logText]</OutArgument>
               </Assign.To>

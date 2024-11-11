@@ -6,8 +6,9 @@
     <x:Property Name="arg_pw" Type="InArgument(x:String)" />
     <x:Property Name="email" Type="InArgument(snm:MailMessage)" />
     <x:Property Name="out_error" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1047,2223</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1179,2223</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -81,9 +82,12 @@
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
       <AssemblyReference>UiPath.Platform</AssemblyReference>
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>UiPath.FTP</AssemblyReference>
       <AssemblyReference>UiPath.FTP.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="ACME_make_file" sap:VirtualizedContainerService.HintSize="1057,2158" sap2010:WorkflowViewState.IdRef="Sequence_13">
@@ -117,7 +121,7 @@
               <OutArgument x:TypeArguments="x:String">[path_new]</OutArgument>
             </Assign.To>
             <Assign.Value>
-              <InArgument x:TypeArguments="x:String">./Data/Temp/ACME/new</InArgument>
+              <InArgument x:TypeArguments="x:String">[System.IO.Path.Combine(in_Config("File_BasePathTemp").ToString, "new")]</InArgument>
             </Assign.Value>
           </Assign>
         </Sequence>
@@ -134,7 +138,7 @@
               <OutArgument x:TypeArguments="x:String">[path_new]</OutArgument>
             </Assign.To>
             <Assign.Value>
-              <InArgument x:TypeArguments="x:String">./Data/Temp/ACME</InArgument>
+              <InArgument x:TypeArguments="x:String">[in_Config("File_BasePathTemp").ToString]</InArgument>
             </Assign.Value>
           </Assign>
         </Sequence>
@@ -173,7 +177,7 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <uascw:CompressFiles CompressedResource="{x:Null}" Password="{x:Null}" ResourcesToArchive="{x:Null}" SecurePassword="{x:Null}" CodePage="Default" CompressedFileInfo="[zipfile]" CompressedFileName="[&quot;Data\Output\&quot; + arg_subject + &quot;.zip&quot;]" CompressionLevel="Normal" DisplayName="Compress/Zip Files" EncryptionAlgorithm="Classic" sap:VirtualizedContainerService.HintSize="434,214" sap2010:WorkflowViewState.IdRef="CompressFiles_1" OverrideExistingFile="True">
+          <uascw:CompressFiles CompressedResource="{x:Null}" Password="{x:Null}" ResourcesToArchive="{x:Null}" SecurePassword="{x:Null}" CodePage="Default" CompressedFileInfo="[zipfile]" CompressedFileName="[System.IO.Path.Combine(in_Config(&quot;File_BasePathTemp&quot;).ToString, arg_subject &amp; &quot;.zip&quot;)]" CompressionLevel="Normal" DisplayName="Compress/Zip Files" EncryptionAlgorithm="Classic" sap:VirtualizedContainerService.HintSize="434,214" sap2010:WorkflowViewState.IdRef="CompressFiles_1" OverrideExistingFile="True">
             <uascw:CompressFiles.ContentToArchive>
               <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
                 <InArgument x:TypeArguments="x:String">[path_new + "/" + filename]</InArgument>
@@ -231,6 +235,9 @@
               <OutArgument x:TypeArguments="x:Boolean" x:Key="out_error">
                 <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="out_error" />
               </OutArgument>
+              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+                <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
+              </InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
         </Sequence>

@@ -2,8 +2,9 @@
   <x:Members>
     <x:Property Name="zipfile" Type="InArgument(si:FileInfo)" />
     <x:Property Name="out_error" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>917,1054</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1179,1054</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -78,6 +79,7 @@
       <AssemblyReference>UiPath.FTP</AssemblyReference>
       <AssemblyReference>UiPath.FTP.Activities</AssemblyReference>
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="ACME_upload_FTP" sap:VirtualizedContainerService.HintSize="602,989" sap2010:WorkflowViewState.IdRef="Sequence_23">
@@ -89,7 +91,7 @@
     </sap:WorkflowViewStateService.ViewState>
     <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="554,780" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <p:WithFtpSession ClientCertificatePassword="{x:Null}" ClientCertificatePath="{x:Null}" Password="{x:Null}" Username="{x:Null}" ContinueOnError="False" DisplayName="With ftp session" sap:VirtualizedContainerService.HintSize="516,552" Host="10.23.11.1" sap2010:WorkflowViewState.IdRef="WithFtpSession_2" Port="21" UseAnonymousLogin="True">
+        <p:WithFtpSession ClientCertificatePassword="{x:Null}" ClientCertificatePath="{x:Null}" Password="{x:Null}" Username="{x:Null}" ContinueOnError="False" DisplayName="With ftp session" sap:VirtualizedContainerService.HintSize="516,552" Host="[in_Config(&quot;FTP_ServerHostname&quot;).ToString]" sap2010:WorkflowViewState.IdRef="WithFtpSession_2" Port="[CInt(in_Config(&quot;FTP_ServerPort&quot;))]" UseAnonymousLogin="True">
           <p:WithFtpSession.Body>
             <ActivityAction x:TypeArguments="p:IFtpSession">
               <ActivityAction.Argument>
@@ -104,7 +106,7 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <p:UploadFiles ContinueOnError="False" Create="True" DisplayName="Upload files" sap:VirtualizedContainerService.HintSize="434,133" sap2010:WorkflowViewState.IdRef="UploadFiles_2" LocalPath="[zipfile.FullName]" Overwrite="True" Recursive="False" RemotePath="ACME" />
+                <p:UploadFiles ContinueOnError="False" Create="True" DisplayName="Upload files" sap:VirtualizedContainerService.HintSize="434,133" sap2010:WorkflowViewState.IdRef="UploadFiles_2" LocalPath="[zipfile.FullName]" Overwrite="True" Recursive="False" RemotePath="[in_Config(&quot;FTP_RemotePathPristine&quot;).ToString]" />
                 <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_1">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:Boolean">[out_error]</OutArgument>
