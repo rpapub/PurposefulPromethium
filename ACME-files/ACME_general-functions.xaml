@@ -12,7 +12,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>847,1365</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1179,1365</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ACME_general_functions_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -98,16 +98,6 @@
             <DelegateInArgument x:TypeArguments="snm:MailMessage" Name="mail" />
           </ActivityAction.Argument>
           <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="773,859" sap2010:WorkflowViewState.IdRef="Sequence_2">
-            <Sequence.Variables>
-              <Variable x:TypeArguments="s:String[]" Name="lines" />
-              <Variable x:TypeArguments="x:String" Name="phonenumber" />
-              <Variable x:TypeArguments="x:String" Name="company" />
-              <Variable x:TypeArguments="x:String" Name="role" />
-              <Variable x:TypeArguments="x:String" Name="address" />
-              <Variable x:TypeArguments="x:String" Name="email" />
-              <Variable x:TypeArguments="x:Boolean" Name="newWay" />
-              <Variable x:TypeArguments="x:String" Name="version" />
-            </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -119,6 +109,11 @@
                 <Variable x:TypeArguments="x:String" Name="firstName" />
                 <Variable x:TypeArguments="x:String" Name="lastName" />
                 <Variable x:TypeArguments="x:String" Name="phonenumber" />
+                <Variable x:TypeArguments="s:String[]" Name="lines" />
+                <Variable x:TypeArguments="x:String" Name="company" />
+                <Variable x:TypeArguments="x:String" Name="role" />
+                <Variable x:TypeArguments="x:String" Name="address" />
+                <Variable x:TypeArguments="x:String" Name="email" />
               </Flowchart.Variables>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -252,7 +247,7 @@
                                     </Sequence>
                                   </If.Else>
                                 </If>
-                                <If Condition="[newWay = False And kvp(0).StartsWith(&quot;Role&quot;)]" sap:VirtualizedContainerService.HintSize="1093,619" sap2010:WorkflowViewState.IdRef="If_3">
+                                <If Condition="[Not mail.Subject.Contains(&quot;New data&quot;) And kvp(0).StartsWith(&quot;Role&quot;)]" sap:VirtualizedContainerService.HintSize="1093,619" sap2010:WorkflowViewState.IdRef="If_3">
                                   <If.Then>
                                     <Sequence sap:VirtualizedContainerService.HintSize="482,176" sap2010:WorkflowViewState.IdRef="Sequence_9">
                                       <sap:WorkflowViewStateService.ViewState>
@@ -277,7 +272,7 @@
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <If Condition="[newWay = True And kvp(0).StartsWith(&quot;Position&quot;)]" sap:VirtualizedContainerService.HintSize="518,365" sap2010:WorkflowViewState.IdRef="If_9">
+                                      <If Condition="[mail.Subject.Contains(&quot;New data&quot;) And kvp(0).StartsWith(&quot;Position&quot;)]" sap:VirtualizedContainerService.HintSize="518,365" sap2010:WorkflowViewState.IdRef="If_9">
                                         <If.Then>
                                           <Sequence sap:VirtualizedContainerService.HintSize="482,176" sap2010:WorkflowViewState.IdRef="Sequence_26">
                                             <sap:WorkflowViewStateService.ViewState>
@@ -392,7 +387,7 @@
                                     </Sequence>
                                   </If.Else>
                                 </If>
-                                <If Condition="[NewWay = False And kvp(0).StartsWith(&quot;Phone&quot;)]" sap:VirtualizedContainerService.HintSize="1093,619" sap2010:WorkflowViewState.IdRef="If_7">
+                                <If Condition="[Not mail.Subject.Contains(&quot;New data&quot;) And kvp(0).StartsWith(&quot;Phone&quot;)]" sap:VirtualizedContainerService.HintSize="1093,619" sap2010:WorkflowViewState.IdRef="If_7">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -423,7 +418,7 @@
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <If Condition="[NewWay = True And kvp(0).StartsWith(&quot;Telephone&quot;)]" sap:VirtualizedContainerService.HintSize="518,365" sap2010:WorkflowViewState.IdRef="If_11">
+                                      <If Condition="[mail.Subject.Contains(&quot;New data&quot;) And kvp(0).StartsWith(&quot;Telephone&quot;)]" sap:VirtualizedContainerService.HintSize="518,365" sap2010:WorkflowViewState.IdRef="If_11">
                                         <If.Then>
                                           <Sequence sap:VirtualizedContainerService.HintSize="482,176" sap2010:WorkflowViewState.IdRef="Sequence_28">
                                             <sap:WorkflowViewStateService.ViewState>
@@ -442,7 +437,7 @@
                                           </Sequence>
                                         </If.Then>
                                         <If.Else>
-                                          <Sequence sap2010:WorkflowViewState.IdRef="Sequence_29">
+                                          <Sequence sap:VirtualizedContainerService.HintSize="416,100" sap2010:WorkflowViewState.IdRef="Sequence_29">
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -489,7 +484,7 @@
                         <av:PointCollection x:Key="ConnectorLocation">350,212.5 350,247.5</av:PointCollection>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <TryCatch sap:VirtualizedContainerService.HintSize="638,2419" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                    <TryCatch sap:VirtualizedContainerService.HintSize="200,25" sap2010:WorkflowViewState.IdRef="TryCatch_1">
                       <TryCatch.Try>
                         <ui:BrowserScope SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[arg_browser]" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe Rpa'" sap:VirtualizedContainerService.HintSize="600,2191" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="d915b641f2c5eb122c155c8cfc420e30" Selector="&lt;html app='chrome.exe' title='Rpa Challenge' /&gt;">
                           <ui:BrowserScope.Body>
@@ -706,27 +701,9 @@
                         </sap:WorkflowViewStateService.ViewState>
                         <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ACME-files\ACME_make_file.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,25" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="ACME-files\ACME_make_file.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
-                            <InArgument x:TypeArguments="snm:MailMessage" x:Key="email">
-                              <mva:VisualBasicValue x:TypeArguments="snm:MailMessage" ExpressionText="mail">
-                                <mva:VisualBasicValue.Result>
-                                  <OutArgument x:TypeArguments="snm:MailMessage" />
-                                </mva:VisualBasicValue.Result>
-                              </mva:VisualBasicValue>
-                            </InArgument>
-                            <OutArgument x:TypeArguments="x:Boolean" x:Key="out_error">
-                              <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="arg_error">
-                                <mva:VisualBasicReference.Result>
-                                  <OutArgument x:TypeArguments="Location(x:Boolean)" />
-                                </mva:VisualBasicReference.Result>
-                              </mva:VisualBasicReference>
-                            </OutArgument>
-                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                              <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config">
-                                <mva:VisualBasicValue.Result>
-                                  <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" />
-                                </mva:VisualBasicValue.Result>
-                              </mva:VisualBasicValue>
-                            </InArgument>
+                            <InArgument x:TypeArguments="snm:MailMessage" x:Key="email">[mail]</InArgument>
+                            <OutArgument x:TypeArguments="x:Boolean" x:Key="out_error">[arg_error]</OutArgument>
+                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
                           </ui:InvokeWorkflowFile.Arguments>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">

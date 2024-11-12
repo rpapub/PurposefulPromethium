@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>909,799</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>809,799</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ACME_Base_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -139,15 +139,15 @@
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="434,62" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[&quot;Here&quot; + in_Config(&quot;Mailbox_FolderIncoming&quot;).ToString]" />
-              <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;Imap_Credentialname&quot;).ToString]" CacheStrategy="None" DisplayName="Get Credential" FolderPath="[in_Config(&quot;OrchestratorFolderPath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="434,181" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Password="[ImapPassword]" Username="[ImapUsername]">
+              <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="434,62" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[&quot;Here&quot; + in_Config(&quot;Mailbox_FolderIncoming&quot;).ToString]" TextWriter="{x:Null}" />
+              <ui:GetRobotCredential AssetName="[in_Config(&quot;Imap_Credentialname&quot;).ToString]" CacheStrategy="None" DisplayName="Get Credential" FolderPath="[in_Config(&quot;OrchestratorFolderPath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="434,181" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Password="[ImapPassword]" TimeoutMS="{x:Null}" Username="[ImapUsername]">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:GetRobotCredential>
-              <ui:GetIMAPMailMessages ClientName="{x:Null}" ClientVersion="{x:Null}" DeleteMessages="{x:Null}" FilterExpression="{x:Null}" Password="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" DisplayName="Get IMAP Mail Messages" Email="[ImapUsername]" EnableSSL="True" FilterExpressionCharacterSet="US-ASCII" sap:VirtualizedContainerService.HintSize="434,25" sap2010:WorkflowViewState.IdRef="GetIMAPMailMessages_2" IgnoreCRL="False" MailFolder="[in_Config(&quot;Mailbox_FolderIncoming&quot;).ToString]" MarkAsRead="True" Messages="[email_list]" OnlyUnreadMessages="False" OrderByDate="OldestFirst" Port="[CInt(in_Config(&quot;Imap_Port&quot;))]" SecureConnection="Auto" SecurePassword="[ImapPassword]" Server="[in_Config(&quot;Imap_Server&quot;).ToString]" Top="[CInt(in_Config(&quot;Mailbox_Batchsize&quot;))]" />
+              <ui:GetIMAPMailMessages ClientName="{x:Null}" ClientVersion="{x:Null}" DeleteMessages="{x:Null}" DisplayName="Get IMAP Mail Messages" Email="[ImapUsername]" EnableSSL="True" FilterExpression="{x:Null}" FilterExpressionCharacterSet="US-ASCII" sap:VirtualizedContainerService.HintSize="434,25" sap2010:WorkflowViewState.IdRef="GetIMAPMailMessages_2" IgnoreCRL="False" MailFolder="[in_Config(&quot;Mailbox_FolderIncoming&quot;).ToString]" MarkAsRead="True" Messages="[email_list]" OnlyUnreadMessages="False" OrderByDate="OldestFirst" Password="{x:Null}" Port="[CInt(in_Config(&quot;Imap_Port&quot;))]" SecureConnection="Auto" SecurePassword="[ImapPassword]" Server="[in_Config(&quot;Imap_Server&quot;).ToString]" TimeoutMS="{x:Null}" Top="[CInt(in_Config(&quot;Mailbox_Batchsize&quot;))]" UseOAuth="{x:Null}" />
               <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_7">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:String">[logText]</OutArgument>
@@ -227,7 +227,7 @@
                         <av:Size x:Key="ShapeSize">200,25</av:Size>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ACME-files\ACME_general-functions.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,25" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="ACME-files\ACME_general-functions.xaml">
+                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ACME-files\ACME_general-functions.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" Level="{x:Null}" LogEntry="{x:Null}" LogExit="{x:Null}" Timeout="{x:Null}" UnSafe="False" WorkflowFileName="ACME-files\ACME_general-functions.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
                         <InArgument x:TypeArguments="scg:List(snm:MailMessage)" x:Key="email_list">
                           <mva:VisualBasicValue x:TypeArguments="scg:List(snm:MailMessage)" ExpressionText="email_list">
@@ -236,7 +236,6 @@
                             </mva:VisualBasicValue.Result>
                           </mva:VisualBasicValue>
                         </InArgument>
-                        <InArgument x:TypeArguments="x:String" x:Key="arg_folder_new" />
                         <InArgument x:TypeArguments="ui:Browser" x:Key="arg_browser">
                           <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="arg_browser">
                             <mva:VisualBasicValue.Result>
