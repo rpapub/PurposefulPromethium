@@ -7,6 +7,10 @@
     {
       "filePath": ".variations\\Unittests_VerifyImapConn.json",
       "dataVariationType": "File"
+    },
+    {
+      "filePath": ".variations\\Unittests_Config.json",
+      "dataVariationType": "File"
     }
   ]
 }

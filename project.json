@@ -60,6 +60,14 @@
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
         "fileName": "Tests\\Unit\\IMAP\\TestCase_VerifyImapConnection.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "552434cc-bf3e-4503-9980-e158870e2281",
+        "dataVariationFilePath": ".variations\\Unittests_Config.json",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\Unit\\TestCase_InitAllSettings.xaml"
       }
     ],
     "modernBehavior": false,
