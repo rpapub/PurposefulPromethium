@@ -68,6 +68,14 @@
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
         "fileName": "Tests\\Unit\\TestCase_InitAllSettings.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "7c8ca1f6-2952-4098-85f3-8c08eafbb321",
+        "dataVariationFilePath": ".variations\\EndToEnd_generic.json",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "TestCase_Main.xaml"
       }
     ],
     "modernBehavior": false,

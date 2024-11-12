@@ -11,6 +11,10 @@
     {
       "filePath": ".variations\\Unittests_Config.json",
       "dataVariationType": "File"
+    },
+    {
+      "filePath": ".variations\\EndToEnd_generic.json",
+      "dataVariationType": "File"
     }
   ]
 }
