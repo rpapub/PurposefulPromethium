@@ -1,15 +1,13 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Emailmovefolder" this:Emailmovefolder.in_hasError="False" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Emailmovefolder" this:Emailmovefolder.in_hasError="False" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="arg_email" Type="InArgument(snm:MailMessage)" />
-    <x:Property Name="email_username" Type="InArgument(x:String)" />
-    <x:Property Name="email_pw" Type="InArgument(x:String)" />
     <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="in_hasError" Type="InArgument(x:Boolean)" />
   </x:Members>
   <this:Emailmovefolder.arg_email>
     <InArgument x:TypeArguments="snm:MailMessage" />
   </this:Emailmovefolder.arg_email>
-  <sap:VirtualizedContainerService.HintSize>951,1246</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1430,1525</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -82,7 +80,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Email_move_folder" sap:VirtualizedContainerService.HintSize="961,1181" sap2010:WorkflowViewState.IdRef="Sequence_12">
+  <Sequence DisplayName="Email_move_folder" sap:VirtualizedContainerService.HintSize="1440,1460" sap2010:WorkflowViewState.IdRef="Sequence_12">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="targetFolder" />
     </Sequence.Variables>
@@ -92,8 +90,8 @@
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="913,62" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="[arg_email.Subject]" />
-    <If Condition="[in_hasError]" sap:VirtualizedContainerService.HintSize="913,242" sap2010:WorkflowViewState.IdRef="If_1">
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1392,62" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="[arg_email.Subject]" />
+    <If Condition="[in_hasError]" sap:VirtualizedContainerService.HintSize="1392,402" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
         <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_6">
           <Assign.To>
@@ -105,19 +103,32 @@
         </Assign>
       </If.Then>
       <If.Else>
-        <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_7">
-          <Assign.To>
-            <OutArgument x:TypeArguments="x:String">[targetFolder]</OutArgument>
-          </Assign.To>
-          <Assign.Value>
-            <InArgument x:TypeArguments="x:String">[in_Config("Mailbox_FolderSuccessful").ToString]</InArgument>
-          </Assign.Value>
-        </Assign>
+        <If Condition="[arg_email.Subject.Contains(&quot;New data&quot;)]" sap:VirtualizedContainerService.HintSize="913,242" sap2010:WorkflowViewState.IdRef="If_2">
+          <If.Then>
+            <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_7">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[targetFolder]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[in_Config("Mailbox_FolderSuccessful").ToString]</InArgument>
+              </Assign.Value>
+            </Assign>
+          </If.Then>
+          <If.Else>
+            <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_8">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[targetFolder]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[in_Config("Mailbox_FolderSuccessful").ToString &amp; "/oldWay"]</InArgument>
+              </Assign.Value>
+            </Assign>
+          </If.Else>
+        </If>
       </If.Else>
     </If>
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="913,62" sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="[&quot;Going to move from folder: &quot; &amp; in_Config(&quot;Mailbox_FolderIncoming&quot;).ToString &amp; &quot; to folder: &quot; &amp; targetFolder]" />
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="913,62" sap2010:WorkflowViewState.IdRef="WriteLine_6" Text="[email_username]" />
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="913,528" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1392,62" sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="[&quot;Going to move from folder: &quot; &amp; in_Config(&quot;Mailbox_FolderIncoming&quot;).ToString &amp; &quot; to folder: &quot; &amp; targetFolder]" />
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1392,741" sap2010:WorkflowViewState.IdRef="TryCatch_2">
       <TryCatch.Variables>
         <Variable x:TypeArguments="x:String" Name="logText" />
       </TryCatch.Variables>
@@ -128,13 +139,24 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence sap:VirtualizedContainerService.HintSize="482,300" sap2010:WorkflowViewState.IdRef="Sequence_13">
+        <Sequence sap:VirtualizedContainerService.HintSize="482,513" sap2010:WorkflowViewState.IdRef="Sequence_13">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="x:String" Name="ImapUsername" />
+            <Variable x:TypeArguments="ss:SecureString" Name="ImapPassword" />
+          </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:MoveIMAPMailMessageToFolder ClientName="{x:Null}" ClientVersion="{x:Null}" SecurePassword="{x:Null}" UseOAuth="{x:Null}" DisplayName="Move IMAP Mail Message" Email="[email_username]" EnableSSL="True" FromFolder="[in_Config(&quot;Mailbox_FolderIncoming&quot;).ToString]" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="MoveIMAPMailMessageToFolder_5" IgnoreCRL="False" MailFolder="[targetFolder]" MailMessage="[arg_email]" Password="[email_pw]" Port="[CInt(in_Config(&quot;Imap_Port&quot;))]" SecureConnection="Auto" Server="[in_Config(&quot;Imap_Server&quot;).ToString]" />
+          <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;Imap_Credentialname&quot;).ToString]" CacheStrategy="None" DisplayName="Get Credential" FolderPath="[in_Config(&quot;OrchestratorFolderPath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="434,181" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[ImapPassword]" Username="[ImapUsername]">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:GetRobotCredential>
+          <ui:MoveIMAPMailMessageToFolder ClientName="{x:Null}" ClientVersion="{x:Null}" Password="{x:Null}" UseOAuth="{x:Null}" DisplayName="Move IMAP Mail Message" Email="[ImapUsername]" EnableSSL="True" FromFolder="[in_Config(&quot;Mailbox_FolderIncoming&quot;).ToString]" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="MoveIMAPMailMessageToFolder_5" IgnoreCRL="False" MailFolder="[targetFolder]" MailMessage="[arg_email]" Port="[CInt(in_Config(&quot;Imap_Port&quot;))]" SecureConnection="Auto" SecurePassword="[ImapPassword]" Server="[in_Config(&quot;Imap_Server&quot;).ToString]" />
           <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_4">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[logText]</OutArgument>

@@ -1,14 +1,10 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="ACME_make_file" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:si="clr-namespace:System.IO;assembly=mscorlib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:uascw="clr-namespace:UiPath.Activities.System.Compression.Workflow;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="ACME_make_file" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:si="clr-namespace:System.IO;assembly=mscorlib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:uascw="clr-namespace:UiPath.Activities.System.Compression.Workflow;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="arg_version" Type="InArgument(x:String)" />
-    <x:Property Name="arg_subject" Type="InArgument(x:String)" />
-    <x:Property Name="arg_user" Type="InArgument(x:String)" />
-    <x:Property Name="arg_pw" Type="InArgument(x:String)" />
     <x:Property Name="email" Type="InArgument(snm:MailMessage)" />
     <x:Property Name="out_error" Type="OutArgument(x:Boolean)" />
     <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1179,2223</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1047,2223</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -85,9 +81,9 @@
       <AssemblyReference>UiPath.FTP</AssemblyReference>
       <AssemblyReference>UiPath.FTP.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
       <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="ACME_make_file" sap:VirtualizedContainerService.HintSize="1057,2158" sap2010:WorkflowViewState.IdRef="Sequence_13">
@@ -102,7 +98,7 @@
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <If Condition="[arg_version = &quot;new&quot;]" sap:VirtualizedContainerService.HintSize="1009,336" sap2010:WorkflowViewState.IdRef="If_3">
+    <If Condition="[email.Subject.Contains(&quot;New data&quot;)]" sap:VirtualizedContainerService.HintSize="1009,336" sap2010:WorkflowViewState.IdRef="If_3">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -149,7 +145,7 @@
         <OutArgument x:TypeArguments="x:String">[filename]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:String">[arg_subject + ".eml"]</InArgument>
+        <InArgument x:TypeArguments="x:String">[email.Subject.ToString + ".eml"]</InArgument>
       </Assign.Value>
     </Assign>
     <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="1009,357" sap2010:WorkflowViewState.IdRef="RetryScope_2">
@@ -177,7 +173,7 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <uascw:CompressFiles CompressedResource="{x:Null}" Password="{x:Null}" ResourcesToArchive="{x:Null}" SecurePassword="{x:Null}" CodePage="Default" CompressedFileInfo="[zipfile]" CompressedFileName="[System.IO.Path.Combine(in_Config(&quot;File_BasePathTemp&quot;).ToString, arg_subject &amp; &quot;.zip&quot;)]" CompressionLevel="Normal" DisplayName="Compress/Zip Files" EncryptionAlgorithm="Classic" sap:VirtualizedContainerService.HintSize="434,214" sap2010:WorkflowViewState.IdRef="CompressFiles_1" OverrideExistingFile="True">
+          <uascw:CompressFiles CompressedResource="{x:Null}" Password="{x:Null}" ResourcesToArchive="{x:Null}" SecurePassword="{x:Null}" CodePage="Default" CompressedFileInfo="[zipfile]" CompressedFileName="[System.IO.Path.Combine(in_Config(&quot;File_BasePathTemp&quot;).ToString, email.Subject.ToString &amp; &quot;.zip&quot;)]" CompressionLevel="Normal" DisplayName="Compress/Zip Files" EncryptionAlgorithm="Classic" sap:VirtualizedContainerService.HintSize="434,214" sap2010:WorkflowViewState.IdRef="CompressFiles_1" OverrideExistingFile="True">
             <uascw:CompressFiles.ContentToArchive>
               <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
                 <InArgument x:TypeArguments="x:String">[path_new + "/" + filename]</InArgument>
@@ -229,15 +225,9 @@
           <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="368,80" sap2010:WorkflowViewState.IdRef="DeleteFileX_2" Path="[path_new + &quot;/&quot; + filename]" />
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ACME-files\ACME_upload_FTP.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="368,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="ACME-files\ACME_upload_FTP.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="si:FileInfo" x:Key="zipfile">
-                <mva:VisualBasicValue x:TypeArguments="si:FileInfo" ExpressionText="zipfile" />
-              </InArgument>
-              <OutArgument x:TypeArguments="x:Boolean" x:Key="out_error">
-                <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="out_error" />
-              </OutArgument>
-              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-              </InArgument>
+              <InArgument x:TypeArguments="si:FileInfo" x:Key="zipfile">[zipfile]</InArgument>
+              <OutArgument x:TypeArguments="x:Boolean" x:Key="out_error">[out_error]</OutArgument>
+              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
         </Sequence>
