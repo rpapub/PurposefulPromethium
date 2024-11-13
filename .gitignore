@@ -5,4 +5,8 @@
 .settings/Debug/
 .settings/Design/
 
+#Ignore Generated Hashes, Reduce Diff Size
+.objects/**/.attributes/SearchHash
+.objects/**/.hash
+
 RnD/
