@@ -9,12 +9,12 @@
     <x:Property sap2010:Annotation.AnnotationText="Allow the optional addition of information about the transaction item." Name="in_TransactionField1" Type="InArgument(x:String)" />
     <x:Property sap2010:Annotation.AnnotationText="Allow the optional addition of information about the transaction item." Name="in_TransactionField2" Type="InArgument(x:String)" />
     <x:Property sap2010:Annotation.AnnotationText="Transaction ID used for information and logging purposes." Name="in_TransactionID" Type="InArgument(x:String)" />
-    <x:Property Name="arg_browser" Type="InArgument(ui:Browser)" />
+    <x:Property Name="in_browser" Type="InArgument(ui:Browser)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1083,1196</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>940,1196</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>SetTransactionStatus_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -627,9 +627,7 @@
                   <TryCatch.Try>
                     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Close All Applications" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Framework\CloseAllApplications.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
-                        <InArgument x:TypeArguments="ui:Browser" x:Key="arg_browser">
-                          <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="arg_browser" />
-                        </InArgument>
+                        <InArgument x:TypeArguments="ui:Browser" x:Key="arg_browser">[in_browser]</InArgument>
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>
                   </TryCatch.Try>
