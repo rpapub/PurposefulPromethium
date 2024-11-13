@@ -2,11 +2,12 @@
   <x:Members>
     <x:Property Name="arg_browser" Type="InArgument(ui:Browser)" />
     <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>809,799</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>940,799</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ACME_Base_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -119,7 +120,7 @@
             <av:PointCollection x:Key="ConnectorLocation">300,122.5 300,166.5</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <TryCatch DisplayName="Try Catch Fetch Mail / List" sap:VirtualizedContainerService.HintSize="200,25" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+        <TryCatch DisplayName="Try Catch Fetch Mail / List" sap:VirtualizedContainerService.HintSize="538,1086" sap2010:WorkflowViewState.IdRef="TryCatch_1">
           <TryCatch.Variables>
             <Variable x:TypeArguments="x:String" Name="logText" />
           </TryCatch.Variables>
@@ -129,7 +130,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <TryCatch.Try>
-            <Sequence sap:VirtualizedContainerService.HintSize="482,540" sap2010:WorkflowViewState.IdRef="Sequence_6">
+            <Sequence sap:VirtualizedContainerService.HintSize="500,858" sap2010:WorkflowViewState.IdRef="Sequence_6">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:String" Name="ImapUsername" />
                 <Variable x:TypeArguments="ss:SecureString" Name="ImapPassword" />
@@ -139,16 +140,41 @@
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="434,62" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[&quot;Here&quot; + in_Config(&quot;Mailbox_FolderIncoming&quot;).ToString]" TextWriter="{x:Null}" />
-              <ui:GetRobotCredential AssetName="[in_Config(&quot;Imap_Credentialname&quot;).ToString]" CacheStrategy="None" DisplayName="Get Credential" FolderPath="[in_Config(&quot;OrchestratorFolderPath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="434,181" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Password="[ImapPassword]" TimeoutMS="{x:Null}" Username="[ImapUsername]">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-              </ui:GetRobotCredential>
-              <ui:GetIMAPMailMessages ClientName="{x:Null}" ClientVersion="{x:Null}" DeleteMessages="{x:Null}" DisplayName="Get IMAP Mail Messages" Email="[ImapUsername]" EnableSSL="True" FilterExpression="{x:Null}" FilterExpressionCharacterSet="US-ASCII" sap:VirtualizedContainerService.HintSize="434,25" sap2010:WorkflowViewState.IdRef="GetIMAPMailMessages_2" IgnoreCRL="False" MailFolder="[in_Config(&quot;Mailbox_FolderIncoming&quot;).ToString]" MarkAsRead="True" Messages="[email_list]" OnlyUnreadMessages="False" OrderByDate="OldestFirst" Password="{x:Null}" Port="[CInt(in_Config(&quot;Imap_Port&quot;))]" SecureConnection="Auto" SecurePassword="[ImapPassword]" Server="[in_Config(&quot;Imap_Server&quot;).ToString]" TimeoutMS="{x:Null}" Top="[CInt(in_Config(&quot;Mailbox_Batchsize&quot;))]" UseOAuth="{x:Null}" />
-              <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_7">
+              <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="452,62" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[&quot;Here&quot; + in_Config(&quot;Mailbox_FolderIncoming&quot;).ToString]" />
+              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="452,411" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                <ui:CommentOut.Body>
+                  <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,332" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;Imap_Credentialname&quot;).ToString]" CacheStrategy="None" DisplayName="Get Credential" FolderPath="[in_Config(&quot;OrchestratorFolderPath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="368,181" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Password="[ImapPassword]" Username="[ImapUsername]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:GetRobotCredential>
+                    <ui:GetIMAPMailMessages ClientName="{x:Null}" ClientVersion="{x:Null}" DeleteMessages="{x:Null}" FilterExpression="{x:Null}" Password="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" DisplayName="Get IMAP Mail Messages" Email="[ImapUsername]" EnableSSL="True" FilterExpressionCharacterSet="US-ASCII" sap:VirtualizedContainerService.HintSize="368,25" sap2010:WorkflowViewState.IdRef="GetIMAPMailMessages_2" IgnoreCRL="False" MailFolder="[in_Config(&quot;Mailbox_FolderIncoming&quot;).ToString]" MarkAsRead="True" Messages="[email_list]" OnlyUnreadMessages="False" OrderByDate="OldestFirst" Port="[CInt(in_Config(&quot;Imap_Port&quot;))]" SecureConnection="Auto" SecurePassword="[ImapPassword]" Server="[in_Config(&quot;Imap_Server&quot;).ToString]" Top="[CInt(in_Config(&quot;Mailbox_Batchsize&quot;))]" />
+                  </Sequence>
+                </ui:CommentOut.Body>
+              </ui:CommentOut>
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Process\IMAP\GetIMAPMailMessageByMessageId.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="452,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Process\IMAP\GetIMAPMailMessageByMessageId.xaml">
+                <ui:InvokeWorkflowFile.Arguments>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_TargetMessageId">
+                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TransactionItem.Reference" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+                    <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
+                  </InArgument>
+                  <OutArgument x:TypeArguments="scg:List(snm:MailMessage)" x:Key="out_Mailmessages">
+                    <mva:VisualBasicReference x:TypeArguments="scg:List(snm:MailMessage)" ExpressionText="email_list" />
+                  </OutArgument>
+                  <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="out_Status" />
+                </ui:InvokeWorkflowFile.Arguments>
+              </ui:InvokeWorkflowFile>
+              <Assign sap:VirtualizedContainerService.HintSize="452,82" sap2010:WorkflowViewState.IdRef="Assign_7">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:String">[logText]</OutArgument>
                 </Assign.To>
@@ -159,7 +185,7 @@
             </Sequence>
           </TryCatch.Try>
           <TryCatch.Catches>
-            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="486,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="504,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -227,37 +253,13 @@
                         <av:Size x:Key="ShapeSize">200,25</av:Size>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ACME-files\ACME_general-functions.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" Level="{x:Null}" LogEntry="{x:Null}" LogExit="{x:Null}" Timeout="{x:Null}" UnSafe="False" WorkflowFileName="ACME-files\ACME_general-functions.xaml">
+                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ACME-files\ACME_general-functions.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,25" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="ACME-files\ACME_general-functions.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
-                        <InArgument x:TypeArguments="scg:List(snm:MailMessage)" x:Key="email_list">
-                          <mva:VisualBasicValue x:TypeArguments="scg:List(snm:MailMessage)" ExpressionText="email_list">
-                            <mva:VisualBasicValue.Result>
-                              <OutArgument x:TypeArguments="scg:List(snm:MailMessage)" />
-                            </mva:VisualBasicValue.Result>
-                          </mva:VisualBasicValue>
-                        </InArgument>
-                        <InArgument x:TypeArguments="ui:Browser" x:Key="arg_browser">
-                          <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="arg_browser">
-                            <mva:VisualBasicValue.Result>
-                              <OutArgument x:TypeArguments="ui:Browser" />
-                            </mva:VisualBasicValue.Result>
-                          </mva:VisualBasicValue>
-                        </InArgument>
+                        <InArgument x:TypeArguments="scg:List(snm:MailMessage)" x:Key="email_list">[email_list]</InArgument>
+                        <InArgument x:TypeArguments="ui:Browser" x:Key="arg_browser">[arg_browser]</InArgument>
                         <OutArgument x:TypeArguments="x:Boolean" x:Key="arg_error" />
-                        <InArgument x:TypeArguments="x:Boolean" x:Key="challengeStarted">
-                          <Literal x:TypeArguments="x:Boolean">
-                            <Literal.Result>
-                              <OutArgument x:TypeArguments="x:Boolean" />
-                            </Literal.Result>
-                          </Literal>
-                        </InArgument>
-                        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                          <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config">
-                            <mva:VisualBasicValue.Result>
-                              <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" />
-                            </mva:VisualBasicValue.Result>
-                          </mva:VisualBasicValue>
-                        </InArgument>
+                        <InArgument x:TypeArguments="x:Boolean" x:Key="challengeStarted">False</InArgument>
+                        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
                       </ui:InvokeWorkflowFile.Arguments>
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
