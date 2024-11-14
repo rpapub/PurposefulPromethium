@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="InjectInProcessQueue" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:scg1="clr-namespace:System.Collections.Generic;assembly=System" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="InjectInProcessQueue" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:scg1="clr-namespace:System.Collections.Generic;assembly=System" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="out_InProcessQueue" Type="OutArgument(scg1:Queue(ui:QueueItem))" />
@@ -7,7 +7,7 @@
   <this:InjectInProcessQueue.in_MailmessagesIncoming>
     <InArgument x:TypeArguments="scg:List(snm:MailMessage)" />
   </this:InjectInProcessQueue.in_MailmessagesIncoming>
-  <sap:VirtualizedContainerService.HintSize>887,1613</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1253,1613</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -89,10 +89,6 @@
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:Annotation.AnnotationText="Designed to initialize and activate an alternative, in-process queue to manage items directly within the automation runtime, bypassing the default Orchestrator-managed queues. Reasons:&#xA;- Data Volatility: Emails in a mailbox can change frequently due to real-time human interaction&#xA;- Error Handling and State Management: In mailbox automations, the state of each MailMessage (e.g., read/unread, archived) affects processing logic. Handling retries and error recovery in such cases is harder to implement within the Dispatcher-Performer paradigm, where the assumption is that data remains static and accessible in its queued form.&#xA;- Complex Email Metadata: Email items often contain complex, nested metadata (attachments, embedded content, headers) that must be preserved across the Dispatcher and Performer stages. Serializing and storing all relevant MailMessage data reliably is challenging, especially when queueing structures in Orchestrator are designed for simpler, less nested data formats.&#xA;&#xA;Expects MailMessages with a Header Message-ID.&#xA;&#xA;Works with in_MailmessagesIncoming.Count 0&#xA;&#xA;Input&#xA;- in_Config&#xA;- in_MailmessagesIncoming&#xA;&#xA;Output&#xA;- out_InProcessQueue System.Collections.Generic.Queue(Of UiPath.Core.QueueItem)&#xA;" DisplayName="InjectInProcessQueue" sap:VirtualizedContainerService.HintSize="602,1548" sap2010:WorkflowViewState.IdRef="Sequence_7">
-    <Sequence.Variables>
-      <Variable x:TypeArguments="ss:SecureString" Name="ImapPasswordIncoming" />
-      <Variable x:TypeArguments="x:String" Name="ImapUsernameIncoming" />
-    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
