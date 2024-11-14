@@ -7,7 +7,7 @@
   <this:InjectInProcessQueue.in_MailmessagesIncoming>
     <InArgument x:TypeArguments="scg:List(snm:MailMessage)" />
   </this:InjectInProcessQueue.in_MailmessagesIncoming>
-  <sap:VirtualizedContainerService.HintSize>1253,1613</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>776,2022</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -86,9 +86,10 @@
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
       <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Designed to initialize and activate an alternative, in-process queue to manage items directly within the automation runtime, bypassing the default Orchestrator-managed queues. Reasons:&#xA;- Data Volatility: Emails in a mailbox can change frequently due to real-time human interaction&#xA;- Error Handling and State Management: In mailbox automations, the state of each MailMessage (e.g., read/unread, archived) affects processing logic. Handling retries and error recovery in such cases is harder to implement within the Dispatcher-Performer paradigm, where the assumption is that data remains static and accessible in its queued form.&#xA;- Complex Email Metadata: Email items often contain complex, nested metadata (attachments, embedded content, headers) that must be preserved across the Dispatcher and Performer stages. Serializing and storing all relevant MailMessage data reliably is challenging, especially when queueing structures in Orchestrator are designed for simpler, less nested data formats.&#xA;&#xA;Expects MailMessages with a Header Message-ID.&#xA;&#xA;Works with in_MailmessagesIncoming.Count 0&#xA;&#xA;Input&#xA;- in_Config&#xA;- in_MailmessagesIncoming&#xA;&#xA;Output&#xA;- out_InProcessQueue System.Collections.Generic.Queue(Of UiPath.Core.QueueItem)&#xA;" DisplayName="InjectInProcessQueue" sap:VirtualizedContainerService.HintSize="602,1548" sap2010:WorkflowViewState.IdRef="Sequence_7">
+  <Sequence sap2010:Annotation.AnnotationText="Designed to initialize and activate an alternative, in-process queue to manage items directly within the automation runtime, bypassing the default Orchestrator-managed queues. Reasons:&#xA;- Data Volatility: Emails in a mailbox can change frequently due to real-time human interaction&#xA;- Error Handling and State Management: In mailbox automations, the state of each MailMessage (e.g., read/unread, archived) affects processing logic. Handling retries and error recovery in such cases is harder to implement within the Dispatcher-Performer paradigm, where the assumption is that data remains static and accessible in its queued form.&#xA;- Complex Email Metadata: Email items often contain complex, nested metadata (attachments, embedded content, headers) that must be preserved across the Dispatcher and Performer stages. Serializing and storing all relevant MailMessage data reliably is challenging, especially when queueing structures in Orchestrator are designed for simpler, less nested data formats.&#xA;&#xA;Expects MailMessages with a Header Message-ID.&#xA;&#xA;Works with in_MailmessagesIncoming.Count 0&#xA;&#xA;Input&#xA;- in_Config&#xA;- in_MailmessagesIncoming&#xA;&#xA;Output&#xA;- out_InProcessQueue System.Collections.Generic.Queue(Of UiPath.Core.QueueItem)&#xA;" DisplayName="InjectInProcessQueue" sap:VirtualizedContainerService.HintSize="647,1957" sap2010:WorkflowViewState.IdRef="Sequence_7">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -96,8 +97,8 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message INFO begin" sap:VirtualizedContainerService.HintSize="554,92" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Going to build and fill a in-process queue&quot;]" />
-    <Assign DisplayName="Assign out_InProcessQueue" sap:VirtualizedContainerService.HintSize="554,82" sap2010:WorkflowViewState.IdRef="Assign_4">
+    <ui:LogMessage DisplayName="Log Message INFO begin" sap:VirtualizedContainerService.HintSize="599,92" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Going to build and fill a in-process queue&quot;]" />
+    <Assign DisplayName="Assign out_InProcessQueue" sap:VirtualizedContainerService.HintSize="599,82" sap2010:WorkflowViewState.IdRef="Assign_4">
       <Assign.To>
         <OutArgument x:TypeArguments="scg1:Queue(ui:QueueItem)">[out_InProcessQueue]</OutArgument>
       </Assign.To>
@@ -105,13 +106,13 @@
         <InArgument x:TypeArguments="scg1:Queue(ui:QueueItem)">[New Queue(Of QueueItem)]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="each mail, if it has a Message-ID, that is used as QueueItem.Reference and added to the in-process queue." DisplayName="For Each mail in MailmessagesIncoming" sap:VirtualizedContainerService.HintSize="554,732" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[in_MailmessagesIncoming]">
+    <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="each mail, if it has a Message-ID, that is used as QueueItem.Reference and added to the in-process queue." DisplayName="For Each mail in MailmessagesIncoming" sap:VirtualizedContainerService.HintSize="599,1141" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[in_MailmessagesIncoming]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="snm:MailMessage">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="snm:MailMessage" Name="mail" />
           </ActivityAction.Argument>
-          <If Condition="[mail.Headers.Get(&quot;Message-ID&quot;) IsNot Nothing]" DisplayName="If Message-ID" sap:VirtualizedContainerService.HintSize="518,564" sap2010:WorkflowViewState.IdRef="If_3">
+          <If Condition="[mail.Headers.Get(&quot;Message-ID&quot;) IsNot Nothing]" DisplayName="If Message-ID" sap:VirtualizedContainerService.HintSize="563,984" sap2010:WorkflowViewState.IdRef="If_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -119,7 +120,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <If.Then>
-              <Sequence sap2010:Annotation.AnnotationText="Initializes InProcessQueueItem by variable scope" DisplayName="AddInProcessQueueItem" sap:VirtualizedContainerService.HintSize="482,375" sap2010:WorkflowViewState.IdRef="Sequence_8">
+              <Sequence sap2010:Annotation.AnnotationText="Initializes InProcessQueueItem by variable scope" DisplayName="AddInProcessQueueItem" sap:VirtualizedContainerService.HintSize="527,795" sap2010:WorkflowViewState.IdRef="Sequence_8">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="ui:QueueItem" Default="[New QueueItem With {&#xA;    .SpecificContent = New Dictionary(Of String, Object) From {&#xA;        {&quot;foo&quot;, &quot;bar&quot;}&#xA;    }&#xA;}]" Name="InProcessQueueItem" />
                 </Sequence.Variables>
@@ -129,7 +130,7 @@
                     <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Assign DisplayName="Assign InProcessQueueItem.Reference" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_3">
+                <Assign DisplayName="Assign InProcessQueueItem.Reference" sap:VirtualizedContainerService.HintSize="479,82" sap2010:WorkflowViewState.IdRef="Assign_3">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:String">[InProcessQueueItem.Reference]</OutArgument>
                   </Assign.To>
@@ -137,7 +138,66 @@
                     <InArgument x:TypeArguments="x:String">[mail.Headers.Get("Message-ID")]</InArgument>
                   </Assign.Value>
                 </Assign>
-                <InvokeMethod DisplayName="Invoke Method Queue Enqueue" sap:VirtualizedContainerService.HintSize="434,136" sap2010:WorkflowViewState.IdRef="InvokeMethod_2" MethodName="Enqueue">
+                <ui:MultipleAssign sap2010:Annotation.AnnotationText="MailMessage_MessageId&#xD;&#xA;MailMessage_Subject&#xD;&#xA;MailMessage_Body&#xD;&#xA;MailMessage_From&#xD;&#xA;MailMessage_To&#xD;&#xA;MailMessage_Date&#xD;&#xA;MailMessage_…" DisplayName="Multiple Assign SpecificContent" sap:VirtualizedContainerService.HintSize="479,388" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                  <ui:MultipleAssign.AssignOperations>
+                    <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                        <ui:AssignOperation.To>
+                          <OutArgument x:TypeArguments="x:Object">[InProcessQueueItem.SpecificContent("MailMessage_MessageId")]</OutArgument>
+                        </ui:AssignOperation.To>
+                        <ui:AssignOperation.Value>
+                          <InArgument x:TypeArguments="x:Object">[mail.Headers.Get("Message-ID")]</InArgument>
+                        </ui:AssignOperation.Value>
+                      </ui:AssignOperation>
+                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                        <ui:AssignOperation.To>
+                          <OutArgument x:TypeArguments="x:Object">[InProcessQueueItem.SpecificContent("MailMessage_Subject")]</OutArgument>
+                        </ui:AssignOperation.To>
+                        <ui:AssignOperation.Value>
+                          <InArgument x:TypeArguments="x:Object">[mail.Subject]</InArgument>
+                        </ui:AssignOperation.Value>
+                      </ui:AssignOperation>
+                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                        <ui:AssignOperation.To>
+                          <OutArgument x:TypeArguments="x:Object">[InProcessQueueItem.SpecificContent("MailMessage_Body")]</OutArgument>
+                        </ui:AssignOperation.To>
+                        <ui:AssignOperation.Value>
+                          <InArgument x:TypeArguments="x:Object">[mail.Body]</InArgument>
+                        </ui:AssignOperation.Value>
+                      </ui:AssignOperation>
+                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                        <ui:AssignOperation.To>
+                          <OutArgument x:TypeArguments="x:Object">[InProcessQueueItem.SpecificContent("MailMessage_From")]</OutArgument>
+                        </ui:AssignOperation.To>
+                        <ui:AssignOperation.Value>
+                          <InArgument x:TypeArguments="x:Object">[mail.From]</InArgument>
+                        </ui:AssignOperation.Value>
+                      </ui:AssignOperation>
+                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                        <ui:AssignOperation.To>
+                          <OutArgument x:TypeArguments="x:Object">[InProcessQueueItem.SpecificContent("MailMessage_To")]</OutArgument>
+                        </ui:AssignOperation.To>
+                        <ui:AssignOperation.Value>
+                          <InArgument x:TypeArguments="x:Object">[mail.To]</InArgument>
+                        </ui:AssignOperation.Value>
+                      </ui:AssignOperation>
+                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+                        <ui:AssignOperation.To>
+                          <OutArgument x:TypeArguments="x:Object">[InProcessQueueItem.SpecificContent("MailMessage_Date")]</OutArgument>
+                        </ui:AssignOperation.To>
+                        <ui:AssignOperation.Value>
+                          <InArgument x:TypeArguments="x:Object">[mail.DateAsDateTime]</InArgument>
+                        </ui:AssignOperation.Value>
+                      </ui:AssignOperation>
+                    </scg:List>
+                  </ui:MultipleAssign.AssignOperations>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:MultipleAssign>
+                <InvokeMethod DisplayName="Invoke Method Queue Enqueue" sap:VirtualizedContainerService.HintSize="479,136" sap2010:WorkflowViewState.IdRef="InvokeMethod_2" MethodName="Enqueue">
                   <InvokeMethod.TargetObject>
                     <InArgument x:TypeArguments="scg1:Queue(ui:QueueItem)">[out_InProcessQueue]</InArgument>
                   </InvokeMethod.TargetObject>
@@ -156,6 +216,6 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
-    <ui:LogMessage DisplayName="Log Message TRACE end" sap:VirtualizedContainerService.HintSize="554,92" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Trace" Message="[&quot;Finished building and filling a in-process queue&quot;]" />
+    <ui:LogMessage DisplayName="Log Message TRACE end" sap:VirtualizedContainerService.HintSize="599,92" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Trace" Message="[&quot;Finished building and filling a in-process queue&quot;]" />
   </Sequence>
 </Activity>

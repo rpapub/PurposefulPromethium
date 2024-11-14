@@ -5,7 +5,7 @@
     <x:Property Name="out_Mailmessages" Type="OutArgument(scg:List(snm:MailMessage))" />
     <x:Property Name="out_Status" Type="OutArgument(scg:Dictionary(x:String, x:Object))" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1179,3099</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>776,3091</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -36,6 +36,7 @@
       <x:String>System.Xml.Linq</x:String>
       <x:String>System.IO</x:String>
       <x:String>UiPath.Core</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -86,7 +87,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Retrieves an IMAP email message by a Message-ID in the headers.&#xA;Will skip the Mailmessage if no Message-ID is present in the headers.&#xA;Searches in 2 folders:&#xA;- in_Config(&quot;Mailbox_FolderIncoming&quot;).ToString&#xA;- in_Config(&quot;Mailbox_FolderProcessing&quot;).ToString&#xA;&#xA;Input&#xA;- in_Config&#xA;- in_TargetMessageId&#xA;&#xA;Output&#xA;- out_Mailmessages&#xA;- out_Status" DisplayName="Get IMAP Mail Message By MessageId" sap:VirtualizedContainerService.HintSize="616,3034" sap2010:WorkflowViewState.IdRef="Sequence_14">
+  <Sequence sap2010:Annotation.AnnotationText="Retrieves an IMAP email message by a Message-ID in the headers.&#xA;Will skip the Mailmessage if no Message-ID is present in the headers.&#xA;Searches in 2 folders:&#xA;- in_Config(&quot;Mailbox_FolderIncoming&quot;).ToString&#xA;- in_Config(&quot;Mailbox_FolderProcessing&quot;).ToString&#xA;&#xA;Input&#xA;- in_Config&#xA;- in_TargetMessageId&#xA;&#xA;Output&#xA;- out_Mailmessages&#xA;- out_Status" DisplayName="Get IMAP Mail Message By MessageId" sap:VirtualizedContainerService.HintSize="616,3026" sap2010:WorkflowViewState.IdRef="Sequence_14">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:List(snm:MailMessage)" Default="[New List(Of MailMessage)]" Name="MatchingMailmessages" />
       <Variable x:TypeArguments="x:Boolean" Default="True" Name="isDuplicateFound" />
@@ -121,7 +122,7 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <Sequence DisplayName="Sequence folder incoming" sap:VirtualizedContainerService.HintSize="568,817" sap2010:WorkflowViewState.IdRef="Sequence_15">
+    <Sequence DisplayName="Sequence folder incoming" sap:VirtualizedContainerService.HintSize="568,814" sap2010:WorkflowViewState.IdRef="Sequence_15">
       <Sequence.Variables>
         <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="MailmessagesIncoming" />
         <Variable x:TypeArguments="ss:SecureString" Name="ImapPasswordIncoming" />
@@ -148,14 +149,14 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:GetIMAPMailMessages>
-      <ui:LogMessage DisplayName="Log Message TRACE ID, subject incoming" sap:VirtualizedContainerService.HintSize="520,92" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Trace" Message="[If(MailMessagesIncoming IsNot Nothing AndAlso MailMessagesIncoming.Any(), String.Join(Environment.NewLine, MailMessagesIncoming.Select(Function(mail) String.Format(&quot;{0}, {1}&quot;, If(mail.Headers(&quot;Message-ID&quot;) IsNot Nothing AndAlso mail.Headers(&quot;Message-ID&quot;).ToString().Trim() &lt;&gt; &quot;&quot;, mail.Headers(&quot;Message-ID&quot;).ToString(), &quot;No Message-ID&quot;), If(mail.Subject IsNot Nothing AndAlso mail.Subject.Trim() &lt;&gt; &quot;&quot;, mail.Subject, &quot;No Subject&quot;))).ToArray()), String.Empty)]" />
-      <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each mail in MailmessagesIncoming" sap:VirtualizedContainerService.HintSize="520,451" sap2010:WorkflowViewState.IdRef="ForEach`1_9" Values="[MailmessagesIncoming]">
+      <ui:LogMessage DisplayName="Log Message TRACE ID, subject incoming" sap:VirtualizedContainerService.HintSize="520,92" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Trace" Message="[&quot;Match in folder incoming: &quot; &amp; If(MailMessagesIncoming IsNot Nothing AndAlso MailMessagesIncoming.Any(), String.Join(Environment.NewLine, MailMessagesIncoming.Select(Function(mail) String.Format(&quot;{0}, {1}&quot;, If(mail.Headers(&quot;Message-ID&quot;) IsNot Nothing AndAlso mail.Headers(&quot;Message-ID&quot;).ToString().Trim() &lt;&gt; &quot;&quot;, mail.Headers(&quot;Message-ID&quot;).ToString(), &quot;No Message-ID&quot;), If(mail.Subject IsNot Nothing AndAlso mail.Subject.Trim() &lt;&gt; &quot;&quot;, mail.Subject, &quot;No Subject&quot;))).ToArray()), String.Empty)]" />
+      <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each mail in MailmessagesIncoming" sap:VirtualizedContainerService.HintSize="520,448" sap2010:WorkflowViewState.IdRef="ForEach`1_9" Values="[MailmessagesIncoming]">
         <ui:ForEach.Body>
           <ActivityAction x:TypeArguments="snm:MailMessage">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="snm:MailMessage" Name="mail" />
             </ActivityAction.Argument>
-            <If Condition="[mail.Headers.Get(&quot;Message-ID&quot;) IsNot Nothing AndAlso mail.Headers(&quot;Message-ID&quot;).ToString.Trim().ToLower().Equals(in_TargetMessageId.Trim().ToLower())]" DisplayName="If matching Message-ID in incoming" sap:VirtualizedContainerService.HintSize="484,325" sap2010:WorkflowViewState.IdRef="If_8">
+            <If Condition="[mail.Headers.Get(&quot;Message-ID&quot;) IsNot Nothing AndAlso mail.Headers(&quot;Message-ID&quot;).ToString.Trim().ToLower().Equals(in_TargetMessageId.Trim().ToLower())]" DisplayName="If matching Message-ID in incoming" sap:VirtualizedContainerService.HintSize="484,323" sap2010:WorkflowViewState.IdRef="If_8">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -163,7 +164,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <InvokeMethod DisplayName="Invoke Method Add mail from incoming" sap:VirtualizedContainerService.HintSize="238,136" sap2010:WorkflowViewState.IdRef="InvokeMethod_8" MethodName="Add">
+                <InvokeMethod DisplayName="Invoke Method Add mail from incoming" sap:VirtualizedContainerService.HintSize="238,135" sap2010:WorkflowViewState.IdRef="InvokeMethod_8" MethodName="Add">
                   <InvokeMethod.TargetObject>
                     <InArgument x:TypeArguments="scg:List(snm:MailMessage)">[MatchingMailMessages]</InArgument>
                   </InvokeMethod.TargetObject>
@@ -175,7 +176,7 @@
         </ui:ForEach.Body>
       </ui:ForEach>
     </Sequence>
-    <Sequence DisplayName="Sequence folder processing" sap:VirtualizedContainerService.HintSize="568,817" sap2010:WorkflowViewState.IdRef="Sequence_16">
+    <Sequence DisplayName="Sequence folder processing" sap:VirtualizedContainerService.HintSize="568,814" sap2010:WorkflowViewState.IdRef="Sequence_16">
       <Sequence.Variables>
         <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="MailmessagesProcessing" />
         <Variable x:TypeArguments="ss:SecureString" Name="ImapPasswordProcessing" />
@@ -202,14 +203,14 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:GetIMAPMailMessages>
-      <ui:LogMessage DisplayName="Log Message TRACE ID, subject processing" sap:VirtualizedContainerService.HintSize="520,92" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Trace" Message="[If(MailmessagesProcessing IsNot Nothing AndAlso MailmessagesProcessing.Any(), String.Join(Environment.NewLine, MailmessagesProcessing.Select(Function(mail) String.Format(&quot;{0}, {1}&quot;, If(mail.Headers(&quot;Message-ID&quot;) IsNot Nothing AndAlso mail.Headers(&quot;Message-ID&quot;).ToString().Trim() &lt;&gt; &quot;&quot;, mail.Headers(&quot;Message-ID&quot;).ToString(), &quot;No Message-ID&quot;), If(mail.Subject IsNot Nothing AndAlso mail.Subject.Trim() &lt;&gt; &quot;&quot;, mail.Subject, &quot;No Subject&quot;))).ToArray()), String.Empty)]" />
-      <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each mail in MailmessagesProcessing" sap:VirtualizedContainerService.HintSize="520,451" sap2010:WorkflowViewState.IdRef="ForEach`1_10" Values="[MailmessagesProcessing]">
+      <ui:LogMessage DisplayName="Log Message TRACE ID, subject processing" sap:VirtualizedContainerService.HintSize="520,92" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Trace" Message="[&quot;Match in folder processing: &quot; &amp; If(MailmessagesProcessing IsNot Nothing AndAlso MailmessagesProcessing.Any(), String.Join(Environment.NewLine, MailmessagesProcessing.Select(Function(mail) String.Format(&quot;{0}, {1}&quot;, If(mail.Headers(&quot;Message-ID&quot;) IsNot Nothing AndAlso mail.Headers(&quot;Message-ID&quot;).ToString().Trim() &lt;&gt; &quot;&quot;, mail.Headers(&quot;Message-ID&quot;).ToString(), &quot;No Message-ID&quot;), If(mail.Subject IsNot Nothing AndAlso mail.Subject.Trim() &lt;&gt; &quot;&quot;, mail.Subject, &quot;No Subject&quot;))).ToArray()), String.Empty)]" />
+      <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each mail in MailmessagesProcessing" sap:VirtualizedContainerService.HintSize="520,448" sap2010:WorkflowViewState.IdRef="ForEach`1_10" Values="[MailmessagesProcessing]">
         <ui:ForEach.Body>
           <ActivityAction x:TypeArguments="snm:MailMessage">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="snm:MailMessage" Name="mail" />
             </ActivityAction.Argument>
-            <If Condition="[mail.Headers.Get(&quot;Message-ID&quot;) IsNot Nothing AndAlso mail.Headers(&quot;Message-ID&quot;).ToString.Trim().ToLower().Equals(in_TargetMessageId.Trim().ToLower())]" DisplayName="If matching Message-ID in processing" sap:VirtualizedContainerService.HintSize="484,325" sap2010:WorkflowViewState.IdRef="If_6">
+            <If Condition="[mail.Headers.Get(&quot;Message-ID&quot;) IsNot Nothing AndAlso mail.Headers(&quot;Message-ID&quot;).ToString.Trim().ToLower().Equals(in_TargetMessageId.Trim().ToLower())]" DisplayName="If matching Message-ID in processing" sap:VirtualizedContainerService.HintSize="484,323" sap2010:WorkflowViewState.IdRef="If_6">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -217,7 +218,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <InvokeMethod DisplayName="Invoke Method Add mail from processing" sap:VirtualizedContainerService.HintSize="238,136" sap2010:WorkflowViewState.IdRef="InvokeMethod_7" MethodName="Add">
+                <InvokeMethod DisplayName="Invoke Method Add mail from processing" sap:VirtualizedContainerService.HintSize="238,135" sap2010:WorkflowViewState.IdRef="InvokeMethod_7" MethodName="Add">
                   <InvokeMethod.TargetObject>
                     <InArgument x:TypeArguments="scg:List(snm:MailMessage)">[MatchingMailMessages]</InArgument>
                   </InvokeMethod.TargetObject>
@@ -229,7 +230,7 @@
         </ui:ForEach.Body>
       </ui:ForEach>
     </Sequence>
-    <Assign DisplayName="Assign out_Mailmessages" sap:VirtualizedContainerService.HintSize="568,82" sap2010:WorkflowViewState.IdRef="Assign_6">
+    <Assign DisplayName="Assign out_Mailmessages" sap:VirtualizedContainerService.HintSize="568,81" sap2010:WorkflowViewState.IdRef="Assign_6">
       <Assign.To>
         <OutArgument x:TypeArguments="scg:List(snm:MailMessage)">[out_Mailmessages]</OutArgument>
       </Assign.To>
@@ -237,7 +238,7 @@
         <InArgument x:TypeArguments="scg:List(snm:MailMessage)">[MatchingMailmessages]</InArgument>
       </Assign.Value>
     </Assign>
-    <If Condition="[MatchingMailmessages.Count &lt;&gt; 1]" DisplayName="If MatchingMailmessages.Count not 1" sap:VirtualizedContainerService.HintSize="568,281" sap2010:WorkflowViewState.IdRef="If_7">
+    <If Condition="[MatchingMailmessages.Count &lt;&gt; 1]" DisplayName="If MatchingMailmessages.Count not 1" sap:VirtualizedContainerService.HintSize="568,280" sap2010:WorkflowViewState.IdRef="If_7">
       <If.Then>
         <ui:LogMessage DisplayName="Log Message WARN count not 1" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Warn" Message="[&quot;MatchingMailmessages.Count is not 1&quot;]" />
       </If.Then>
