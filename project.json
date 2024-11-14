@@ -63,19 +63,27 @@
       },
       {
         "editingStatus": "InProgress",
-        "testCaseId": "552434cc-bf3e-4503-9980-e158870e2281",
-        "dataVariationFilePath": ".variations\\Unittests_Config.json",
-        "testCaseType": "TestCase",
-        "executionTemplateInvokeIsolated": false,
-        "fileName": "Tests\\Unit\\TestCase_InitAllSettings.xaml"
-      },
-      {
-        "editingStatus": "InProgress",
         "testCaseId": "7c8ca1f6-2952-4098-85f3-8c08eafbb321",
         "dataVariationFilePath": ".variations\\EndToEnd_generic.json",
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
         "fileName": "TestCase_Main.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "6863cb30-bce7-446d-a496-5b61cf95589a",
+        "dataVariationFilePath": ".variations\\Unittests_GenerateValidFilename.json",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\Unit\\Validation\\TestCase_GenerateValidFilenameFromText.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "552434cc-bf3e-4503-9980-e158870e2281",
+        "dataVariationFilePath": ".variations\\Unittests_Config.json",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\Unit\\Framework\\TestCase_InitAllSettings.xaml"
       }
     ],
     "modernBehavior": false,
