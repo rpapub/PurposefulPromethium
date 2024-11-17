@@ -84,6 +84,14 @@
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
         "fileName": "Tests\\Unit\\Framework\\TestCase_InitAllSettings.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "c9d12527-2334-47c1-b38e-5b283b2064f8",
+        "dataVariationFilePath": ".variations\\Unittests_ParseRPAChallengeMessage.json",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\Unit\\TestCase_ParseRPAChallengeMessage.xaml"
       }
     ],
     "modernBehavior": false,
