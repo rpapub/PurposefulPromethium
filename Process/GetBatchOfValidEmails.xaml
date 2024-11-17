@@ -1,11 +1,10 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Activity mc:Ignorable="sap sap2010" x:Class="GetBatchOfValidEmails" this:GetBatchOfValidEmails.in_MailProtocol="IMAP" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="GetBatchOfValidEmails" this:GetBatchOfValidEmails.in_MailProtocol="IMAP" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="in_MailProtocol" Type="InArgument(x:String)" />
     <x:Property Name="out_MailmessagesIncoming" Type="OutArgument(scg:List(snm:MailMessage))" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1253,4041</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1181,4157</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -81,7 +80,7 @@
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This workflow implements a dynamic batching mechanism to efficiently process incoming emails while avoiding unnecessary computations and potential infinite loops. Through a condition-based loop, the implemented code incrementally fetches emails in configurable batch sizes and gracefully exits when fewer emails are available than requested, signaling that the mailbox has been exhausted.&#xA;&#xA;Tested with Target_Batchsize of 10 and Mailbox_Batchsize of 2.&#xA;Developed against ValidateMaildata based on current second being even or odd." DisplayName="GetBatchOfValidEmails" sap:VirtualizedContainerService.HintSize="734,3976" sap2010:WorkflowViewState.IdRef="Sequence_21">
+  <Sequence sap2010:Annotation.AnnotationText="This workflow implements a dynamic batching mechanism to efficiently process incoming emails while avoiding unnecessary computations and potential infinite loops. Through a condition-based loop, the implemented code incrementally fetches emails in configurable batch sizes and gracefully exits when fewer emails are available than requested, signaling that the mailbox has been exhausted.&#xA;&#xA;Tested with Target_Batchsize of 10 and Mailbox_Batchsize of 2.&#xA;Developed against ValidateMaildata based on current second being even or odd." DisplayName="GetBatchOfValidEmails" sap:VirtualizedContainerService.HintSize="1077,4092" sap2010:WorkflowViewState.IdRef="Sequence_21">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Default="0" Name="currentValidCount" />
       <Variable x:TypeArguments="scg:List(snm:MailMessage)" Default="[New List(Of System.Net.Mail.MailMessage)]" Name="validEmails" />
@@ -95,10 +94,10 @@
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message INFO begin" sap:VirtualizedContainerService.HintSize="686,92" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[&quot;Going to build a list with up to in_Config(&quot;&quot;Target_Batchsize&quot;&quot;) mails&quot;]" />
-    <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Condition&#xA;currentValidCount &lt; in_Config(&quot;Target_Batchsize&quot;), defaulting to 10" Condition="[currentValidCount &lt; CInt(If(in_Config.ContainsKey(&quot;Target_Batchsize&quot;) AndAlso Integer.TryParse(in_Config(&quot;Target_Batchsize&quot;).ToString(), Nothing), CInt(in_Config(&quot;Target_Batchsize&quot;)), 10))]" DisplayName="Do While validEmails target count not reached" sap:VirtualizedContainerService.HintSize="686,3400" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_2">
+    <ui:LogMessage DisplayName="Log Message INFO begin" sap:VirtualizedContainerService.HintSize="1029,92" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[&quot;Going to build a list with up to in_Config(&quot;&quot;Target_Batchsize&quot;&quot;) mails&quot;]" />
+    <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Condition&#xA;currentValidCount &lt; in_Config(&quot;Target_Batchsize&quot;), defaulting to 10" DisplayName="Do While validEmails target count not reached" sap:VirtualizedContainerService.HintSize="1029,3531" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_2">
       <ui:InterruptibleDoWhile.Body>
-        <Sequence DisplayName="Sequence build list with valid emails" sap:VirtualizedContainerService.HintSize="650,3192" sap2010:WorkflowViewState.IdRef="Sequence_24">
+        <Sequence DisplayName="Sequence build list with valid emails" sap:VirtualizedContainerService.HintSize="993,3323" sap2010:WorkflowViewState.IdRef="Sequence_24">
           <Sequence.Variables>
             <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="batchedEmails" />
           </Sequence.Variables>
@@ -108,8 +107,8 @@
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Message validEmails.Count TRACE begin do while" sap:VirtualizedContainerService.HintSize="602,92" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Trace" Message="[&quot;At iteration: &quot; &amp; iteration.ToString &amp; &quot; validEmails.Count is: &quot; &amp; validEmails.Count.ToString]" />
-          <Assign sap2010:Annotation.AnnotationText="Because fetching IMAP MailMessages has no offset an increasing number of top N mails must be fetched each do while iteration" DisplayName="Assign fetchCount" sap:VirtualizedContainerService.HintSize="602,124" sap2010:WorkflowViewState.IdRef="Assign_11">
+          <ui:LogMessage DisplayName="Log Message validEmails.Count TRACE begin do while" sap:VirtualizedContainerService.HintSize="945,92" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Trace" Message="[&quot;At iteration: &quot; &amp; iteration.ToString &amp; &quot; validEmails.Count is: &quot; &amp; validEmails.Count.ToString]" />
+          <Assign sap2010:Annotation.AnnotationText="Because fetching IMAP MailMessages has no offset an increasing number of top N mails must be fetched each do while iteration" DisplayName="Assign fetchCount" sap:VirtualizedContainerService.HintSize="945,124" sap2010:WorkflowViewState.IdRef="Assign_11">
             <Assign.To>
               <OutArgument x:TypeArguments="x:Int32">[fetchCount]</OutArgument>
             </Assign.To>
@@ -122,7 +121,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </Assign>
-          <Assign sap2010:Annotation.AnnotationText="Already incrementing, takes effect next loop" DisplayName="Assign increment iteration" sap:VirtualizedContainerService.HintSize="602,113" sap2010:WorkflowViewState.IdRef="Assign_12">
+          <Assign sap2010:Annotation.AnnotationText="Already incrementing, takes effect next loop" DisplayName="Assign increment iteration" sap:VirtualizedContainerService.HintSize="945,113" sap2010:WorkflowViewState.IdRef="Assign_12">
             <Assign.To>
               <OutArgument x:TypeArguments="x:Int32">[iteration]</OutArgument>
             </Assign.To>
@@ -135,7 +134,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </Assign>
-          <Assign sap2010:Annotation.AnnotationText="Because in_Config(&quot;Mailbox_Batchsize&quot;) is otherwise fixed,&#xA;but passed into FetchIncomingMailMesssagesIMAP.xaml via the Config dictionary,&#xA;its value must be overwritten." DisplayName="Re-Assign in_Config(&quot;Mailbox_Batchsize&quot;)" sap:VirtualizedContainerService.HintSize="602,154" sap2010:WorkflowViewState.IdRef="Assign_13">
+          <Assign sap2010:Annotation.AnnotationText="Because in_Config(&quot;Mailbox_Batchsize&quot;) is otherwise fixed,&#xA;but passed into FetchIncomingMailMesssagesIMAP.xaml via the Config dictionary,&#xA;its value must be overwritten." DisplayName="Re-Assign in_Config(&quot;Mailbox_Batchsize&quot;)" sap:VirtualizedContainerService.HintSize="945,154" sap2010:WorkflowViewState.IdRef="Assign_13">
             <Assign.To>
               <OutArgument x:TypeArguments="x:Object">[in_Config("Mailbox_Batchsize")]</OutArgument>
             </Assign.To>
@@ -148,7 +147,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </Assign>
-          <Switch x:TypeArguments="x:String" DisplayName="Switch in_MailProtocol" Expression="[in_MailProtocol]" sap:VirtualizedContainerService.HintSize="602,339" sap2010:WorkflowViewState.IdRef="Switch`1_3">
+          <Switch x:TypeArguments="x:String" DisplayName="Switch in_MailProtocol" Expression="[in_MailProtocol]" sap:VirtualizedContainerService.HintSize="945,138" sap2010:WorkflowViewState.IdRef="Switch`1_3">
             <Switch.Default>
               <Throw DisplayName="Throw BRE 501" Exception="[New BusinessRuleException(&quot;Not Implemented&quot;)]" sap:VirtualizedContainerService.HintSize="200,25" sap2010:WorkflowViewState.IdRef="Throw_2" />
             </Switch.Default>
@@ -164,13 +163,13 @@
               </sap:WorkflowViewStateService.ViewState>
             </ui:InvokeWorkflowFile>
           </Switch>
-          <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each mail in batchedEmails" sap:VirtualizedContainerService.HintSize="602,1795" sap2010:WorkflowViewState.IdRef="ForEach`1_7" Values="[batchedEmails]">
+          <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each mail in batchedEmails" sap:VirtualizedContainerService.HintSize="945,2127" sap2010:WorkflowViewState.IdRef="ForEach`1_7" Values="[batchedEmails]">
             <ui:ForEach.Body>
               <ActivityAction x:TypeArguments="snm:MailMessage">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="snm:MailMessage" Name="mail" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Sequence looping individual mail" sap:VirtualizedContainerService.HintSize="566,1671" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                <Sequence DisplayName="Sequence looping individual mail" sap:VirtualizedContainerService.HintSize="566,2003" sap2010:WorkflowViewState.IdRef="Sequence_22">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:Boolean" Name="isValid" />
                     <Variable x:TypeArguments="x:String" Name="messageId" />
@@ -226,6 +225,19 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </Assign>
+                  <If Condition="[Not isValid]" DisplayName="If invalid handover2human" sap:VirtualizedContainerService.HintSize="518,300" sap2010:WorkflowViewState.IdRef="If_11">
+                    <If.Then>
+                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Process\IMAP\MoveSingleMailMessage.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Process\IMAP\MoveSingleMailMessage.xaml">
+                        <ui:InvokeWorkflowFile.Arguments>
+                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                          <InArgument x:TypeArguments="snm:MailMessage" x:Key="in_MailMessage">[mail]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_Strategy">ImapByMessageid</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_FromFolder">[in_Config("Mailbox_FolderIncoming").ToString]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_ToFolder">[in_Config("Mailbox_FolderHandover2Human").ToString]</InArgument>
+                        </ui:InvokeWorkflowFile.Arguments>
+                      </ui:InvokeWorkflowFile>
+                    </If.Then>
+                  </If>
                   <If sap2010:Annotation.AnnotationText="If the mail is valid and not a duplicate exists already&#xA;Then add mail to validEmails" Condition="[isValid And Not isDuplicate]" DisplayName="If mail isValid And Not isDuplicate" sap:VirtualizedContainerService.HintSize="518,573" sap2010:WorkflowViewState.IdRef="If_8">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -273,7 +285,7 @@
               </ActivityAction>
             </ui:ForEach.Body>
           </ui:ForEach>
-          <If sap2010:Annotation.AnnotationText="Check if fewer emails were fetched than requested, indicating no more emails are available" Condition="[batchedEmails.Count &lt; fetchCount]" DisplayName="If list of MailMessages lower than fetchCount" sap:VirtualizedContainerService.HintSize="602,289" sap2010:WorkflowViewState.IdRef="If_10">
+          <If sap2010:Annotation.AnnotationText="Check if fewer emails were fetched than requested, indicating no more emails are available" Condition="[batchedEmails.Count &lt; fetchCount]" DisplayName="If list of MailMessages lower than fetchCount" sap:VirtualizedContainerService.HintSize="945,289" sap2010:WorkflowViewState.IdRef="If_10">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -285,6 +297,9 @@
           </If>
         </Sequence>
       </ui:InterruptibleDoWhile.Body>
+      <ui:InterruptibleDoWhile.Condition>
+        <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="currentValidCount &lt; CInt(If(in_Config.ContainsKey(&quot;Target_Batchsize&quot;) AndAlso Integer.TryParse(in_Config(&quot;Target_Batchsize&quot;).ToString(), Nothing), CInt(in_Config(&quot;Target_Batchsize&quot;)), 10))" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
+      </ui:InterruptibleDoWhile.Condition>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -293,7 +308,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:InterruptibleDoWhile>
-    <Assign DisplayName="Assign to output out_MailmessagesIncoming" sap:VirtualizedContainerService.HintSize="686,82" sap2010:WorkflowViewState.IdRef="Assign_17">
+    <Assign DisplayName="Assign to output out_MailmessagesIncoming" sap:VirtualizedContainerService.HintSize="1029,82" sap2010:WorkflowViewState.IdRef="Assign_17">
       <Assign.To>
         <OutArgument x:TypeArguments="scg:List(snm:MailMessage)">[out_MailmessagesIncoming]</OutArgument>
       </Assign.To>
@@ -301,6 +316,6 @@
         <InArgument x:TypeArguments="scg:List(snm:MailMessage)">[validEmails]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:LogMessage DisplayName="Log Message TRACE end" sap:VirtualizedContainerService.HintSize="686,92" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Trace" Message="[&quot;Finished building a list with up to in_Config(&quot;&quot;Target_Batchsize&quot;&quot;) mails&quot;]" />
+    <ui:LogMessage DisplayName="Log Message TRACE end" sap:VirtualizedContainerService.HintSize="1029,92" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Trace" Message="[&quot;Finished building a list with up to in_Config(&quot;&quot;Target_Batchsize&quot;&quot;) mails&quot;]" />
   </Sequence>
 </Activity>

@@ -92,6 +92,14 @@
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
         "fileName": "Tests\\Unit\\TestCase_ParseRPAChallengeMessage.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "b65b408d-7413-4ed0-a46c-6f3d1f5ecf49",
+        "dataVariationFilePath": ".variations\\EndToEnd_MailboxAutomation.json",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\EndToEnd\\TestCase_MainEndToEnd.xaml"
       }
     ],
     "modernBehavior": false,

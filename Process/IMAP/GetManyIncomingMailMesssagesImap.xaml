@@ -3,7 +3,7 @@
     <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="out_MailmessagesIncoming" Type="OutArgument(scg:List(snm:MailMessage))" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>766,883</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>777,883</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -82,7 +82,7 @@
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Fetches in_Config(&quot;Mailbox_Batchsize&quot;) number of MailMessages and returns list of MailMessages&#xD;&#xA;&#xD;&#xA;Input&#xD;&#xA;- in_Config&#xD;&#xA;&#xD;&#xA;Output&#xD;&#xA;- out_MailmessagesIncoming List of Mailmessages" DisplayName="FetchIncomingMailMesssagesIMAP" sap:VirtualizedContainerService.HintSize="416,714" sap2010:WorkflowViewState.IdRef="Sequence_12">
+  <Sequence sap2010:Annotation.AnnotationText="Fetches in_Config(&quot;Mailbox_Batchsize&quot;) number of MailMessages and returns list of MailMessages&#xA;&#xA;Input&#xA;- in_Config&#xA;&#xA;Output&#xA;- out_MailmessagesIncoming List of Mailmessages" DisplayName="FetchIncomingMailMesssagesIMAP" sap:VirtualizedContainerService.HintSize="416,714" sap2010:WorkflowViewState.IdRef="Sequence_12">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="ImapUsernameIncoming" />
       <Variable x:TypeArguments="ss:SecureString" Name="ImapPasswordIncoming" />

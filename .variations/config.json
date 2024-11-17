@@ -13,15 +13,19 @@
       "dataVariationType": "File"
     },
     {
-      "filePath": ".variations\\EndToEnd_generic.json",
-      "dataVariationType": "File"
-    },
-    {
       "filePath": ".variations\\Unittests_GenerateValidFilename.json",
       "dataVariationType": "File"
     },
     {
       "filePath": ".variations\\Unittests_ParseRPAChallengeMessage.json",
+      "dataVariationType": "File"
+    },
+    {
+      "filePath": ".variations\\EndToEnd_generic.json",
+      "dataVariationType": "File"
+    },
+    {
+      "filePath": ".variations\\EndToEnd_MailboxAutomation.json",
       "dataVariationType": "File"
     }
   ]

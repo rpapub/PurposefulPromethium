@@ -3,8 +3,10 @@
     <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="in_MailMessage" Type="InArgument(snm:MailMessage)" />
     <x:Property Name="in_Strategy" Type="InArgument(x:String)" />
+    <x:Property Name="in_FromFolder" Type="InArgument(x:String)" />
+    <x:Property Name="in_ToFolder" Type="InArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1176,1060</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1118,708</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -86,14 +88,14 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="MoveSingleMailMessage" sap:VirtualizedContainerService.HintSize="545,644" sap2010:WorkflowViewState.IdRef="Sequence_8">
+  <Sequence DisplayName="MoveSingleMailMessage" sap:VirtualizedContainerService.HintSize="545,643" sap2010:WorkflowViewState.IdRef="Sequence_8">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message INFO begin" sap:VirtualizedContainerService.HintSize="497,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Going to move MailMessage&quot;]" />
-    <Switch x:TypeArguments="x:String" DisplayName="Switch in_Strategy" Expression="[in_Strategy]" sap:VirtualizedContainerService.HintSize="497,299" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+    <Switch x:TypeArguments="x:String" DisplayName="Switch in_Strategy" Expression="[in_Strategy]" sap:VirtualizedContainerService.HintSize="497,298" sap2010:WorkflowViewState.IdRef="Switch`1_2">
       <Switch.Default>
         <Throw DisplayName="Throw System.Exception not implemented" Exception="[New System.Exception(&quot;not implemented&quot;)]" sap:VirtualizedContainerService.HintSize="200,25" sap2010:WorkflowViewState.IdRef="Throw_1" />
       </Switch.Default>
@@ -104,6 +106,12 @@
           </InArgument>
           <InArgument x:TypeArguments="snm:MailMessage" x:Key="in_MailMessage">
             <mva:VisualBasicValue x:TypeArguments="snm:MailMessage" ExpressionText="in_MailMessage" />
+          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_FromFolder">
+            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_FromFolder" />
+          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_ToFolder">
+            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_ToFolder" />
           </InArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>

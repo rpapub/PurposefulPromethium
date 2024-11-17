@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1047,3161</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1118,3161</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -128,21 +128,11 @@
       <ui:LogMessage DisplayName="Log Message INFO begin input" sap:VirtualizedContainerService.HintSize="402,92" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;Going to collect data&quot;]" />
       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="With the strategy &quot;IMAP by Mailmessage Message-ID a single mail is fetched for subsequent processing" DisplayName="Process\IMAP\FetchSingleMailMessage.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="402,155" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Process\IMAP\GetSingleMailMessage.xaml">
         <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">
-            <mva:VisualBasicValue x:TypeArguments="ui:QueueItem" ExpressionText="in_TransactionItem" />
-          </InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-            <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-          </InArgument>
-          <OutArgument x:TypeArguments="snm:MailMessage" x:Key="out_MailMessage">
-            <mva:VisualBasicReference x:TypeArguments="snm:MailMessage" ExpressionText="MailMessage" />
-          </OutArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="in_Strategy">
-            <Literal x:TypeArguments="x:String">ImapByMessageid</Literal>
-          </InArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="in_Needle">
-            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TransactionItem.SpecificContent(&quot;MailMessage_MessageId&quot;).ToString" />
-          </InArgument>
+          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
+          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+          <OutArgument x:TypeArguments="snm:MailMessage" x:Key="out_MailMessage">[MailMessage]</OutArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_Strategy">ImapByMessageid</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_Needle">[in_TransactionItem.SpecificContent("MailMessage_MessageId").ToString]</InArgument>
         </ui:InvokeWorkflowFile.Arguments>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -165,12 +155,8 @@
       <ui:LogMessage DisplayName="Log Message INFO begin processing" sap:VirtualizedContainerService.HintSize="482,92" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Going to analyze and transform the data&quot;]" />
       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Process\DetermineEmailFormat.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="482,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Process\DetermineEmailFormat.xaml">
         <ui:InvokeWorkflowFile.Arguments>
-          <InOutArgument x:TypeArguments="ui:QueueItem" x:Key="io_TransactionItem">
-            <mva:VisualBasicReference x:TypeArguments="ui:QueueItem" ExpressionText="in_TransactionItem" />
-          </InOutArgument>
-          <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_Config">
-            <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-          </InOutArgument>
+          <InOutArgument x:TypeArguments="ui:QueueItem" x:Key="io_TransactionItem">[in_TransactionItem]</InOutArgument>
+          <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_Config">[in_Config]</InOutArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
       <Assign sap2010:Annotation.AnnotationText="needs to be casted into local variable as directlz casting in foreach activity does not work" DisplayName="Assign cast parseKeyValuePairs from Object" sap:VirtualizedContainerService.HintSize="482,124" sap2010:WorkflowViewState.IdRef="Assign_6">
@@ -275,25 +261,15 @@
       </sap:WorkflowViewStateService.ViewState>
       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Process\Browser\rpachallengedotcom\AutomateWebapp.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="402,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="Process\Browser\rpachallengedotcom\AutomateWebapp.xaml">
         <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">
-            <mva:VisualBasicValue x:TypeArguments="ui:QueueItem" ExpressionText="in_TransactionItem" />
-          </InArgument>
-          <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_Config">
-            <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-          </InOutArgument>
+          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
+          <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_Config">[in_Config]</InOutArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Process\FTP\UploadFile.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="402,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="Process\FTP\UploadFile.xaml">
         <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-            <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-          </InArgument>
-          <InArgument x:TypeArguments="si:FileInfo" x:Key="in_FileFileinfo">
-            <mva:VisualBasicValue x:TypeArguments="si:FileInfo" ExpressionText="Zipfile" />
-          </InArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="in_Strategy">
-            <Literal x:TypeArguments="x:String">Anonymously</Literal>
-          </InArgument>
+          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+          <InArgument x:TypeArguments="si:FileInfo" x:Key="in_FileFileinfo">[Zipfile]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_Strategy">Anonymously</InArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Process\IMAP\MoveSingleMailMessage.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="402,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="Process\IMAP\MoveSingleMailMessage.xaml">
@@ -306,6 +282,12 @@
           </InArgument>
           <InArgument x:TypeArguments="x:String" x:Key="in_Strategy">
             <Literal x:TypeArguments="x:String">ImapByMessageid</Literal>
+          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_FromFolder">
+            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;Mailbox_FolderIncoming&quot;).ToString" />
+          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_ToFolder">
+            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;Mailbox_FolderSuccessful&quot;).ToString" />
           </InArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
