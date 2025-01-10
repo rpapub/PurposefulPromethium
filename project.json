@@ -5,8 +5,8 @@
   "main": "Main.xaml",
   "dependencies": {
     "UiPath.Excel.Activities": "[2.24.3]",
-    "UiPath.FTP.Activities": "[1.0.7495.12930]",
-    "UiPath.Mail.Activities": "[1.24.0]",
+    "UiPath.FTP.Activities": "[2.2.0]",
+    "UiPath.Mail.Activities": "[1.24.11]",
     "UiPath.System.Activities": "24.3.1",
     "UiPath.Testing.Activities": "[24.10.3]",
     "UiPath.UIAutomation.Activities": "24.10.7"
@@ -117,5 +117,5 @@
   "isTemplate": false,
   "templateProjectData": {},
   "publishData": {},
-  "targetFramework": "Legacy"
+  "targetFramework": "Windows"
 }
