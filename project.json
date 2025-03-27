@@ -1,21 +1,21 @@
 {
   "name": "PurposefulPromethium",
-  "projectId": "2f531cf3-5636-46ff-85ca-34933e67715b",
+  "projectId": "acea88ab-54b0-4d71-9f46-bad602c7eddd",
   "description": "This UiPath project demonstrates reading structured data from an email inbox, parsing the content, and automating data entry on rpachallenge.com. Designed as a tutorial basis, it showcases legacy coding practices and lacks modern configurability.",
   "main": "Main.xaml",
   "dependencies": {
     "UiPath.Excel.Activities": "[2.24.3]",
     "UiPath.FTP.Activities": "[1.0.7495.12930]",
     "UiPath.Mail.Activities": "[1.24.0]",
-    "UiPath.System.Activities": "24.3.1",
+    "UiPath.System.Activities.Runtime": "24.3.1",
     "UiPath.Testing.Activities": "[24.10.3]",
-    "UiPath.UIAutomation.Activities": "24.10.7"
+    "UiPath.UIAutomation.Activities.Runtime": "24.10.7"
   },
   "webServices": [],
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "24.10.5.0",
-  "projectVersion": "3.0.0",
+  "projectVersion": "4.0.0",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
@@ -46,71 +46,82 @@
     },
     "fileInfoCollection": [
       {
-        "editingStatus": "InProgress",
-        "testCaseId": "486c7648-99d8-46a3-a41b-359dff75f6ba",
-        "dataVariationFilePath": ".variations\\Unittests_OpenBrowser.json",
-        "testCaseType": "TestCase",
-        "executionTemplateInvokeIsolated": false,
-        "fileName": "Tests\\Unit\\GUI\\TestCase_OpenBrowser.xaml"
-      },
-      {
-        "editingStatus": "InProgress",
-        "testCaseId": "211f3b74-4301-4c17-8884-856e761ec41c",
-        "dataVariationFilePath": ".variations\\Unittests_VerifyImapConn.json",
-        "testCaseType": "TestCase",
-        "executionTemplateInvokeIsolated": false,
-        "fileName": "Tests\\Unit\\IMAP\\TestCase_VerifyImapConnection.xaml"
-      },
-      {
-        "editingStatus": "InProgress",
-        "testCaseId": "7c8ca1f6-2952-4098-85f3-8c08eafbb321",
+        "editingStatus": "Publishable",
+        "testCaseId": "22850563-d2db-445e-89bd-2f36d4ab74b4",
         "dataVariationFilePath": ".variations\\EndToEnd_generic.json",
         "testCaseType": "TestCase",
-        "executionTemplateInvokeIsolated": false,
         "fileName": "TestCase_Main.xaml"
       },
       {
-        "editingStatus": "InProgress",
-        "testCaseId": "6863cb30-bce7-446d-a496-5b61cf95589a",
-        "dataVariationFilePath": ".variations\\Unittests_GenerateValidFilename.json",
+        "editingStatus": "Publishable",
+        "testCaseId": "3635dda6-c17f-4296-ae0f-ccbf42104893",
+        "dataVariationFilePath": ".variations\\EndToEnd_MailboxAutomation.json",
         "testCaseType": "TestCase",
-        "executionTemplateInvokeIsolated": false,
-        "fileName": "Tests\\Unit\\Validation\\TestCase_GenerateValidFilenameFromText.xaml"
+        "fileName": "Tests\\EndToEnd\\TestCase_MainEndToEnd.xaml"
       },
       {
-        "editingStatus": "InProgress",
-        "testCaseId": "552434cc-bf3e-4503-9980-e158870e2281",
+        "editingStatus": "Publishable",
+        "testCaseId": "96f1baae-c68c-400f-ba63-1cc75ff11286",
         "dataVariationFilePath": ".variations\\Unittests_Config.json",
         "testCaseType": "TestCase",
-        "executionTemplateInvokeIsolated": false,
         "fileName": "Tests\\Unit\\Framework\\TestCase_InitAllSettings.xaml"
       },
       {
-        "editingStatus": "InProgress",
-        "testCaseId": "c9d12527-2334-47c1-b38e-5b283b2064f8",
-        "dataVariationFilePath": ".variations\\Unittests_ParseRPAChallengeMessage.json",
+        "editingStatus": "Publishable",
+        "testCaseId": "162d200d-69f4-47e6-8634-2e497106aae0",
+        "dataVariationFilePath": ".variations\\Unittests_OpenBrowser.json",
         "testCaseType": "TestCase",
-        "executionTemplateInvokeIsolated": false,
-        "fileName": "Tests\\Unit\\TestCase_ParseRPAChallengeMessage.xaml"
+        "fileName": "Tests\\Unit\\GUI\\TestCase_OpenBrowser.xaml"
       },
       {
-        "editingStatus": "InProgress",
-        "testCaseId": "b65b408d-7413-4ed0-a46c-6f3d1f5ecf49",
-        "dataVariationFilePath": ".variations\\EndToEnd_MailboxAutomation.json",
+        "editingStatus": "Publishable",
+        "testCaseId": "cd066fa3-722c-4ef3-9938-0d93112311f3",
+        "dataVariationFilePath": ".variations\\Unittests_VerifyImapConn.json",
         "testCaseType": "TestCase",
-        "executionTemplateInvokeIsolated": false,
-        "fileName": "Tests\\EndToEnd\\TestCase_MainEndToEnd.xaml"
+        "fileName": "Tests\\Unit\\IMAP\\TestCase_VerifyImapConnection.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "696a8140-6580-42c9-b06f-78e33473352f",
+        "dataVariationFilePath": ".variations\\Unittests_GenerateValidFilename.json",
+        "testCaseType": "TestCase",
+        "fileName": "Tests\\Unit\\Validation\\TestCase_GenerateValidFilenameFromText.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "0df86103-aab3-42dc-8fcc-20f3a8970ff9",
+        "dataVariationFilePath": ".variations\\Unittests_ParseRPAChallengeMessage.json",
+        "testCaseType": "TestCase",
+        "fileName": "Tests\\Unit\\TestCase_ParseRPAChallengeMessage.xaml"
       }
     ],
     "modernBehavior": false,
     "saveToCloud": false
+  },
+  "arguments": {
+    "input": [
+      {
+        "name": "in_ConfigFile",
+        "type": "System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+        "required": false,
+        "hasDefault": true
+      }
+    ],
+    "output": []
   },
   "expressionLanguage": "VisualBasic",
   "entryPoints": [
     {
       "filePath": "Main.xaml",
       "uniqueId": "ff64a574-11bf-4c3f-b836-a76d412becc2",
-      "input": [],
+      "input": [
+        {
+          "name": "in_ConfigFile",
+          "type": "System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+          "required": false,
+          "hasDefault": true
+        }
+      ],
       "output": []
     }
   ],

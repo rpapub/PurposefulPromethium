@@ -1,11 +1,11 @@
 {
   "dataVariationFileInfo": [
     {
-      "filePath": ".variations\\Unittests_OpenBrowser.json",
+      "filePath": ".variations\\EndToEnd_MailboxAutomation.json",
       "dataVariationType": "File"
     },
     {
-      "filePath": ".variations\\Unittests_VerifyImapConn.json",
+      "filePath": ".variations\\EndToEnd_generic.json",
       "dataVariationType": "File"
     },
     {
@@ -17,15 +17,15 @@
       "dataVariationType": "File"
     },
     {
+      "filePath": ".variations\\Unittests_OpenBrowser.json",
+      "dataVariationType": "File"
+    },
+    {
       "filePath": ".variations\\Unittests_ParseRPAChallengeMessage.json",
       "dataVariationType": "File"
     },
     {
-      "filePath": ".variations\\EndToEnd_generic.json",
-      "dataVariationType": "File"
-    },
-    {
-      "filePath": ".variations\\EndToEnd_MailboxAutomation.json",
+      "filePath": ".variations\\Unittests_VerifyImapConn.json",
       "dataVariationType": "File"
     }
   ]
