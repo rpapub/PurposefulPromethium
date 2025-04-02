@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="AutomateWebapp" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="AutomateWebapp" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
     <x:Property Name="io_Config" Type="InOutArgument(scg:Dictionary(x:String, x:Object))" />
@@ -51,50 +51,49 @@
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
     <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
-      <AssemblyReference>Microsoft.VisualStudio.Services.Common</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
       <AssemblyReference>PresentationCore</AssemblyReference>
       <AssemblyReference>PresentationFramework</AssemblyReference>
       <AssemblyReference>System</AssemblyReference>
       <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
       <AssemblyReference>System.Core</AssemblyReference>
       <AssemblyReference>System.Data</AssemblyReference>
       <AssemblyReference>System.Drawing</AssemblyReference>
       <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
       <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.Xaml</AssemblyReference>
       <AssemblyReference>System.Xml</AssemblyReference>
       <AssemblyReference>System.Xml.Linq</AssemblyReference>
-      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
-      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
-      <AssemblyReference>WindowsBase</AssemblyReference>
-      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
-      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
-      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
-      <AssemblyReference>System.Memory</AssemblyReference>
-      <AssemblyReference>System.ValueTuple</AssemblyReference>
-      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
-      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
-      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
-      <AssemblyReference>System.Linq.Async</AssemblyReference>
-      <AssemblyReference>UiPath.Platform</AssemblyReference>
-      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.FTP</AssemblyReference>
+      <AssemblyReference>UiPath.FTP.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
-      <AssemblyReference>UiPath.FTP</AssemblyReference>
-      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
-      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
-      <AssemblyReference>UiPath.FTP.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
-      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:Annotation.AnnotationText="Steps&#xA;- conditionally start challenge&#xA;- enter&#xA;- todo evaluate result" DisplayName="AutomateWebapp" sap:VirtualizedContainerService.HintSize="648,4562" sap2010:WorkflowViewState.IdRef="Sequence_19">
@@ -108,7 +107,7 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message INFO begin" sap:VirtualizedContainerService.HintSize="600,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Going to automate the webapp rpachallenge.com&quot;]" />
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" ConnectionId="{x:Null}" ContinueOnError="{x:Null}" DisplayName="rpachallenge.com homepage start challenge" sap:VirtualizedContainerService.HintSize="600,941" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InUiElement="{x:Null}" InteractionMode="DebuggerApi" IsIncognito="{x:Null}" OpenMode="IfNotOpen" OutUiElement="{x:Null}" ScopeGuid="733aa735-0d04-43f8-adef-19dbb79ede86" Timeout="{x:Null}" UserDataFolderMode="{x:Null}" UserDataFolderPath="{x:Null}" Version="V2" WebDriverMode="{x:Null}" WindowResize="Maximize">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="rpachallenge.com homepage start challenge" sap:VirtualizedContainerService.HintSize="600,941" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="733aa735-0d04-43f8-adef-19dbb79ede86" Version="V2" WindowResize="Maximize">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -134,7 +133,7 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <uix:NClick ActivateBefore="True" AlterIfDisabled="{x:Null}" ClickType="Single" ContinueOnError="{x:Null}" CursorMotionType="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Click 'Start'" sap:VirtualizedContainerService.HintSize="434,194" sap2010:WorkflowViewState.IdRef="NClick_1" InScope="{x:Null}" InUiElement="{x:Null}" KeyModifiers="None" MouseButton="Left" OutUiElement="{x:Null}" ScopeIdentifier="733aa735-0d04-43f8-adef-19dbb79ede86" Timeout="{x:Null}" Version="V4">
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Start'" sap:VirtualizedContainerService.HintSize="434,194" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="733aa735-0d04-43f8-adef-19dbb79ede86" Version="V4">
                     <uix:NClick.Target>
                       <uix:TargetAnchorable BrowserURL="rpachallenge.com" CVScreenId="dd6f6d18-c114-4acc-9381-fade38a9b9ad" ContentHash="IgrFziWEC0KYQLJcBiIMFw" DesignTimeRectangle="19, 425, 183, 54" DesignTimeScaleFactor="1" ElementType="Button" FullSelectorArgument="&lt;webctrl tag='DIV' class='*instructions*' /&gt;&lt;webctrl tag='BUTTON' aaname='Start' /&gt;" Guid="a91065c1-d0a0-46a8-b324-c04153aea141" InformativeScreenshot="431992043b4cf237f2e7f06dd4b9c446.png" Reference="V_ng50nGIEKpXzDH5qCdTg/RPkIC6CFsEu2klWYbTjahg" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Rpa Challenge' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
                     </uix:NClick.Target>
@@ -178,7 +177,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </uix:NApplicationCard>
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" ConnectionId="{x:Null}" ContinueOnError="{x:Null}" DisplayName="rpachallenge.com homepage enter data" sap:VirtualizedContainerService.HintSize="600,799" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InUiElement="{x:Null}" InteractionMode="DebuggerApi" IsIncognito="{x:Null}" OpenMode="IfNotOpen" OutUiElement="{x:Null}" ScopeGuid="733aa735-0d04-43f8-adef-19dbb79ede86" Timeout="{x:Null}" UserDataFolderMode="{x:Null}" UserDataFolderPath="{x:Null}" Version="V2" WebDriverMode="{x:Null}" WindowResize="Maximize">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="rpachallenge.com homepage enter data" sap:VirtualizedContainerService.HintSize="600,799" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="733aa735-0d04-43f8-adef-19dbb79ede86" Version="V2" WindowResize="Maximize">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -192,7 +191,7 @@
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NTypeInto ActivateBefore="True" AlterIfDisabled="{x:Null}" ClickBeforeMode="Single" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DeselectAfter="{x:Null}" DisplayName="Type Into 'FirstName'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="368,25" sap2010:WorkflowViewState.IdRef="NTypeInto_8" InScope="{x:Null}" InUiElement="{x:Null}" OutUiElement="{x:Null}" ScopeIdentifier="733aa735-0d04-43f8-adef-19dbb79ede86" SecureText="{x:Null}" Text="[in_TransactionItem.SpecificContent(&quot;firstName&quot;).ToString]" Timeout="{x:Null}" Version="V4">
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'FirstName'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="368,25" sap2010:WorkflowViewState.IdRef="NTypeInto_8" ScopeIdentifier="733aa735-0d04-43f8-adef-19dbb79ede86" Text="[in_TransactionItem.SpecificContent(&quot;firstName&quot;).ToString]" Version="V4">
               <uix:NTypeInto.Target>
                 <uix:TargetAnchorable BrowserURL="rpachallenge.com" ContentHash="RFiC5LhXlkO-bY3cStAQyA" DesignTimeRectangle="472, 305, 129, 43" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl tag='DIV' innertext='First Name' /&gt;&lt;webctrl tag='INPUT' /&gt;" Guid="9b4c3456-950b-4822-9cca-e2f41a1a7dfe" InformativeScreenshot="04245499f706c0222b9dda978bdd027e.png" Reference="V_ng50nGIEKpXzDH5qCdTg/KL3mOUYmb0a-dmHmrDVwDQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Rpa Challenge' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
               </uix:NTypeInto.Target>
@@ -213,7 +212,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </uix:NTypeInto>
-            <uix:NTypeInto ActivateBefore="True" AlterIfDisabled="{x:Null}" ClickBeforeMode="Single" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DeselectAfter="{x:Null}" DisplayName="Type Into 'LastName'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="368,25" sap2010:WorkflowViewState.IdRef="NTypeInto_10" InScope="{x:Null}" InUiElement="{x:Null}" OutUiElement="{x:Null}" ScopeIdentifier="733aa735-0d04-43f8-adef-19dbb79ede86" SecureText="{x:Null}" Text="[in_TransactionItem.SpecificContent(&quot;lastName&quot;).ToString]" Timeout="{x:Null}" Version="V4">
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'LastName'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="368,25" sap2010:WorkflowViewState.IdRef="NTypeInto_10" ScopeIdentifier="733aa735-0d04-43f8-adef-19dbb79ede86" Text="[in_TransactionItem.SpecificContent(&quot;lastName&quot;).ToString]" Version="V4">
               <uix:NTypeInto.Target>
                 <uix:TargetAnchorable BrowserURL="rpachallenge.com" ContentHash="-1mlSfrFxEqdXuhjxXWYkg" DesignTimeRectangle="323, 389, 128, 43" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl tag='DIV' innertext='Last Name' /&gt;&lt;webctrl tag='INPUT' /&gt;" Guid="f0005af4-3371-46ad-9da5-fd61d6107eb9" InformativeScreenshot="51d4d6513883dbcd43f9bc268f674b38.png" Reference="V_ng50nGIEKpXzDH5qCdTg/CuCrI2yecEW3qNgMPZIPHQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Rpa Challenge' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
               </uix:NTypeInto.Target>
@@ -234,7 +233,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </uix:NTypeInto>
-            <uix:NTypeInto ActivateBefore="True" AlterIfDisabled="{x:Null}" ClickBeforeMode="Single" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DeselectAfter="{x:Null}" DisplayName="Type Into 'Email'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="368,25" sap2010:WorkflowViewState.IdRef="NTypeInto_11" InScope="{x:Null}" InUiElement="{x:Null}" OutUiElement="{x:Null}" ScopeIdentifier="733aa735-0d04-43f8-adef-19dbb79ede86" SecureText="{x:Null}" Text="[in_TransactionItem.SpecificContent(&quot;email&quot;).ToString]" Timeout="{x:Null}" Version="V4">
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Email'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="368,25" sap2010:WorkflowViewState.IdRef="NTypeInto_11" ScopeIdentifier="733aa735-0d04-43f8-adef-19dbb79ede86" Text="[in_TransactionItem.SpecificContent(&quot;email&quot;).ToString]" Version="V4">
               <uix:NTypeInto.Target>
                 <uix:TargetAnchorable BrowserURL="rpachallenge.com" ContentHash="VRXa1othgkWB_20nHGg72w" DesignTimeRectangle="323, 305, 128, 43" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl tag='DIV' innertext='Email' /&gt;&lt;webctrl tag='INPUT' /&gt;" Guid="2240a251-3b22-462f-bcfe-98df29dc5b70" InformativeScreenshot="5001ddc8054bb01cde632c7a51ae4dae.png" Reference="V_ng50nGIEKpXzDH5qCdTg/BU-aUSkn-kKzwHUusdk6Ow" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Rpa Challenge' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
               </uix:NTypeInto.Target>
@@ -255,7 +254,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </uix:NTypeInto>
-            <uix:NTypeInto ActivateBefore="True" AlterIfDisabled="{x:Null}" ClickBeforeMode="Single" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DeselectAfter="{x:Null}" DisplayName="Type Into 'CompanyName'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="368,25" sap2010:WorkflowViewState.IdRef="NTypeInto_12" InScope="{x:Null}" InUiElement="{x:Null}" OutUiElement="{x:Null}" SecureText="{x:Null}" Text="[in_TransactionItem.SpecificContent(&quot;company&quot;).ToString]" Timeout="{x:Null}" Version="V4">
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'CompanyName'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="368,25" sap2010:WorkflowViewState.IdRef="NTypeInto_12" Text="[in_TransactionItem.SpecificContent(&quot;company&quot;).ToString]" Version="V4">
               <uix:NTypeInto.Target>
                 <uix:TargetAnchorable BrowserURL="rpachallenge.com" ContentHash="4yhEqB-I3U6C82gPRxlXyQ" DesignTimeRectangle="472, 221, 129, 43" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl tag='DIV' innertext='Company Name' /&gt;&lt;webctrl tag='INPUT' /&gt;" Guid="60f8e533-df3a-4c49-aaee-0c49e132d1a1" ImageBase64="" InformativeScreenshot="5967559516f3416bbb133753f426f04f.png" Reference="V_ng50nGIEKpXzDH5qCdTg/KhjQM8C540CLBRbpUfOA7A" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Rpa Challenge' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
               </uix:NTypeInto.Target>
@@ -276,7 +275,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </uix:NTypeInto>
-            <uix:NTypeInto ActivateBefore="True" AlterIfDisabled="{x:Null}" ClickBeforeMode="Single" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DeselectAfter="{x:Null}" DisplayName="Type Into 'RoleInCompany'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="368,25" sap2010:WorkflowViewState.IdRef="NTypeInto_13" InScope="{x:Null}" InUiElement="{x:Null}" OutUiElement="{x:Null}" SecureText="{x:Null}" Text="[in_TransactionItem.SpecificContent(&quot;role&quot;).ToString]" Timeout="{x:Null}" Version="V4">
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'RoleInCompany'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="368,25" sap2010:WorkflowViewState.IdRef="NTypeInto_13" Text="[in_TransactionItem.SpecificContent(&quot;role&quot;).ToString]" Version="V4">
               <uix:NTypeInto.Target>
                 <uix:TargetAnchorable BrowserURL="rpachallenge.com" ContentHash="PzRJnMvOeEuYjE8qJhiKcA" DesignTimeRectangle="323, 221, 128, 43" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl tag='DIV' innertext='Role in Company' /&gt;&lt;webctrl tag='INPUT' /&gt;" Guid="1422a519-23c2-45b2-b83a-4d1f7803df6e" InformativeScreenshot="5f7779c957a5bc0374d9cdb8b702e77f.png" Reference="V_ng50nGIEKpXzDH5qCdTg/tA6mS-aZjkaeo5WypaRiig" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Rpa Challenge' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
               </uix:NTypeInto.Target>
@@ -297,7 +296,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </uix:NTypeInto>
-            <uix:NTypeInto ActivateBefore="True" AlterIfDisabled="{x:Null}" ClickBeforeMode="Single" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DeselectAfter="{x:Null}" DisplayName="Type Into 'Address'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="368,25" sap2010:WorkflowViewState.IdRef="NTypeInto_14" InScope="{x:Null}" InUiElement="{x:Null}" OutUiElement="{x:Null}" SecureText="{x:Null}" Text="[in_TransactionItem.SpecificContent(&quot;address&quot;).ToString]" Timeout="{x:Null}" Version="V4">
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Address'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="368,25" sap2010:WorkflowViewState.IdRef="NTypeInto_14" Text="[in_TransactionItem.SpecificContent(&quot;address&quot;).ToString]" Version="V4">
               <uix:NTypeInto.Target>
                 <uix:TargetAnchorable BrowserURL="rpachallenge.com" ContentHash="uakdAOvwM0ywB2xj0kj-RA" DesignTimeRectangle="323, 426, 128, 43" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl tag='DIV' innertext='Address' /&gt;&lt;webctrl tag='INPUT' /&gt;" Guid="74934ae9-c50a-406b-8b97-eabeaf2f7fe2" InformativeScreenshot="7497dbc2ee1b68569f39d4c634ad2d0d.png" Reference="V_ng50nGIEKpXzDH5qCdTg/WE_GES5PDUGpbLABQ1p-JQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Rpa Challenge' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
               </uix:NTypeInto.Target>
@@ -318,7 +317,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </uix:NTypeInto>
-            <uix:NTypeInto ActivateBefore="True" AlterIfDisabled="{x:Null}" ClickBeforeMode="Single" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DeselectAfter="{x:Null}" DisplayName="Type Into 'PhoneNumber'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="368,25" sap2010:WorkflowViewState.IdRef="NTypeInto_15" InScope="{x:Null}" InUiElement="{x:Null}" OutUiElement="{x:Null}" SecureText="{x:Null}" Text="[in_TransactionItem.SpecificContent(&quot;phone&quot;).ToString]" Timeout="{x:Null}" Version="V4">
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'PhoneNumber'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="368,25" sap2010:WorkflowViewState.IdRef="NTypeInto_15" Text="[in_TransactionItem.SpecificContent(&quot;phone&quot;).ToString]" Version="V4">
               <uix:NTypeInto.Target>
                 <uix:TargetAnchorable BrowserURL="rpachallenge.com" ContentHash="HAj7yuPxXkSg3-PmJzIwKA" DesignTimeRectangle="472, 389, 129, 43" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl tag='DIV' innertext='Phone Number' /&gt;&lt;webctrl tag='INPUT' /&gt;" Guid="a770342a-03b6-4f2c-9bd9-684421cb2006" InformativeScreenshot="414ece0b9c7b2e96242b137b485f6bb7.png" Reference="V_ng50nGIEKpXzDH5qCdTg/Qx-djRn6WUK80PZA8Smt_w" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Rpa Challenge' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
               </uix:NTypeInto.Target>
@@ -352,7 +351,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </uix:NApplicationCard>
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" ConnectionId="{x:Null}" ContinueOnError="{x:Null}" DisplayName="rpachallenge.com homepage submit" sap:VirtualizedContainerService.HintSize="600,1265" sap2010:WorkflowViewState.IdRef="NApplicationCard_4" InUiElement="{x:Null}" InteractionMode="DebuggerApi" IsIncognito="{x:Null}" OpenMode="IfNotOpen" OutUiElement="{x:Null}" ScopeGuid="733aa735-0d04-43f8-adef-19dbb79ede86" Timeout="{x:Null}" UserDataFolderMode="{x:Null}" UserDataFolderPath="{x:Null}" Version="V2" WebDriverMode="{x:Null}" WindowResize="Maximize">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="rpachallenge.com homepage submit" sap:VirtualizedContainerService.HintSize="600,1265" sap2010:WorkflowViewState.IdRef="NApplicationCard_4" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="733aa735-0d04-43f8-adef-19dbb79ede86" Version="V2" WindowResize="Maximize">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -366,14 +365,14 @@
             </sap:WorkflowViewStateService.ViewState>
             <If Condition="[CBool(io_Config(&quot;WebApp_ChallengeStarted&quot;))]" DisplayName="If challenge running" sap:VirtualizedContainerService.HintSize="484,346" sap2010:WorkflowViewState.IdRef="If_9">
               <If.Then>
-                <uix:NGetText ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="always Get Text 'ChallengeStatusButton' prior to submitting form" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NGetText_6" InScope="{x:Null}" InUiElement="{x:Null}" OutUiElement="{x:Null}" ScopeIdentifier="733aa735-0d04-43f8-adef-19dbb79ede86" ScrapingOptions="{x:Null}" TextString="[ChallengeStatusButton]" Timeout="{x:Null}" Version="V4" WordsInfo="{x:Null}">
+                <uix:NGetText DisplayName="always Get Text 'ChallengeStatusButton' prior to submitting form" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NGetText_6" ScopeIdentifier="733aa735-0d04-43f8-adef-19dbb79ede86" TextString="[ChallengeStatusButton]" Version="V4">
                   <uix:NGetText.Target>
                     <uix:TargetAnchorable BrowserURL="rpachallenge.com" CVScreenId="d32e3cdf-226e-47ff-8154-8be95e6b1755" ContentHash="SEadSsn9HUKAigKybbOpDQ" DesignTimeRectangle="19, 823, 454, 54" DesignTimeScaleFactor="1" ElementType="Button" FullSelectorArgument="&lt;webctrl tag='DIV' class='*instructions*' /&gt;&lt;webctrl tag='BUTTON' innertext='(Round.*|Start|Reset)' matching:innertext='regex' /&gt;" Guid="745280c5-b3a3-4fa5-bc71-fa56a50f336e" ImageBase64="" InformativeScreenshot="7129fb6a8e2118442a96bdd8ddca0523.png" Reference="V_ng50nGIEKpXzDH5qCdTg/QFIG1vGrS06N4XpftarX1w" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Rpa Challenge' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
                   </uix:NGetText.Target>
                 </uix:NGetText>
               </If.Then>
             </If>
-            <uix:NClick ActivateBefore="True" AlterIfDisabled="{x:Null}" ClickType="Single" ContinueOnError="{x:Null}" CursorMotionType="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Click 'Submit'" sap:VirtualizedContainerService.HintSize="484,194" sap2010:WorkflowViewState.IdRef="NClick_3" InScope="{x:Null}" InUiElement="{x:Null}" KeyModifiers="None" MouseButton="Left" OutUiElement="{x:Null}" ScopeIdentifier="733aa735-0d04-43f8-adef-19dbb79ede86" Timeout="{x:Null}" Version="V4">
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Submit'" sap:VirtualizedContainerService.HintSize="484,194" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="733aa735-0d04-43f8-adef-19dbb79ede86" Version="V4">
               <uix:NClick.Target>
                 <uix:TargetAnchorable BrowserURL="rpachallenge.com" ContentHash="2GPNw1xTWkWC9BhMlZddBA" DesignTimeRectangle="313, 396, 108, 36" DesignTimeScaleFactor="1" ElementType="Button" FullSelectorArgument="&lt;webctrl tag='DIV' class='*inputFields*' /&gt;&lt;webctrl tag='INPUT' type='submit' /&gt;" Guid="e7690b61-f9b6-4a0c-9e01-04912e879bab" InformativeScreenshot="f2677665633df9c1072a3744eef0f9ea.png" Reference="V_ng50nGIEKpXzDH5qCdTg/uMebtGNF0EuVGu2AE3Ifuw" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Rpa Challenge' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
               </uix:NClick.Target>
@@ -390,7 +389,7 @@
             </uix:NClick>
             <If Condition="[CBool(io_Config(&quot;WebApp_ChallengeStarted&quot;)) AndAlso ChallengeStatusButton.Equals(&quot;Round 10&quot;)]" DisplayName="If last round Then get button text again after submitting" sap:VirtualizedContainerService.HintSize="484,346" sap2010:WorkflowViewState.IdRef="If_10">
               <If.Then>
-                <uix:NGetText ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="conditionally Get Text 'ChallengeStatusButton' again" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NGetText_7" InScope="{x:Null}" InUiElement="{x:Null}" OutUiElement="{x:Null}" ScopeIdentifier="733aa735-0d04-43f8-adef-19dbb79ede86" ScrapingOptions="{x:Null}" TextString="[ChallengeStatusButton]" Timeout="{x:Null}" Version="V4" WordsInfo="{x:Null}">
+                <uix:NGetText DisplayName="conditionally Get Text 'ChallengeStatusButton' again" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NGetText_7" ScopeIdentifier="733aa735-0d04-43f8-adef-19dbb79ede86" TextString="[ChallengeStatusButton]" Version="V4">
                   <uix:NGetText.Target>
                     <uix:TargetAnchorable BrowserURL="rpachallenge.com" CVScreenId="d32e3cdf-226e-47ff-8154-8be95e6b1755" ContentHash="SEadSsn9HUKAigKybbOpDQ" DesignTimeRectangle="19, 823, 454, 54" DesignTimeScaleFactor="1" ElementType="Button" FullSelectorArgument="&lt;webctrl tag='DIV' class='*instructions*' /&gt;&lt;webctrl tag='BUTTON' innertext='(Round.*|Start|Reset)' matching:innertext='regex' /&gt;" Guid="745280c5-b3a3-4fa5-bc71-fa56a50f336e" ImageBase64="" InformativeScreenshot="7129fb6a8e2118442a96bdd8ddca0523.png" Reference="V_ng50nGIEKpXzDH5qCdTg/QFIG1vGrS06N4XpftarX1w" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Rpa Challenge' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
                   </uix:NGetText.Target>
@@ -418,7 +417,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" ConnectionId="{x:Null}" ContinueOnError="{x:Null}" DisplayName="rpachallenge.com homepage message2" sap:VirtualizedContainerService.HintSize="516,855" sap2010:WorkflowViewState.IdRef="NApplicationCard_5" InUiElement="{x:Null}" InteractionMode="DebuggerApi" IsIncognito="{x:Null}" OpenMode="IfNotOpen" OutUiElement="{x:Null}" ScopeGuid="733aa735-0d04-43f8-adef-19dbb79ede86" Timeout="{x:Null}" UserDataFolderMode="{x:Null}" UserDataFolderPath="{x:Null}" Version="V2" WebDriverMode="{x:Null}" WindowResize="Maximize">
+        <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="rpachallenge.com homepage message2" sap:VirtualizedContainerService.HintSize="516,855" sap2010:WorkflowViewState.IdRef="NApplicationCard_5" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="733aa735-0d04-43f8-adef-19dbb79ede86" Version="V2" WindowResize="Maximize">
           <uix:NApplicationCard.Body>
             <ActivityAction x:TypeArguments="x:Object">
               <ActivityAction.Argument>
@@ -442,12 +441,12 @@
                     <InArgument x:TypeArguments="x:Object">[False]</InArgument>
                   </Assign.Value>
                 </Assign>
-                <uix:NGetText ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Get Text 'Message2'" sap:VirtualizedContainerService.HintSize="434,157" sap2010:WorkflowViewState.IdRef="NGetText_8" InScope="{x:Null}" InUiElement="{x:Null}" OutUiElement="{x:Null}" ScopeIdentifier="733aa735-0d04-43f8-adef-19dbb79ede86" ScrapingOptions="{x:Null}" TextString="[Message2]" Timeout="{x:Null}" Version="V4" WordsInfo="{x:Null}">
+                <uix:NGetText DisplayName="Get Text 'Message2'" sap:VirtualizedContainerService.HintSize="434,157" sap2010:WorkflowViewState.IdRef="NGetText_8" ScopeIdentifier="733aa735-0d04-43f8-adef-19dbb79ede86" TextString="[Message2]" Version="V4">
                   <uix:NGetText.Target>
                     <uix:TargetAnchorable BrowserURL="rpachallenge.com" ContentHash="woTfU5ioMkuLmxa0vm88Iw" DesignTimeRectangle="223, 164, 524, 60" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='DIV' class='*congratulations*' /&gt;&lt;webctrl class='message2' tag='DIV' innertext='*Your success rate is*' /&gt;" Guid="ff3d82c7-1dde-490f-abe9-c6d90153cdac" InformativeScreenshot="f3653731217a0ac80047e245b065f9ab.png" Reference="V_ng50nGIEKpXzDH5qCdTg/iKaQLNgNxE25yvkJTZZN-w" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Rpa Challenge' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
                   </uix:NGetText.Target>
                 </uix:NGetText>
-                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Process\Browser\rpachallengedotcom\ParseRPAChallengeMessage.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" Level="{x:Null}" LogEntry="{x:Null}" LogExit="{x:Null}" Timeout="{x:Null}" UnSafe="False" WorkflowFileName="Process\Browser\rpachallengedotcom\ParseRPAChallengeMessage.xaml">
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Process\Browser\rpachallengedotcom\ParseRPAChallengeMessage.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Process\Browser\rpachallengedotcom\ParseRPAChallengeMessage.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
                     <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="out_Status" />
                     <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="out_Result">[ParsedMessageResult]</OutArgument>

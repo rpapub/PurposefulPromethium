@@ -1,7 +1,7 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="InjectInProcessQueue" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:scg1="clr-namespace:System.Collections.Generic;assembly=System" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="InjectInProcessQueue" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System.Net.Mail" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
-    <x:Property Name="out_InProcessQueue" Type="OutArgument(scg1:Queue(ui:QueueItem))" />
+    <x:Property Name="out_InProcessQueue" Type="OutArgument(scg:Queue(ui:QueueItem))" />
     <x:Property Name="in_MailmessagesIncoming" Type="InArgument(scg:List(snm:MailMessage))" />
   </x:Members>
   <this:InjectInProcessQueue.in_MailmessagesIncoming>
@@ -43,50 +43,52 @@
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
     <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
       <AssemblyReference>PresentationCore</AssemblyReference>
       <AssemblyReference>PresentationFramework</AssemblyReference>
       <AssemblyReference>System</AssemblyReference>
       <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Collections.Specialized</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
       <AssemblyReference>System.Core</AssemblyReference>
       <AssemblyReference>System.Data</AssemblyReference>
       <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
       <AssemblyReference>System.Drawing</AssemblyReference>
       <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
       <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices.RuntimeInformation</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.Xaml</AssemblyReference>
       <AssemblyReference>System.Xml</AssemblyReference>
       <AssemblyReference>System.Xml.Linq</AssemblyReference>
-      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
-      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
-      <AssemblyReference>WindowsBase</AssemblyReference>
-      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
-      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
-      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
-      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
-      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
-      <AssemblyReference>System.Memory</AssemblyReference>
-      <AssemblyReference>System.Runtime.InteropServices.RuntimeInformation</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.FTP.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
-      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
-      <AssemblyReference>UiPath.FTP.Activities</AssemblyReference>
-      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
-      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
-      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
-      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
-      <AssemblyReference>System.ValueTuple</AssemblyReference>
-      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
-      <AssemblyReference>System.ServiceModel</AssemblyReference>
-      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
-      <AssemblyReference>System.Linq.Async</AssemblyReference>
-      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
-      <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
-      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:Annotation.AnnotationText="Designed to initialize and activate an alternative, in-process queue to manage items directly within the automation runtime, bypassing the default Orchestrator-managed queues. Reasons:&#xA;- Data Volatility: Emails in a mailbox can change frequently due to real-time human interaction&#xA;- Error Handling and State Management: In mailbox automations, the state of each MailMessage (e.g., read/unread, archived) affects processing logic. Handling retries and error recovery in such cases is harder to implement within the Dispatcher-Performer paradigm, where the assumption is that data remains static and accessible in its queued form.&#xA;- Complex Email Metadata: Email items often contain complex, nested metadata (attachments, embedded content, headers) that must be preserved across the Dispatcher and Performer stages. Serializing and storing all relevant MailMessage data reliably is challenging, especially when queueing structures in Orchestrator are designed for simpler, less nested data formats.&#xA;&#xA;Expects MailMessages with a Header Message-ID.&#xA;&#xA;Works with in_MailmessagesIncoming.Count 0&#xA;&#xA;Input&#xA;- in_Config&#xA;- in_MailmessagesIncoming&#xA;&#xA;Output&#xA;- out_InProcessQueue System.Collections.Generic.Queue(Of UiPath.Core.QueueItem)&#xA;" DisplayName="InjectInProcessQueue" sap:VirtualizedContainerService.HintSize="647,1957" sap2010:WorkflowViewState.IdRef="Sequence_7">
@@ -100,10 +102,10 @@
     <ui:LogMessage DisplayName="Log Message INFO begin" sap:VirtualizedContainerService.HintSize="599,92" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Going to build and fill a in-process queue&quot;]" />
     <Assign DisplayName="Assign out_InProcessQueue" sap:VirtualizedContainerService.HintSize="599,82" sap2010:WorkflowViewState.IdRef="Assign_4">
       <Assign.To>
-        <OutArgument x:TypeArguments="scg1:Queue(ui:QueueItem)">[out_InProcessQueue]</OutArgument>
+        <OutArgument x:TypeArguments="scg:Queue(ui:QueueItem)">[out_InProcessQueue]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="scg1:Queue(ui:QueueItem)">[New Queue(Of QueueItem)]</InArgument>
+        <InArgument x:TypeArguments="scg:Queue(ui:QueueItem)">[New Queue(Of QueueItem)]</InArgument>
       </Assign.Value>
     </Assign>
     <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="each mail, if it has a Message-ID, that is used as QueueItem.Reference and added to the in-process queue." DisplayName="For Each mail in MailmessagesIncoming" sap:VirtualizedContainerService.HintSize="599,1141" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[in_MailmessagesIncoming]">
@@ -138,7 +140,7 @@
                     <InArgument x:TypeArguments="x:String">[mail.Headers.Get("Message-ID")]</InArgument>
                   </Assign.Value>
                 </Assign>
-                <ui:MultipleAssign sap2010:Annotation.AnnotationText="MailMessage_MessageId&#xD;&#xA;MailMessage_Subject&#xD;&#xA;MailMessage_Body&#xD;&#xA;MailMessage_From&#xD;&#xA;MailMessage_To&#xD;&#xA;MailMessage_Date&#xD;&#xA;MailMessage_…" DisplayName="Multiple Assign SpecificContent" sap:VirtualizedContainerService.HintSize="479,388" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                <ui:MultipleAssign sap2010:Annotation.AnnotationText="MailMessage_MessageId&#xA;MailMessage_Subject&#xA;MailMessage_Body&#xA;MailMessage_From&#xA;MailMessage_To&#xA;MailMessage_Date&#xA;MailMessage_…" DisplayName="Multiple Assign SpecificContent" sap:VirtualizedContainerService.HintSize="479,388" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
                   <ui:MultipleAssign.AssignOperations>
                     <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -199,7 +201,7 @@
                 </ui:MultipleAssign>
                 <InvokeMethod DisplayName="Invoke Method Queue Enqueue" sap:VirtualizedContainerService.HintSize="479,136" sap2010:WorkflowViewState.IdRef="InvokeMethod_2" MethodName="Enqueue">
                   <InvokeMethod.TargetObject>
-                    <InArgument x:TypeArguments="scg1:Queue(ui:QueueItem)">[out_InProcessQueue]</InArgument>
+                    <InArgument x:TypeArguments="scg:Queue(ui:QueueItem)">[out_InProcessQueue]</InArgument>
                   </InvokeMethod.TargetObject>
                   <InArgument x:TypeArguments="ui:QueueItem">[InProcessQueueItem]</InArgument>
                 </InvokeMethod>
