@@ -1,6 +1,7 @@
 {
   "name": "PurposefulPromethium",
-  "projectId": "acea88ab-54b0-4d71-9f46-bad602c7eddd",
+  "projectId": "a5f7b5ce-2e0d-40ae-8ca2-79f037e223a9",
+  "previousProjectId": "acea88ab-54b0-4d71-9f46-bad602c7eddd",
   "description": "This UiPath project demonstrates reading structured data from an email inbox, parsing the content, and automating data entry on rpachallenge.com. Designed as a tutorial basis, it showcases legacy coding practices and lacks modern configurability.",
   "main": "Main.xaml",
   "dependencies": {
@@ -8,9 +9,7 @@
     "UiPath.FTP.Activities": "[2.4.0]",
     "UiPath.Mail.Activities": "[2.0.11]",
     "UiPath.System.Activities": "[25.2.4]",
-    "UiPath.System.Activities.Runtime": "25.2.4",
-    "UiPath.Testing.Activities": "[24.10.4]",
-    "UiPath.UIAutomation.Activities.Runtime": "24.10.12"
+    "UiPath.Testing.Activities": "[24.10.4]"
   },
   "webServices": [],
   "entitiesStores": [],
@@ -48,6 +47,27 @@
     "fileInfoCollection": [
       {
         "editingStatus": "Publishable",
+        "testCaseId": "696a8140-6580-42c9-b06f-78e33473352f",
+        "dataVariationFilePath": ".variations\\Unittests_GenerateValidFilename.json",
+        "testCaseType": "TestCase",
+        "fileName": "Tests/Unit/Validation/TestCase_GenerateValidFilenameFromText.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "0df86103-aab3-42dc-8fcc-20f3a8970ff9",
+        "dataVariationFilePath": ".variations\\Unittests_ParseRPAChallengeMessage.json",
+        "testCaseType": "TestCase",
+        "fileName": "Tests/Unit/TestCase_ParseRPAChallengeMessage.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "cd066fa3-722c-4ef3-9938-0d93112311f3",
+        "dataVariationFilePath": ".variations\\Unittests_VerifyImapConn.json",
+        "testCaseType": "TestCase",
+        "fileName": "Tests/Unit/IMAP/TestCase_VerifyImapConnection.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
         "testCaseId": "22850563-d2db-445e-89bd-2f36d4ab74b4",
         "dataVariationFilePath": ".variations\\EndToEnd_generic.json",
         "testCaseType": "TestCase",
@@ -58,42 +78,21 @@
         "testCaseId": "3635dda6-c17f-4296-ae0f-ccbf42104893",
         "dataVariationFilePath": ".variations\\EndToEnd_MailboxAutomation.json",
         "testCaseType": "TestCase",
-        "fileName": "Tests\\EndToEnd\\TestCase_MainEndToEnd.xaml"
+        "fileName": "Tests/EndToEnd/TestCase_MainEndToEnd.xaml"
       },
       {
         "editingStatus": "Publishable",
         "testCaseId": "96f1baae-c68c-400f-ba63-1cc75ff11286",
         "dataVariationFilePath": ".variations\\Unittests_Config.json",
         "testCaseType": "TestCase",
-        "fileName": "Tests\\Unit\\Framework\\TestCase_InitAllSettings.xaml"
+        "fileName": "Tests/Unit/Framework/TestCase_InitAllSettings.xaml"
       },
       {
         "editingStatus": "Publishable",
         "testCaseId": "162d200d-69f4-47e6-8634-2e497106aae0",
         "dataVariationFilePath": ".variations\\Unittests_OpenBrowser.json",
         "testCaseType": "TestCase",
-        "fileName": "Tests\\Unit\\GUI\\TestCase_OpenBrowser.xaml"
-      },
-      {
-        "editingStatus": "Publishable",
-        "testCaseId": "cd066fa3-722c-4ef3-9938-0d93112311f3",
-        "dataVariationFilePath": ".variations\\Unittests_VerifyImapConn.json",
-        "testCaseType": "TestCase",
-        "fileName": "Tests\\Unit\\IMAP\\TestCase_VerifyImapConnection.xaml"
-      },
-      {
-        "editingStatus": "Publishable",
-        "testCaseId": "696a8140-6580-42c9-b06f-78e33473352f",
-        "dataVariationFilePath": ".variations\\Unittests_GenerateValidFilename.json",
-        "testCaseType": "TestCase",
-        "fileName": "Tests\\Unit\\Validation\\TestCase_GenerateValidFilenameFromText.xaml"
-      },
-      {
-        "editingStatus": "Publishable",
-        "testCaseId": "0df86103-aab3-42dc-8fcc-20f3a8970ff9",
-        "dataVariationFilePath": ".variations\\Unittests_ParseRPAChallengeMessage.json",
-        "testCaseType": "TestCase",
-        "fileName": "Tests\\Unit\\TestCase_ParseRPAChallengeMessage.xaml"
+        "fileName": "Tests/Unit/GUI/TestCase_OpenBrowser.xaml"
       }
     ],
     "modernBehavior": false,

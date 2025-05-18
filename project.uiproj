@@ -1,0 +1,6 @@
+{
+  "ProjectType": "Process",
+  "Name": "PurposefulPromethium",
+  "Description": "This UiPath project demonstrates reading structured data from an email inbox, parsing the content, and automating data entry on rpachallenge.com. Designed as a tutorial basis, it showcases legacy coding practices and lacks modern configurability.",
+  "MainFile": "Main.xaml"
+}
