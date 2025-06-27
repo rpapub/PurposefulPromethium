@@ -33,6 +33,8 @@
       <x:String>System.Xml</x:String>
       <x:String>System.Xml.Linq</x:String>
       <x:String>System.IO</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -86,7 +88,7 @@
       <AssemblyReference>WindowsBase</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Fetches in_Config(&quot;Mailbox_Batchsize&quot;) number of MailMessages and returns list of MailMessages&#xA;&#xA;Input&#xA;- in_Config&#xA;&#xA;Output&#xA;- out_MailmessagesIncoming List of Mailmessages" DisplayName="FetchIncomingMailMesssagesIMAP" sap:VirtualizedContainerService.HintSize="416,714" sap2010:WorkflowViewState.IdRef="Sequence_12">
+  <Sequence sap2010:Annotation.AnnotationText="Fetches in_Config(&quot;Mailbox_Batchsize&quot;) number of MailMessages and returns list of MailMessages&#xA;&#xA;Input&#xA;- in_Config&#xA;&#xA;Output&#xA;- out_MailmessagesIncoming List of Mailmessages" DisplayName="FetchIncomingMailMesssagesIMAP" sap:VirtualizedContainerService.HintSize="416,893" sap2010:WorkflowViewState.IdRef="Sequence_12">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="ImapUsernameIncoming" />
       <Variable x:TypeArguments="ss:SecureString" Name="ImapPasswordIncoming" />
@@ -98,8 +100,8 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message INFO begin" sap:VirtualizedContainerService.HintSize="368,92" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Going to fetch MailMessages with IMAP from configurable incoming folder&quot;]" />
-    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;Imap_Credentialname&quot;).ToString]" CacheStrategy="None" DisplayName="Get Credential IMAP credential incoming" FolderPath="[in_Config(&quot;OrchestratorFolderPath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="368,25" sap2010:WorkflowViewState.IdRef="GetRobotCredential_3" Password="[ImapPasswordIncoming]" Username="[ImapUsernameIncoming]">
+    <ui:LogMessage DisplayName="Log Message INFO begin" sap:VirtualizedContainerService.HintSize="416,173" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Going to fetch MailMessages with IMAP from configurable incoming folder&quot;]" />
+    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;Imap_Credentialname&quot;).ToString]" CacheStrategy="None" DisplayName="Get Credential IMAP credential incoming" FolderPath="[in_Config(&quot;OrchestratorFolderPath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="416,84" sap2010:WorkflowViewState.IdRef="GetRobotCredential_3" Password="[ImapPasswordIncoming]" Username="[ImapUsernameIncoming]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -107,11 +109,13 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:GetRobotCredential>
-    <ui:GetIMAPMailMessages ClientName="{x:Null}" ClientVersion="{x:Null}" DeleteMessages="{x:Null}" FilterExpression="{x:Null}" MarkAsRead="{x:Null}" Password="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" sap2010:Annotation.AnnotationText="incoming" DisplayName="Get IMAP Mail Messages Incoming" Email="[ImapUsernameIncoming]" EnableSSL="True" FilterExpressionCharacterSet="US-ASCII" sap:VirtualizedContainerService.HintSize="368,56" sap2010:WorkflowViewState.IdRef="GetIMAPMailMessages_3" IgnoreCRL="False" MailFolder="[in_Config(&quot;Mailbox_FolderIncoming&quot;).ToString]" Messages="[out_MailmessagesIncoming]" OnlyUnreadMessages="False" OrderByDate="OldestFirst" Port="[CInt(in_Config(&quot;Imap_Port&quot;))]" SecureConnection="Auto" SecurePassword="[ImapPasswordIncoming]" Server="[in_Config(&quot;Imap_Server&quot;).ToString]" Top="[CInt(in_Config(&quot;Mailbox_Batchsize&quot;))]" UseISConnection="True">
+    <ui:GetIMAPMailMessages ClientName="{x:Null}" ClientVersion="{x:Null}" DeleteMessages="{x:Null}" FilterExpression="{x:Null}" MarkAsRead="{x:Null}" Password="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" sap2010:Annotation.AnnotationText="incoming" DisplayName="Get IMAP Mail Messages Incoming" Email="[ImapUsernameIncoming]" EnableSSL="True" FilterExpressionCharacterSet="US-ASCII" sap:VirtualizedContainerService.HintSize="416,204" sap2010:WorkflowViewState.IdRef="GetIMAPMailMessages_3" IgnoreCRL="False" MailFolder="[in_Config(&quot;Mailbox_FolderIncoming&quot;).ToString]" Messages="[out_MailmessagesIncoming]" OnlyUnreadMessages="False" OrderByDate="OldestFirst" Port="[CInt(in_Config(&quot;Imap_Port&quot;))]" SecureConnection="Auto" SecurePassword="[ImapPasswordIncoming]" Server="[in_Config(&quot;Imap_Server&quot;).ToString]" Top="[CInt(in_Config(&quot;Mailbox_Batchsize&quot;))]" UseISConnection="False">
       <ui:GetIMAPMailMessages.ConnectionDetailsBackupSlot>
-        <usau:BackupSlot x:TypeArguments="umae:ConnectionDetails" StoredValue="{x:Null}">
+        <usau:BackupSlot x:TypeArguments="umae:ConnectionDetails" StoredValue="LegacyConfiguration">
           <usau:BackupSlot.BackupValues>
-            <scg:Dictionary x:TypeArguments="umae:ConnectionDetails, scg:List(x:Object)" />
+            <scg:List x:TypeArguments="x:Object" x:Key="IntegrationService" Capacity="1">
+              <x:Null />
+            </scg:List>
           </usau:BackupSlot.BackupValues>
         </usau:BackupSlot>
       </ui:GetIMAPMailMessages.ConnectionDetailsBackupSlot>
@@ -121,7 +125,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:GetIMAPMailMessages>
-    <ui:LogMessage DisplayName="Log Message TRACE ID, subject incoming" sap:VirtualizedContainerService.HintSize="368,92" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Trace" Message="[If(out_MailmessagesIncoming IsNot Nothing AndAlso out_MailmessagesIncoming.Any(), &quot;Fetched MailMessages:&quot; &amp; Environment.NewLine &amp; String.Join(Environment.NewLine, out_MailmessagesIncoming.Select(Function(mail) String.Format(&quot;{0}, {1}&quot;, If(mail.Headers(&quot;Message-ID&quot;) IsNot Nothing AndAlso mail.Headers(&quot;Message-ID&quot;).ToString().Trim() &lt;&gt; &quot;&quot;, mail.Headers(&quot;Message-ID&quot;).ToString(), &quot;No Message-ID&quot;), If(mail.Subject IsNot Nothing AndAlso mail.Subject.Trim() &lt;&gt; &quot;&quot;, mail.Subject, &quot;No Subject&quot;))).ToArray()), String.Empty)]" />
-    <ui:LogMessage DisplayName="Log Message TRACE end" sap:VirtualizedContainerService.HintSize="368,92" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Trace" Message="[&quot;Finished fetching MailMessages with IMAP from configurable incoming folder&quot;]" />
+    <ui:LogMessage DisplayName="Log Message TRACE ID, subject incoming" sap:VirtualizedContainerService.HintSize="416,173" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Trace" Message="[If(out_MailmessagesIncoming IsNot Nothing AndAlso out_MailmessagesIncoming.Any(), &quot;Fetched MailMessages:&quot; &amp; Environment.NewLine &amp; String.Join(Environment.NewLine, out_MailmessagesIncoming.Select(Function(mail) String.Format(&quot;{0}, {1}&quot;, If(mail.Headers(&quot;Message-ID&quot;) IsNot Nothing AndAlso mail.Headers(&quot;Message-ID&quot;).ToString().Trim() &lt;&gt; &quot;&quot;, mail.Headers(&quot;Message-ID&quot;).ToString(), &quot;No Message-ID&quot;), If(mail.Subject IsNot Nothing AndAlso mail.Subject.Trim() &lt;&gt; &quot;&quot;, mail.Subject, &quot;No Subject&quot;))).ToArray()), String.Empty)]" />
+    <ui:LogMessage DisplayName="Log Message TRACE end" sap:VirtualizedContainerService.HintSize="416,164" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Trace" Message="[&quot;Finished fetching MailMessages with IMAP from configurable incoming folder&quot;]" />
   </Sequence>
 </Activity>

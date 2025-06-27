@@ -35,6 +35,8 @@
       <x:String>UiPath.Core</x:String>
       <x:String>System.Reflection</x:String>
       <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -87,7 +89,7 @@
       <AssemblyReference>WindowsBase</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="MoveSingleMailMessageImapByMessageid" sap:VirtualizedContainerService.HintSize="416,648" sap2010:WorkflowViewState.IdRef="Sequence_10">
+  <Sequence DisplayName="MoveSingleMailMessageImapByMessageid" sap:VirtualizedContainerService.HintSize="416,759" sap2010:WorkflowViewState.IdRef="Sequence_10">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="ImapUsername" />
       <Variable x:TypeArguments="ss:SecureString" Name="ImapPassword" />
@@ -97,23 +99,25 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message INFO begin" sap:VirtualizedContainerService.HintSize="368,92" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Going to move MailMessage with IMAP by Message-ID&quot;]" />
-    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;Imap_Credentialname&quot;).ToString]" CacheStrategy="None" DisplayName="Get Credential for move mailmessage" FolderPath="[in_Config(&quot;OrchestratorFolderPath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="368,181" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[ImapPassword]" Username="[ImapUsername]">
+    <ui:LogMessage DisplayName="Log Message INFO begin" sap:VirtualizedContainerService.HintSize="416,173" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Going to move MailMessage with IMAP by Message-ID&quot;]" />
+    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;Imap_Credentialname&quot;).ToString]" CacheStrategy="None" DisplayName="Get Credential for move mailmessage" FolderPath="[in_Config(&quot;OrchestratorFolderPath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[ImapPassword]" Username="[ImapUsername]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:GetRobotCredential>
-    <ui:MoveIMAPMailMessageToFolder ClientName="{x:Null}" ClientVersion="{x:Null}" Password="{x:Null}" UseOAuth="{x:Null}" DisplayName="Move IMAP MailMessage" Email="[ImapUsername]" EnableSSL="True" FromFolder="[in_FromFolder]" sap:VirtualizedContainerService.HintSize="368,90" sap2010:WorkflowViewState.IdRef="MoveIMAPMailMessageToFolder_1" IgnoreCRL="False" MailFolder="[in_ToFolder]" MailMessage="[in_MailMessage]" Port="[CInt(in_Config(&quot;Imap_Port&quot;))]" SecureConnection="Auto" SecurePassword="[ImapPassword]" Server="[in_Config(&quot;Imap_Server&quot;).ToString]" UseISConnection="True">
+    <ui:MoveIMAPMailMessageToFolder ClientName="{x:Null}" ClientVersion="{x:Null}" Password="{x:Null}" UseOAuth="{x:Null}" DisplayName="Move IMAP MailMessage" Email="[ImapUsername]" EnableSSL="True" FromFolder="[in_FromFolder]" sap:VirtualizedContainerService.HintSize="416,224" sap2010:WorkflowViewState.IdRef="MoveIMAPMailMessageToFolder_1" IgnoreCRL="False" MailFolder="[in_ToFolder]" MailMessage="[in_MailMessage]" Port="[CInt(in_Config(&quot;Imap_Port&quot;))]" SecureConnection="Auto" SecurePassword="[ImapPassword]" Server="[in_Config(&quot;Imap_Server&quot;).ToString]" UseISConnection="False">
       <ui:MoveIMAPMailMessageToFolder.ConnectionDetailsBackupSlot>
-        <usau:BackupSlot x:TypeArguments="umae:ConnectionDetails" StoredValue="{x:Null}">
+        <usau:BackupSlot x:TypeArguments="umae:ConnectionDetails" StoredValue="LegacyConfiguration">
           <usau:BackupSlot.BackupValues>
-            <scg:Dictionary x:TypeArguments="umae:ConnectionDetails, scg:List(x:Object)" />
+            <scg:List x:TypeArguments="x:Object" x:Key="IntegrationService" Capacity="1">
+              <x:Null />
+            </scg:List>
           </usau:BackupSlot.BackupValues>
         </usau:BackupSlot>
       </ui:MoveIMAPMailMessageToFolder.ConnectionDetailsBackupSlot>
     </ui:MoveIMAPMailMessageToFolder>
-    <ui:LogMessage DisplayName="Log Message TRACE end" sap:VirtualizedContainerService.HintSize="368,92" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Trace" Message="[&quot;Finished moving MailMessage with IMAP by Message-ID&quot;]" />
+    <ui:LogMessage DisplayName="Log Message TRACE end" sap:VirtualizedContainerService.HintSize="416,164" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Trace" Message="[&quot;Finished moving MailMessage with IMAP by Message-ID&quot;]" />
   </Sequence>
 </Activity>

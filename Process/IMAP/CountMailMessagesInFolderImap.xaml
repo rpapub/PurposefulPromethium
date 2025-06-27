@@ -36,6 +36,8 @@
       <x:String>UiPath.Core</x:String>
       <x:String>System.Reflection</x:String>
       <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -88,7 +90,7 @@
       <AssemblyReference>WindowsBase</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Counts the mails in a folder&#xA;&#xA;Input:&#xA;- in_Folder&#xA;- in_Config for the keys Imap_Credentialname, Imap_Port, Imap_Server&#xA;&#xA;Output:&#xA;- out_Result with key Count&#xA;- out_Status" DisplayName="CountMailMessagesInFolderImap" sap:VirtualizedContainerService.HintSize="527,1422" sap2010:WorkflowViewState.IdRef="Sequence_16">
+  <Sequence sap2010:Annotation.AnnotationText="Counts the mails in a folder&#xA;&#xA;Input:&#xA;- in_Folder&#xA;- in_Config for the keys Imap_Credentialname, Imap_Port, Imap_Server&#xA;&#xA;Output:&#xA;- out_Result with key Count&#xA;- out_Status" DisplayName="CountMailMessagesInFolderImap" sap:VirtualizedContainerService.HintSize="479,1521" sap2010:WorkflowViewState.IdRef="Sequence_16">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="ImapUsernameIncoming" />
       <Variable x:TypeArguments="ss:SecureString" Name="ImapPasswordIncoming" />
@@ -100,8 +102,8 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message INFO begin" sap:VirtualizedContainerService.HintSize="479,92" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;Going to count MailMessages in folder&quot;]" />
-    <ui:MultipleAssign DisplayName="Multiple Assign out_Status" sap:VirtualizedContainerService.HintSize="479,147" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:LogMessage DisplayName="Log Message INFO begin" sap:VirtualizedContainerService.HintSize="479,173" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;Going to count MailMessages in folder&quot;]" />
+    <ui:MultipleAssign DisplayName="Multiple Assign out_Status" sap:VirtualizedContainerService.HintSize="479,179" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -123,7 +125,7 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;Imap_Credentialname&quot;).ToString]" CacheStrategy="None" DisplayName="Get Credential IMAP credential incoming" FolderPath="[in_Config(&quot;OrchestratorFolderPath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="479,181" sap2010:WorkflowViewState.IdRef="GetRobotCredential_3" Password="[ImapPasswordIncoming]" Username="[ImapUsernameIncoming]">
+    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;Imap_Credentialname&quot;).ToString]" CacheStrategy="None" DisplayName="Get Credential IMAP credential incoming" FolderPath="[in_Config(&quot;OrchestratorFolderPath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="479,175" sap2010:WorkflowViewState.IdRef="GetRobotCredential_3" Password="[ImapPasswordIncoming]" Username="[ImapUsernameIncoming]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -131,11 +133,13 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:GetRobotCredential>
-    <ui:GetIMAPMailMessages ClientName="{x:Null}" ClientVersion="{x:Null}" DeleteMessages="{x:Null}" FilterExpression="{x:Null}" MarkAsRead="{x:Null}" Password="{x:Null}" TimeoutMS="{x:Null}" Top="{x:Null}" UseOAuth="{x:Null}" sap2010:Annotation.AnnotationText="incoming" DisplayName="Get IMAP Mail Messages Incoming" Email="[ImapUsernameIncoming]" EnableSSL="True" FilterExpressionCharacterSet="US-ASCII" sap:VirtualizedContainerService.HintSize="479,56" sap2010:WorkflowViewState.IdRef="GetIMAPMailMessages_4" IgnoreCRL="False" MailFolder="[in_Folder]" Messages="[Mailmessages]" OnlyUnreadMessages="False" OrderByDate="OldestFirst" Port="[CInt(in_Config(&quot;Imap_Port&quot;))]" SecureConnection="Auto" SecurePassword="[ImapPasswordIncoming]" Server="[in_Config(&quot;Imap_Server&quot;).ToString]" UseISConnection="True">
+    <ui:GetIMAPMailMessages ClientName="{x:Null}" ClientVersion="{x:Null}" DeleteMessages="{x:Null}" FilterExpression="{x:Null}" MarkAsRead="{x:Null}" Password="{x:Null}" TimeoutMS="{x:Null}" Top="{x:Null}" UseOAuth="{x:Null}" sap2010:Annotation.AnnotationText="incoming" DisplayName="Get IMAP Mail Messages Incoming" Email="[ImapUsernameIncoming]" EnableSSL="True" FilterExpressionCharacterSet="US-ASCII" sap:VirtualizedContainerService.HintSize="479,204" sap2010:WorkflowViewState.IdRef="GetIMAPMailMessages_4" IgnoreCRL="False" MailFolder="[in_Folder]" Messages="[Mailmessages]" OnlyUnreadMessages="False" OrderByDate="OldestFirst" Port="[CInt(in_Config(&quot;Imap_Port&quot;))]" SecureConnection="Auto" SecurePassword="[ImapPasswordIncoming]" Server="[in_Config(&quot;Imap_Server&quot;).ToString]" UseISConnection="False">
       <ui:GetIMAPMailMessages.ConnectionDetailsBackupSlot>
-        <usau:BackupSlot x:TypeArguments="umae:ConnectionDetails" StoredValue="{x:Null}">
+        <usau:BackupSlot x:TypeArguments="umae:ConnectionDetails" StoredValue="LegacyConfiguration">
           <usau:BackupSlot.BackupValues>
-            <scg:Dictionary x:TypeArguments="umae:ConnectionDetails, scg:List(x:Object)" />
+            <scg:List x:TypeArguments="x:Object" x:Key="IntegrationService" Capacity="1">
+              <x:String>bbf62562-6a2f-4fcc-9e28-a83fa4935ace</x:String>
+            </scg:List>
           </usau:BackupSlot.BackupValues>
         </usau:BackupSlot>
       </ui:GetIMAPMailMessages.ConnectionDetailsBackupSlot>
@@ -145,8 +149,8 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:GetIMAPMailMessages>
-    <ui:LogMessage DisplayName="Log Message TRACE MailMessages.Count" sap:VirtualizedContainerService.HintSize="479,92" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Trace" Message="[&quot;Count is: &quot; &amp; Mailmessages.Count.ToString]" />
-    <ui:MultipleAssign DisplayName="Multiple Assign out_Result" sap:VirtualizedContainerService.HintSize="479,147" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+    <ui:LogMessage DisplayName="Log Message TRACE MailMessages.Count" sap:VirtualizedContainerService.HintSize="479,173" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Trace" Message="[&quot;Count is: &quot; &amp; Mailmessages.Count.ToString]" />
+    <ui:MultipleAssign DisplayName="Multiple Assign out_Result" sap:VirtualizedContainerService.HintSize="479,179" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
@@ -168,7 +172,7 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ui:MultipleAssign DisplayName="Multiple Assign finally out_Status" sap:VirtualizedContainerService.HintSize="479,147" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+    <ui:MultipleAssign DisplayName="Multiple Assign finally out_Status" sap:VirtualizedContainerService.HintSize="479,179" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
@@ -190,6 +194,6 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ui:LogMessage DisplayName="Log Message TRACE end" sap:VirtualizedContainerService.HintSize="479,92" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Trace" Message="[&quot;Finished counting MailMessages in folder&quot;]" />
+    <ui:LogMessage DisplayName="Log Message TRACE end" sap:VirtualizedContainerService.HintSize="479,164" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Trace" Message="[&quot;Finished counting MailMessages in folder&quot;]" />
   </Sequence>
 </Activity>

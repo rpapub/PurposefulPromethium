@@ -37,6 +37,8 @@
       <x:String>System.IO</x:String>
       <x:String>UiPath.Core</x:String>
       <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -90,7 +92,7 @@
       <AssemblyReference>WindowsBase</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Retrieves an IMAP email message by a Message-ID in the headers.&#xA;Will skip the Mailmessage if no Message-ID is present in the headers.&#xA;Searches in 2 folders:&#xA;- in_Config(&quot;Mailbox_FolderIncoming&quot;).ToString&#xA;- in_Config(&quot;Mailbox_FolderProcessing&quot;).ToString&#xA;&#xA;Input&#xA;- in_Config&#xA;- in_TargetMessageId&#xA;&#xA;Output&#xA;- out_Mailmessages&#xA;- out_Status" DisplayName="Get IMAP Mail Message By MessageId" sap:VirtualizedContainerService.HintSize="616,3026" sap2010:WorkflowViewState.IdRef="Sequence_14">
+  <Sequence sap2010:Annotation.AnnotationText="Retrieves an IMAP email message by a Message-ID in the headers.&#xA;Will skip the Mailmessage if no Message-ID is present in the headers.&#xA;Searches in 2 folders:&#xA;- in_Config(&quot;Mailbox_FolderIncoming&quot;).ToString&#xA;- in_Config(&quot;Mailbox_FolderProcessing&quot;).ToString&#xA;&#xA;Input&#xA;- in_Config&#xA;- in_TargetMessageId&#xA;&#xA;Output&#xA;- out_Mailmessages&#xA;- out_Status" DisplayName="Get IMAP Mail Message By MessageId" sap:VirtualizedContainerService.HintSize="518,3597" sap2010:WorkflowViewState.IdRef="Sequence_14">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:List(snm:MailMessage)" Default="[New List(Of MailMessage)]" Name="MatchingMailmessages" />
       <Variable x:TypeArguments="x:Boolean" Default="True" Name="isDuplicateFound" />
@@ -102,8 +104,8 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message INFO begin" sap:VirtualizedContainerService.HintSize="568,92" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Going to get IMAP Mail Message by Message-ID: &quot; &amp; in_TargetMessageId]" />
-    <ui:MultipleAssign DisplayName="Multiple Assign out_Status" sap:VirtualizedContainerService.HintSize="568,147" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
+    <ui:LogMessage DisplayName="Log Message INFO begin" sap:VirtualizedContainerService.HintSize="518,173" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Going to get IMAP Mail Message by Message-ID: &quot; &amp; in_TargetMessageId]" />
+    <ui:MultipleAssign DisplayName="Multiple Assign out_Status" sap:VirtualizedContainerService.HintSize="518,179" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
@@ -125,7 +127,7 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <Sequence DisplayName="Sequence folder incoming" sap:VirtualizedContainerService.HintSize="568,814" sap2010:WorkflowViewState.IdRef="Sequence_15">
+    <Sequence DisplayName="Sequence folder incoming" sap:VirtualizedContainerService.HintSize="518,1120" sap2010:WorkflowViewState.IdRef="Sequence_15">
       <Sequence.Variables>
         <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="MailmessagesIncoming" />
         <Variable x:TypeArguments="ss:SecureString" Name="ImapPasswordIncoming" />
@@ -137,7 +139,7 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;Imap_Credentialname&quot;).ToString]" CacheStrategy="None" DisplayName="Get Credential IMAP credential incoming" FolderPath="[in_Config(&quot;OrchestratorFolderPath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="520,25" sap2010:WorkflowViewState.IdRef="GetRobotCredential_3" Password="[ImapPasswordIncoming]" Username="[ImapUsernameIncoming]">
+      <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;Imap_Credentialname&quot;).ToString]" CacheStrategy="None" DisplayName="Get Credential IMAP credential incoming" FolderPath="[in_Config(&quot;OrchestratorFolderPath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="484,57" sap2010:WorkflowViewState.IdRef="GetRobotCredential_3" Password="[ImapPasswordIncoming]" Username="[ImapUsernameIncoming]">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -145,11 +147,13 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:GetRobotCredential>
-      <ui:GetIMAPMailMessages ClientName="{x:Null}" ClientVersion="{x:Null}" DeleteMessages="{x:Null}" FilterExpression="{x:Null}" MarkAsRead="{x:Null}" Password="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" sap2010:Annotation.AnnotationText="incoming" DisplayName="Get IMAP Mail Messages Incoming" Email="[ImapUsernameIncoming]" EnableSSL="True" FilterExpressionCharacterSet="US-ASCII" sap:VirtualizedContainerService.HintSize="520,56" sap2010:WorkflowViewState.IdRef="GetIMAPMailMessages_4" IgnoreCRL="False" MailFolder="[in_Config(&quot;Mailbox_FolderIncoming&quot;).ToString]" Messages="[MailmessagesIncoming]" OnlyUnreadMessages="False" OrderByDate="OldestFirst" Port="[CInt(in_Config(&quot;Imap_Port&quot;))]" SecureConnection="Auto" SecurePassword="[ImapPasswordIncoming]" Server="[in_Config(&quot;Imap_Server&quot;).ToString]" Top="[CInt(in_Config(&quot;Mailbox_Batchsize&quot;))]" UseISConnection="True">
+      <ui:GetIMAPMailMessages ClientName="{x:Null}" ClientVersion="{x:Null}" DeleteMessages="{x:Null}" FilterExpression="{x:Null}" MarkAsRead="{x:Null}" Password="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" sap2010:Annotation.AnnotationText="incoming" DisplayName="Get IMAP Mail Messages Incoming" Email="[ImapUsernameIncoming]" EnableSSL="True" FilterExpressionCharacterSet="US-ASCII" sap:VirtualizedContainerService.HintSize="484,204" sap2010:WorkflowViewState.IdRef="GetIMAPMailMessages_4" IgnoreCRL="False" MailFolder="[in_Config(&quot;Mailbox_FolderIncoming&quot;).ToString]" Messages="[MailmessagesIncoming]" OnlyUnreadMessages="False" OrderByDate="OldestFirst" Port="[CInt(in_Config(&quot;Imap_Port&quot;))]" SecureConnection="Auto" SecurePassword="[ImapPasswordIncoming]" Server="[in_Config(&quot;Imap_Server&quot;).ToString]" Top="[CInt(in_Config(&quot;Mailbox_Batchsize&quot;))]" UseISConnection="False">
         <ui:GetIMAPMailMessages.ConnectionDetailsBackupSlot>
-          <usau:BackupSlot x:TypeArguments="umae:ConnectionDetails" StoredValue="{x:Null}">
+          <usau:BackupSlot x:TypeArguments="umae:ConnectionDetails" StoredValue="LegacyConfiguration">
             <usau:BackupSlot.BackupValues>
-              <scg:Dictionary x:TypeArguments="umae:ConnectionDetails, scg:List(x:Object)" />
+              <scg:List x:TypeArguments="x:Object" x:Key="IntegrationService" Capacity="1">
+                <x:Null />
+              </scg:List>
             </usau:BackupSlot.BackupValues>
           </usau:BackupSlot>
         </ui:GetIMAPMailMessages.ConnectionDetailsBackupSlot>
@@ -159,14 +163,14 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:GetIMAPMailMessages>
-      <ui:LogMessage DisplayName="Log Message TRACE ID, subject incoming" sap:VirtualizedContainerService.HintSize="520,92" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Trace" Message="[&quot;Match in folder incoming: &quot; &amp; If(MailMessagesIncoming IsNot Nothing AndAlso MailMessagesIncoming.Any(), String.Join(Environment.NewLine, MailMessagesIncoming.Select(Function(mail) String.Format(&quot;{0}, {1}&quot;, If(mail.Headers(&quot;Message-ID&quot;) IsNot Nothing AndAlso mail.Headers(&quot;Message-ID&quot;).ToString().Trim() &lt;&gt; &quot;&quot;, mail.Headers(&quot;Message-ID&quot;).ToString(), &quot;No Message-ID&quot;), If(mail.Subject IsNot Nothing AndAlso mail.Subject.Trim() &lt;&gt; &quot;&quot;, mail.Subject, &quot;No Subject&quot;))).ToArray()), String.Empty)]" />
-      <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each mail in MailmessagesIncoming" sap:VirtualizedContainerService.HintSize="520,448" sap2010:WorkflowViewState.IdRef="ForEach`1_9" Values="[MailmessagesIncoming]">
+      <ui:LogMessage DisplayName="Log Message TRACE ID, subject incoming" sap:VirtualizedContainerService.HintSize="484,173" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Trace" Message="[&quot;Match in folder incoming: &quot; &amp; If(MailMessagesIncoming IsNot Nothing AndAlso MailMessagesIncoming.Any(), String.Join(Environment.NewLine, MailMessagesIncoming.Select(Function(mail) String.Format(&quot;{0}, {1}&quot;, If(mail.Headers(&quot;Message-ID&quot;) IsNot Nothing AndAlso mail.Headers(&quot;Message-ID&quot;).ToString().Trim() &lt;&gt; &quot;&quot;, mail.Headers(&quot;Message-ID&quot;).ToString(), &quot;No Message-ID&quot;), If(mail.Subject IsNot Nothing AndAlso mail.Subject.Trim() &lt;&gt; &quot;&quot;, mail.Subject, &quot;No Subject&quot;))).ToArray()), String.Empty)]" />
+      <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each mail in MailmessagesIncoming" sap:VirtualizedContainerService.HintSize="484,594" sap2010:WorkflowViewState.IdRef="ForEach`1_9" Values="[MailmessagesIncoming]">
         <ui:ForEach.Body>
           <ActivityAction x:TypeArguments="snm:MailMessage">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="snm:MailMessage" Name="mail" />
             </ActivityAction.Argument>
-            <If Condition="[mail.Headers.Get(&quot;Message-ID&quot;) IsNot Nothing AndAlso mail.Headers(&quot;Message-ID&quot;).ToString.Trim().ToLower().Equals(in_TargetMessageId.Trim().ToLower())]" DisplayName="If matching Message-ID in incoming" sap:VirtualizedContainerService.HintSize="484,323" sap2010:WorkflowViewState.IdRef="If_8">
+            <If Condition="[mail.Headers.Get(&quot;Message-ID&quot;) IsNot Nothing AndAlso mail.Headers(&quot;Message-ID&quot;).ToString.Trim().ToLower().Equals(in_TargetMessageId.Trim().ToLower())]" DisplayName="If matching Message-ID in incoming" sap:VirtualizedContainerService.HintSize="450,385" sap2010:WorkflowViewState.IdRef="If_8">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -174,19 +178,28 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <InvokeMethod DisplayName="Invoke Method Add mail from incoming" sap:VirtualizedContainerService.HintSize="238,135" sap2010:WorkflowViewState.IdRef="InvokeMethod_8" MethodName="Add">
+                <InvokeMethod DisplayName="Invoke Method Add mail from incoming" sap:VirtualizedContainerService.HintSize="243,136" sap2010:WorkflowViewState.IdRef="InvokeMethod_8" MethodName="Add">
                   <InvokeMethod.TargetObject>
                     <InArgument x:TypeArguments="scg:List(snm:MailMessage)">[MatchingMailMessages]</InArgument>
                   </InvokeMethod.TargetObject>
                   <InArgument x:TypeArguments="snm:MailMessage">[mail]</InArgument>
                 </InvokeMethod>
               </If.Then>
+              <If.Else>
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </If.Else>
             </If>
           </ActivityAction>
         </ui:ForEach.Body>
       </ui:ForEach>
     </Sequence>
-    <Sequence DisplayName="Sequence folder processing" sap:VirtualizedContainerService.HintSize="568,814" sap2010:WorkflowViewState.IdRef="Sequence_16">
+    <Sequence DisplayName="Sequence folder processing" sap:VirtualizedContainerService.HintSize="518,1120" sap2010:WorkflowViewState.IdRef="Sequence_16">
       <Sequence.Variables>
         <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="MailmessagesProcessing" />
         <Variable x:TypeArguments="ss:SecureString" Name="ImapPasswordProcessing" />
@@ -198,7 +211,7 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;Imap_Credentialname&quot;).ToString]" CacheStrategy="None" DisplayName="Get Credential IMAP credential processing" FolderPath="[in_Config(&quot;OrchestratorFolderPath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="520,25" sap2010:WorkflowViewState.IdRef="GetRobotCredential_4" Password="[ImapPasswordProcessing]" Username="[ImapUsernameProcessing]">
+      <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;Imap_Credentialname&quot;).ToString]" CacheStrategy="None" DisplayName="Get Credential IMAP credential processing" FolderPath="[in_Config(&quot;OrchestratorFolderPath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="484,57" sap2010:WorkflowViewState.IdRef="GetRobotCredential_4" Password="[ImapPasswordProcessing]" Username="[ImapUsernameProcessing]">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -206,11 +219,13 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:GetRobotCredential>
-      <ui:GetIMAPMailMessages ClientName="{x:Null}" ClientVersion="{x:Null}" DeleteMessages="{x:Null}" FilterExpression="{x:Null}" MarkAsRead="{x:Null}" Password="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" sap2010:Annotation.AnnotationText="processing" DisplayName="Get IMAP Mail Messages VerifyImapConn" Email="[ImapUsernameProcessing]" EnableSSL="True" FilterExpressionCharacterSet="US-ASCII" sap:VirtualizedContainerService.HintSize="520,56" sap2010:WorkflowViewState.IdRef="GetIMAPMailMessages_5" IgnoreCRL="False" MailFolder="[in_Config(&quot;Mailbox_FolderProcessing&quot;).ToString]" Messages="[MailmessagesProcessing]" OnlyUnreadMessages="False" OrderByDate="OldestFirst" Port="[CInt(in_Config(&quot;Imap_Port&quot;))]" SecureConnection="Auto" SecurePassword="[ImapPasswordProcessing]" Server="[in_Config(&quot;Imap_Server&quot;).ToString]" Top="[CInt(in_Config(&quot;Mailbox_Batchsize&quot;))]" UseISConnection="True">
+      <ui:GetIMAPMailMessages ClientName="{x:Null}" ClientVersion="{x:Null}" DeleteMessages="{x:Null}" FilterExpression="{x:Null}" MarkAsRead="{x:Null}" Password="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" sap2010:Annotation.AnnotationText="processing" DisplayName="Get IMAP Mail Messages VerifyImapConn" Email="[ImapUsernameProcessing]" EnableSSL="True" FilterExpressionCharacterSet="US-ASCII" sap:VirtualizedContainerService.HintSize="484,204" sap2010:WorkflowViewState.IdRef="GetIMAPMailMessages_5" IgnoreCRL="False" MailFolder="[in_Config(&quot;Mailbox_FolderProcessing&quot;).ToString]" Messages="[MailmessagesProcessing]" OnlyUnreadMessages="False" OrderByDate="OldestFirst" Port="[CInt(in_Config(&quot;Imap_Port&quot;))]" SecureConnection="Auto" SecurePassword="[ImapPasswordProcessing]" Server="[in_Config(&quot;Imap_Server&quot;).ToString]" Top="[CInt(in_Config(&quot;Mailbox_Batchsize&quot;))]" UseISConnection="False">
         <ui:GetIMAPMailMessages.ConnectionDetailsBackupSlot>
-          <usau:BackupSlot x:TypeArguments="umae:ConnectionDetails" StoredValue="{x:Null}">
+          <usau:BackupSlot x:TypeArguments="umae:ConnectionDetails" StoredValue="LegacyConfiguration">
             <usau:BackupSlot.BackupValues>
-              <scg:Dictionary x:TypeArguments="umae:ConnectionDetails, scg:List(x:Object)" />
+              <scg:List x:TypeArguments="x:Object" x:Key="IntegrationService" Capacity="1">
+                <x:Null />
+              </scg:List>
             </usau:BackupSlot.BackupValues>
           </usau:BackupSlot>
         </ui:GetIMAPMailMessages.ConnectionDetailsBackupSlot>
@@ -220,14 +235,14 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:GetIMAPMailMessages>
-      <ui:LogMessage DisplayName="Log Message TRACE ID, subject processing" sap:VirtualizedContainerService.HintSize="520,92" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Trace" Message="[&quot;Match in folder processing: &quot; &amp; If(MailmessagesProcessing IsNot Nothing AndAlso MailmessagesProcessing.Any(), String.Join(Environment.NewLine, MailmessagesProcessing.Select(Function(mail) String.Format(&quot;{0}, {1}&quot;, If(mail.Headers(&quot;Message-ID&quot;) IsNot Nothing AndAlso mail.Headers(&quot;Message-ID&quot;).ToString().Trim() &lt;&gt; &quot;&quot;, mail.Headers(&quot;Message-ID&quot;).ToString(), &quot;No Message-ID&quot;), If(mail.Subject IsNot Nothing AndAlso mail.Subject.Trim() &lt;&gt; &quot;&quot;, mail.Subject, &quot;No Subject&quot;))).ToArray()), String.Empty)]" />
-      <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each mail in MailmessagesProcessing" sap:VirtualizedContainerService.HintSize="520,448" sap2010:WorkflowViewState.IdRef="ForEach`1_10" Values="[MailmessagesProcessing]">
+      <ui:LogMessage DisplayName="Log Message TRACE ID, subject processing" sap:VirtualizedContainerService.HintSize="484,173" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Trace" Message="[&quot;Match in folder processing: &quot; &amp; If(MailmessagesProcessing IsNot Nothing AndAlso MailmessagesProcessing.Any(), String.Join(Environment.NewLine, MailmessagesProcessing.Select(Function(mail) String.Format(&quot;{0}, {1}&quot;, If(mail.Headers(&quot;Message-ID&quot;) IsNot Nothing AndAlso mail.Headers(&quot;Message-ID&quot;).ToString().Trim() &lt;&gt; &quot;&quot;, mail.Headers(&quot;Message-ID&quot;).ToString(), &quot;No Message-ID&quot;), If(mail.Subject IsNot Nothing AndAlso mail.Subject.Trim() &lt;&gt; &quot;&quot;, mail.Subject, &quot;No Subject&quot;))).ToArray()), String.Empty)]" />
+      <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each mail in MailmessagesProcessing" sap:VirtualizedContainerService.HintSize="484,594" sap2010:WorkflowViewState.IdRef="ForEach`1_10" Values="[MailmessagesProcessing]">
         <ui:ForEach.Body>
           <ActivityAction x:TypeArguments="snm:MailMessage">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="snm:MailMessage" Name="mail" />
             </ActivityAction.Argument>
-            <If Condition="[mail.Headers.Get(&quot;Message-ID&quot;) IsNot Nothing AndAlso mail.Headers(&quot;Message-ID&quot;).ToString.Trim().ToLower().Equals(in_TargetMessageId.Trim().ToLower())]" DisplayName="If matching Message-ID in processing" sap:VirtualizedContainerService.HintSize="484,323" sap2010:WorkflowViewState.IdRef="If_6">
+            <If Condition="[mail.Headers.Get(&quot;Message-ID&quot;) IsNot Nothing AndAlso mail.Headers(&quot;Message-ID&quot;).ToString.Trim().ToLower().Equals(in_TargetMessageId.Trim().ToLower())]" DisplayName="If matching Message-ID in processing" sap:VirtualizedContainerService.HintSize="450,385" sap2010:WorkflowViewState.IdRef="If_6">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -235,19 +250,28 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <InvokeMethod DisplayName="Invoke Method Add mail from processing" sap:VirtualizedContainerService.HintSize="238,135" sap2010:WorkflowViewState.IdRef="InvokeMethod_7" MethodName="Add">
+                <InvokeMethod DisplayName="Invoke Method Add mail from processing" sap:VirtualizedContainerService.HintSize="243,136" sap2010:WorkflowViewState.IdRef="InvokeMethod_7" MethodName="Add">
                   <InvokeMethod.TargetObject>
                     <InArgument x:TypeArguments="scg:List(snm:MailMessage)">[MatchingMailMessages]</InArgument>
                   </InvokeMethod.TargetObject>
                   <InArgument x:TypeArguments="snm:MailMessage">[mail]</InArgument>
                 </InvokeMethod>
               </If.Then>
+              <If.Else>
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </If.Else>
             </If>
           </ActivityAction>
         </ui:ForEach.Body>
       </ui:ForEach>
     </Sequence>
-    <Assign DisplayName="Assign out_Mailmessages" sap:VirtualizedContainerService.HintSize="568,81" sap2010:WorkflowViewState.IdRef="Assign_6">
+    <Assign DisplayName="Assign out_Mailmessages" sap:VirtualizedContainerService.HintSize="518,114" sap2010:WorkflowViewState.IdRef="Assign_6">
       <Assign.To>
         <OutArgument x:TypeArguments="scg:List(snm:MailMessage)">[out_Mailmessages]</OutArgument>
       </Assign.To>
@@ -255,12 +279,21 @@
         <InArgument x:TypeArguments="scg:List(snm:MailMessage)">[MatchingMailmessages]</InArgument>
       </Assign.Value>
     </Assign>
-    <If Condition="[MatchingMailmessages.Count &lt;&gt; 1]" DisplayName="If MatchingMailmessages.Count not 1" sap:VirtualizedContainerService.HintSize="568,280" sap2010:WorkflowViewState.IdRef="If_7">
+    <If Condition="[MatchingMailmessages.Count &lt;&gt; 1]" DisplayName="If MatchingMailmessages.Count not 1" sap:VirtualizedContainerService.HintSize="518,422" sap2010:WorkflowViewState.IdRef="If_7">
       <If.Then>
-        <ui:LogMessage DisplayName="Log Message WARN count not 1" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Warn" Message="[&quot;MatchingMailmessages.Count is not 1&quot;]" />
+        <ui:LogMessage DisplayName="Log Message WARN count not 1" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Warn" Message="[&quot;MatchingMailmessages.Count is not 1&quot;]" />
       </If.Then>
+      <If.Else>
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_19">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </If.Else>
     </If>
-    <ui:MultipleAssign DisplayName="Multiple Assign out_Status success" sap:VirtualizedContainerService.HintSize="568,178" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
+    <ui:MultipleAssign DisplayName="Multiple Assign out_Status success" sap:VirtualizedContainerService.HintSize="518,210" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
@@ -290,6 +323,6 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ui:LogMessage DisplayName="Log Message TRACE end" sap:VirtualizedContainerService.HintSize="568,92" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Trace" Message="[&quot;Finished getting IMAP Mail Message by Message-ID&quot;]" />
+    <ui:LogMessage DisplayName="Log Message TRACE end" sap:VirtualizedContainerService.HintSize="518,164" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Trace" Message="[&quot;Finished getting IMAP Mail Message by Message-ID&quot;]" />
   </Sequence>
 </Activity>
